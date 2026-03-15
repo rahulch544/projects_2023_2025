@@ -1,0 +1,1801 @@
+GET axon-user-card-v2/_search
+{
+  "query": {
+    "match_all": { }
+  }
+}
+
+GET /_tasks?detailed=true&actions=*reindex
+
+
+GET axon-user-card/_mapping
+
+GET axon-user-card/_count
+GET axon-user-card-v2/_count
+
+
+GET axon-user-card
+
+GET axon-fi-user
+
+
+
+GET axon-user-card/_count
+{
+  "query": {
+    "match": {
+      "institutionId":"8787"
+    }
+  }
+}
+
+GET axon-fi-user
+
+GET axon-fi-user/_stats/store
+
+GET axon-user-card/_stats/store
+
+GET axon-user-card/_count
+
+
+GET axon-fi-user/_count
+
+GET axon-fi-user/_mapping
+
+PUT axon-fi-user/_mapping
+{
+  "properties": {
+    "productTypeCode": {
+      "type": "keyword"
+    }
+  }
+}
+
+
+
+GET axon-fi-user/_search
+{ 
+    "min_score":0.5,
+    "_source":["appName"], 
+    "query": {
+        "bool": {
+           "should": [
+                   {
+          "multi_match":{
+            "query": "card suite pro",
+            "fields": [
+              "appName.keyword^150.0"
+              ],
+              "type": "phrase"
+          }
+        },
+        {
+          "multi_match":{
+            "query": "card suite pro",
+            "fields": [
+              "appName^100.0"
+              ],
+              "type": "phrase"
+          }
+        },
+                {
+          "multi_match":{
+            "query": "card suite pro",
+            "fields": [
+              "appName^60.0"
+              ],
+              "type": "phrase_prefix"
+          }
+        },
+        {
+          "multi_match": {
+            "query": "card suite pro",
+            "fields": [
+              "appName^8.0",
+              "appName.highlight^10.0",
+              "appName.shingle^6.0"
+            ],
+            "type": "best_fields",
+            "fuzziness": "AUTO"
+          }
+        }
+      ],
+            "filter": [
+                {
+                    "term": {
+                        "tenantId": "4"
+                    }
+                },
+                {
+                    "term": {
+                        "docCategory": "APP"
+                    }
+                },
+                {
+                    "term": {
+                        "appCategory": "APP"
+                    }
+                }
+            ]
+        }
+    },
+    "sort": [
+        {
+            "_score": "desc"
+        },
+        {
+            "appName.keyword": "asc"
+        },
+        {
+            "_id": "asc"
+        }
+    ],
+   
+    "size": 500
+}
+
+GET axon-user-card/_search
+{
+  "size": 10000,
+  "min_score":3,
+  "explain": false,
+"_source":["username", "fullName", "externalUserId"],
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "multi_match": {
+            "query": "test us",
+            "type": "best_fields",
+            "fields": [
+              "username^10.0",
+              "username.highlight^8.0",
+              "username.shingle^6.0",
+              "fullName^10.0",
+              "fullName.highlight^8.0",
+              "fullName.shingle^6.0",
+              "externalUserId^10.0",
+              "externalUserId.highlight^8.0",
+              "externalUserId.shingle^6.0"
+            ],
+            "fuzziness": "AUTO"
+          }
+        },
+
+        {
+          "multi_match": {
+            "query":  "test us",
+            "type": "phrase_prefix",
+            "fields": [
+              "username.highlight^60.0",
+              "fullName.highlight^60.0",
+              "externalUserId.highlight^60.0"
+            ]
+          }
+        },
+                {
+          "multi_match": {
+            "query":  "test us",
+            "type": "phrase",
+            "fields": [
+              "username.highlight^100.0",
+              "fullName.highlight^100.0",
+              "externalUserId.highlight^100.0"
+            ]
+          }
+        },
+        {
+          "multi_match": {
+            "query":  "test us",
+            "type": "phrase",
+            "fields": [
+              "username.keyword^150.0",
+              "fullName.keyword^150.0",
+              "externalUserId.keyword^150.0"
+            ]
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    }
+  },
+    "sort": [
+        {
+            "_score": "desc"
+        },
+        {
+            "fullName.keyword": "asc"
+        },
+        {
+            "_id": "asc"
+        }
+    ]
+}
+
+
+
+
+
+GET axon-user-card/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+
+GET axon-user-card/_search
+{
+  "query": {
+    "match": {
+      "externalUserId": "ba4da283-9946-4013-b70b-cdc474c03db9"
+    }
+  }
+}
+
+-- 8d690c25-fde1-49a8-8df0-5e156180da47
+
+
+GET axon-user-card/_search
+{
+  "query": {
+    "term": {
+      "isDeleted": {
+        "value": true
+      }
+    }
+  }
+}
+
+
+
+
+GET axon-user-card/_search
+{
+  "size": 40,
+  "min_score":3,
+ "explain": false, 
+  "_source": ["username","fullName","externalUserId"],
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "multi_match": {
+            "query": "Sabeeha S",
+            "type": "best_fields",
+            "fields": [
+              "username^8.0",
+              "username.highlight^10.0",
+              "username.shingle^6.0",
+              
+              "fullName^8.0",
+              "fullName.highlight^10.0",
+              "fullName.shingle^6.0",
+              
+              "externalUserId^8.0",
+              "externalUserId.highlight^10.0",
+              "externalUserId.shingle^6.0"
+              
+            ]
+            ,
+            "fuzziness": "AUTO"
+
+          }
+        },
+        {
+          "multi_match": {
+            "query":   "Sabeeha S",
+            "type": "phrase",
+            "fields": [
+              "username.highlight^100.0",
+              "fullName.highlight^100.0",
+              "externalUserId.highlight^100.0"
+            ]
+          }
+        },
+        {
+          "multi_match": {
+            "query":  "Sabeeha S",
+            "type": "phrase_prefix",
+            "fields": [
+              "username.highlight^60.0",
+              "fullName.highlight^60.0",
+              "externalUserId.highlight^60.0"
+            ]
+          }
+        },
+        {
+          "multi_match": {
+            "query":  "Sabeeha S",
+            "type": "phrase",
+            "fields": [
+              "username.keyword^150.0",
+              "fullName.keyword^150.0",
+              "externalUserId.keyword^150.0"
+            ]
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    }
+  },
+        "sort": [
+        {
+            "_score": "desc"
+        },
+        {
+            "fullName.keyword": "asc"
+        },
+        {
+            "_id": "asc"
+        }
+    ]
+}
+
+
+
+
+
+GET axon-fi-user/_search
+{
+  "size": 10000,
+  "explain": true, 
+  "min_score":3,
+  "_source": ["idpFirmUserId","fullName"],
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "multi_match": {
+            "query": "TestUser",
+            "type": "best_fields",
+            "fields": [
+              "idpFirmUserId^8.0",
+              "idpFirmUserId.highlight^10.0",
+              "idpFirmUserId.shingle^6.0",
+              "fullName^8.0",
+              "fullName.highlight^10.0",
+              "fullName.shingle^6.0"
+            ]
+            ,
+            "fuzziness": "AUTO"
+          }
+        },
+        {
+          "multi_match": {
+            "query": "TestUser",
+            "type": "phrase",
+            "fields": [
+              "idpFirmUserId.highlight^100.0",
+              "fullName.highlight^100.0"
+            ]
+          }
+        },
+        {
+          "multi_match": {
+            "query":"TestUser",
+            "type": "phrase_prefix",
+            "fields": [
+                 "idpFirmUserId.highlight^60.0",
+              "fullName.highlight^60.0"
+            ]
+          }
+        },
+        {
+          "multi_match": {
+            "query": "TestUser",
+            "type": "phrase",
+            "fields": [
+              "idpFirmUserId.keyword^150.0",
+              "fullName.keyword^150.0"
+            ]
+          }
+        }
+      ],
+              "filter": [
+                {
+                    "term": {
+                        "tenantId": "4"
+                    }
+                },
+                {
+                    "term": {
+                        "docCategory": "ADMIN_USER"
+                    }
+                }
+            ],
+      "minimum_should_match": 1
+    }
+  },
+         "sort": [
+        {
+            "_score": "desc"
+        },
+        {
+            "fullName.keyword": "asc"
+        },
+        {
+            "_id": "asc"
+        }
+    ]
+}
+
+
+
+
+
+
+GET axon-fi-user/_search
+{ 
+    "min_score":0.5,
+    "explain": false, 
+    "_source":["institutionName","institutionCode","entityId"], 
+    "query": {
+        "bool": {
+           "should": [
+                   {
+          "multi_match":{
+            "query": "ABC",
+            "fields": [
+              "institutionName.keyword^150.0",
+              "institutionCode.keyword^150.0"
+              ],
+              "type": "phrase"
+          }
+        },
+        {
+          "multi_match":{
+            "query": "ABC",
+            "fields": [
+              "institutionName.highlight^100.0",
+              "institutionCode.highlight^100.0"
+              ],
+              "type": "phrase"
+          }
+        },
+                {
+          "multi_match":{
+            "query": "ABC",
+            "fields": [
+              "institutionName.highlight^60.0",
+               "institutionCode.highlight^60.0"
+              ],
+              "type": "phrase_prefix"
+          }
+        },
+        {
+          "multi_match": {
+            "query": "ABC",
+            "fields": [
+              "institutionName^8.0",
+              "institutionName.highlight^10.0",
+              "institutionName.shingle^6.0",
+              "institutionCode^8.0",
+              "institutionCode.highlight^10.0",
+              "institutionCode.shingle^6.0"
+            ],
+            "type": "best_fields",
+            "fuzziness": "AUTO"
+          }
+        }
+      ],
+            "filter": [
+                {
+                    "term": {
+                        "tenantId": "4"
+                    }
+                }
+            ]
+        }
+    },
+    "sort": [
+        {
+            "_score": "desc"
+        },
+        {
+            "institutionName.keyword": "asc"
+        },
+        {
+            "_id": "asc"
+        }
+    ],
+   
+    "size": 10
+}
+
+
+
+PUT axon-fi-user/_mapping
+{
+  "properties": {
+      "entityId": {
+        "type": "text",
+        "index_options": "offsets",
+        "analyzer": "autocomplete_analyzer",
+        "search_analyzer": "highlight_analyzer",
+        "fields": {
+          "highlight": {
+            "type": "text",
+            "analyzer": "highlight_analyzer"
+          },
+          "shingle": {
+            "type": "text",
+            "analyzer": "shingle_analyzer"
+          },
+          "substring": {
+            "type": "text",
+            "analyzer": "substring_analyzer"
+          },
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      }
+  }
+}
+
+
+
+GET /axon-fi-user/_analyze
+{
+  "analyzer": "highlight_analyzer",
+  "text": "TestUser"
+}
+
+
+
+
+DELETE axon-user-card-v2
+
+
+PUT axon-user-card-v2
+{
+    "settings": {
+      "index": {
+        "max_ngram_diff": "27",
+        "number_of_shards": "1",
+        "number_of_replicas": "1"
+      },
+      "analysis": {
+        "filter": {
+          "edge_ngram_filter": {
+            "type": "edge_ngram",
+            "min_gram": 1,
+            "max_gram": 30
+          },
+          "ngram_filter": {
+            "type": "ngram",
+            "min_gram": 3,
+            "max_gram": 30
+          },
+          "shingle_filter": {
+            "type": "shingle",
+            "min_shingle_size": 2,
+            "max_shingle_size": 3,
+            "output_unigrams": true
+          },
+          "ascii_folding_filter": {
+            "type": "asciifolding",
+            "preserve_original": false
+          }
+        },
+        "analyzer": {
+          "unfolded_autocomplete_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "edge_ngram_filter"
+            ]
+          },
+          "unfolded_highlight_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase"
+            ]
+          },
+          "unfolded_shingle_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "shingle_filter"
+            ]
+          },
+          "autocomplete_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "ascii_folding_filter",
+              "edge_ngram_filter"
+            ]
+          },
+          "highlight_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "ascii_folding_filter"
+            ]
+          },
+          "shingle_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "ascii_folding_filter",
+              "shingle_filter"
+            ]
+          }
+        }
+      }
+    },
+    "mappings": {
+      "properties": {
+        "appId": {
+          "type": "keyword"
+        },
+        "authProfileId": {
+          "type": "keyword"
+        },
+        "cardDetails": {
+          "type": "nested",
+          "properties": {
+            "bin": {
+              "type": "keyword"
+            },
+            "cardId": {
+              "type": "keyword"
+            },
+            "cardLast4Digits": {
+              "type": "keyword"
+            },
+            "cardNetwork": {
+              "type": "keyword",
+              "index": false
+            },
+            "customerType": {
+              "type": "keyword",
+              "index": false
+            },
+            "deletedAt": {
+              "type": "date"
+            },
+            "isDeleted": {
+              "type": "boolean"
+            }
+          }
+        },
+        "createdAt": {
+          "type": "date"
+        },
+        "deletedAt": {
+          "type": "date"
+        },
+        "docCategory": {
+          "type": "keyword"
+        },
+        "elasticDocId": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "email": {
+          "type": "text",
+          "analyzer": "autocomplete_analyzer",
+          "search_analyzer": "highlight_analyzer",
+          "fields": {
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "externalUserId": {
+          "type": "text",
+          "analyzer": "unfolded_autocomplete_analyzer",
+          "search_analyzer": "unfolded_highlight_analyzer",
+          "fields": {
+            "unfolded": {
+              "type": "text",
+              "analyzer": "unfolded_autocomplete_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_highlight": {
+              "type": "text",
+              "analyzer": "unfolded_highlight_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_shingle": {
+              "type": "text",
+              "analyzer": "unfolded_shingle_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "firstName": {
+          "type": "text",
+          "analyzer": "unfolded_autocomplete_analyzer",
+          "search_analyzer": "unfolded_highlight_analyzer",
+          "fields": {
+            "unfolded": {
+              "type": "text",
+              "analyzer": "unfolded_autocomplete_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_highlight": {
+              "type": "text",
+              "analyzer": "unfolded_highlight_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_shingle": {
+              "type": "text",
+              "analyzer": "unfolded_shingle_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "fullName": {
+          "type": "text",
+          "analyzer": "unfolded_autocomplete_analyzer",
+          "search_analyzer": "unfolded_highlight_analyzer",
+          "fields": {
+            "unfolded": {
+              "type": "text",
+              "analyzer": "unfolded_autocomplete_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_highlight": {
+              "type": "text",
+              "analyzer": "unfolded_highlight_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_shingle": {
+              "type": "text",
+              "analyzer": "unfolded_shingle_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "institutionId": {
+          "type": "keyword"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "lastName": {
+          "type": "text",
+          "analyzer": "unfolded_autocomplete_analyzer",
+          "search_analyzer": "unfolded_highlight_analyzer",
+          "fields": {
+            "unfolded": {
+              "type": "text",
+              "analyzer": "unfolded_autocomplete_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_highlight": {
+              "type": "text",
+              "analyzer": "unfolded_highlight_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_shingle": {
+              "type": "text",
+              "analyzer": "unfolded_shingle_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "phoneNumber": {
+          "type": "keyword"
+        },
+        "tenantId": {
+          "type": "keyword"
+        },
+        "username": {
+          "type": "text",
+          "analyzer": "unfolded_autocomplete_analyzer",
+          "search_analyzer": "unfolded_highlight_analyzer",
+          "fields": {
+            "unfolded": {
+              "type": "text",
+              "analyzer": "unfolded_autocomplete_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_highlight": {
+              "type": "text",
+              "analyzer": "unfolded_highlight_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_shingle": {
+              "type": "text",
+              "analyzer": "unfolded_shingle_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  
+  
+# 2. Reindex all data
+POST /_reindex?wait_for_completion=false
+{
+  "source": {
+    "index": "axon-user-card"
+  },
+  "dest": {
+    "index": "axon-user-card-v2"
+  }
+}
+
+
+POST /_reindex?wait_for_completion=false
+{
+  "source": {
+    "index": "axon-fi-user"
+  },
+  "dest": {
+    "index": "axon-fi-user-v2"
+  }
+}
+
+
+DELETE axon-user-card-v2/_search
+{
+    "settings": {
+      "index": {
+        "max_ngram_diff": "27",
+        "number_of_shards": "1",
+        "number_of_replicas": "1"
+      },
+      "analysis": {
+        "filter": {
+          "edge_ngram_filter": {
+            "type": "edge_ngram",
+            "min_gram": 1,
+            "max_gram": 30
+          },
+          "ngram_filter": {
+            "type": "ngram",
+            "min_gram": 3,
+            "max_gram": 30
+          },
+          "shingle_filter": {
+            "type": "shingle",
+            "min_shingle_size": 2,
+            "max_shingle_size": 3,
+            "output_unigrams": true
+          },
+          "ascii_folding_filter": {
+            "type": "asciifolding",
+            "preserve_original": false
+          }
+        },
+        "analyzer": {
+          "unfolded_autocomplete_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "edge_ngram_filter"
+            ]
+          },
+          "unfolded_highlight_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase"
+            ]
+          },
+          "unfolded_shingle_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "shingle_filter"
+            ]
+          },
+          "autocomplete_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "ascii_folding_filter",
+              "edge_ngram_filter"
+            ]
+          },
+          "highlight_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "ascii_folding_filter"
+            ]
+          },
+          "shingle_analyzer": {
+            "type": "custom",
+            "tokenizer": "standard",
+            "filter": [
+              "lowercase",
+              "ascii_folding_filter",
+              "shingle_filter"
+            ]
+          }
+        }
+      }
+    },
+    "mappings": {
+      "properties": {
+        "appId": {
+          "type": "keyword"
+        },
+        "authProfileId": {
+          "type": "keyword"
+        },
+        "cardDetails": {
+          "type": "nested",
+          "properties": {
+            "bin": {
+              "type": "keyword"
+            },
+            "cardId": {
+              "type": "keyword"
+            },
+            "cardLast4Digits": {
+              "type": "keyword"
+            },
+            "cardNetwork": {
+              "type": "keyword",
+              "index": false
+            },
+            "customerType": {
+              "type": "keyword",
+              "index": false
+            },
+            "deletedAt": {
+              "type": "date"
+            },
+            "isDeleted": {
+              "type": "boolean"
+            }
+          }
+        },
+        "createdAt": {
+          "type": "date"
+        },
+        "deletedAt": {
+          "type": "date"
+        },
+        "docCategory": {
+          "type": "keyword"
+        },
+        "elasticDocId": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "email": {
+          "type": "text",
+          "analyzer": "autocomplete_analyzer",
+          "search_analyzer": "highlight_analyzer",
+          "fields": {
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "externalUserId": {
+          "type": "text",
+          "analyzer": "unfolded_autocomplete_analyzer",
+          "search_analyzer": "unfolded_highlight_analyzer",
+          "fields": {
+            "unfolded": {
+              "type": "text",
+              "analyzer": "unfolded_autocomplete_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_highlight": {
+              "type": "text",
+              "analyzer": "unfolded_highlight_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_shingle": {
+              "type": "text",
+              "analyzer": "unfolded_shingle_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "firstName": {
+          "type": "text",
+          "analyzer": "unfolded_autocomplete_analyzer",
+          "search_analyzer": "unfolded_highlight_analyzer",
+          "fields": {
+            "unfolded": {
+              "type": "text",
+              "analyzer": "unfolded_autocomplete_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_highlight": {
+              "type": "text",
+              "analyzer": "unfolded_highlight_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_shingle": {
+              "type": "text",
+              "analyzer": "unfolded_shingle_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "fullName": {
+          "type": "text",
+          "analyzer": "unfolded_autocomplete_analyzer",
+          "search_analyzer": "unfolded_highlight_analyzer",
+          "fields": {
+            "unfolded": {
+              "type": "text",
+              "analyzer": "unfolded_autocomplete_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_highlight": {
+              "type": "text",
+              "analyzer": "unfolded_highlight_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_shingle": {
+              "type": "text",
+              "analyzer": "unfolded_shingle_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "institutionId": {
+          "type": "keyword"
+        },
+        "isDeleted": {
+          "type": "boolean"
+        },
+        "lastName": {
+          "type": "text",
+          "analyzer": "unfolded_autocomplete_analyzer",
+          "search_analyzer": "unfolded_highlight_analyzer",
+          "fields": {
+            "unfolded": {
+              "type": "text",
+              "analyzer": "unfolded_autocomplete_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_highlight": {
+              "type": "text",
+              "analyzer": "unfolded_highlight_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_shingle": {
+              "type": "text",
+              "analyzer": "unfolded_shingle_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "phoneNumber": {
+          "type": "keyword"
+        },
+        "tenantId": {
+          "type": "keyword"
+        },
+        "username": {
+          "type": "text",
+          "analyzer": "unfolded_autocomplete_analyzer",
+          "search_analyzer": "unfolded_highlight_analyzer",
+          "fields": {
+            "unfolded": {
+              "type": "text",
+              "analyzer": "unfolded_autocomplete_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_highlight": {
+              "type": "text",
+              "analyzer": "unfolded_highlight_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "unfolded_shingle": {
+              "type": "text",
+              "analyzer": "unfolded_shingle_analyzer",
+              "search_analyzer": "unfolded_highlight_analyzer"
+            },
+            "ascii_folded": {
+              "type": "text",
+              "analyzer": "autocomplete_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "highlight": {
+              "type": "text",
+              "analyzer": "highlight_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "shingle": {
+              "type": "text",
+              "analyzer": "shingle_analyzer",
+              "search_analyzer": "highlight_analyzer"
+            },
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+PUT axon-fi-user-v2
+{
+    "settings": {
+        "index": {
+            "max_ngram_diff": "27",
+            "number_of_shards": "1",
+            "number_of_replicas": "1"
+        },
+        "analysis": {
+            "filter": {
+                "edge_ngram_filter": {
+                    "type": "edge_ngram",
+                    "min_gram": 1,
+                    "max_gram": 30
+                },
+                "ngram_filter": {
+                    "type": "ngram",
+                    "min_gram": 3,
+                    "max_gram": 30
+                },
+                "shingle_filter": {
+                    "type": "shingle",
+                    "min_shingle_size": 2,
+                    "max_shingle_size": 3,
+                    "output_unigrams": true
+                },
+                "ascii_folding_filter": {
+                    "type": "asciifolding",
+                    "preserve_original": false
+                }
+            },
+            "analyzer": {
+                "unfolded_autocomplete_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "standard",
+                    "filter": [
+                        "lowercase",
+                        "edge_ngram_filter"
+                    ]
+                },
+                "unfolded_highlight_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "standard",
+                    "filter": [
+                        "lowercase"
+                    ]
+                },
+                "unfolded_shingle_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "standard",
+                    "filter": [
+                        "lowercase",
+                        "shingle_filter"
+                    ]
+                },
+                "autocomplete_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "standard",
+                    "filter": [
+                        "lowercase",
+                        "ascii_folding_filter",
+                        "edge_ngram_filter"
+                    ]
+                },
+                "highlight_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "standard",
+                    "filter": [
+                        "lowercase",
+                        "ascii_folding_filter"
+                    ]
+                },
+                "shingle_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "standard",
+                    "filter": [
+                        "lowercase",
+                        "ascii_folding_filter",
+                        "shingle_filter"
+                    ]
+                }
+            }
+        }
+    },
+    "mappings": {
+        "properties": {
+            "active": {
+                "type": "boolean"
+            },
+            "additionalInformation": {
+                "type": "object"
+            },
+            "appCategory": {
+                "type": "keyword"
+            },
+            "appId": {
+                "type": "keyword"
+            },
+            "appName": {
+                "type": "text",
+                "analyzer": "unfolded_autocomplete_analyzer",
+                "search_analyzer": "unfolded_highlight_analyzer",
+                "fields": {
+                  "unfolded": {
+                    "type": "text",
+                    "analyzer": "unfolded_autocomplete_analyzer",
+                    "search_analyzer": "unfolded_highlight_analyzer"
+                  },
+                  "unfolded_highlight": {
+                    "type": "text",
+                    "analyzer": "unfolded_highlight_analyzer",
+                    "search_analyzer": "unfolded_highlight_analyzer"
+                  },
+                  "unfolded_shingle": {
+                    "type": "text",
+                    "analyzer": "unfolded_shingle_analyzer",
+                    "search_analyzer": "unfolded_highlight_analyzer"
+                  },
+                  "ascii_folded": {
+                    "type": "text",
+                    "analyzer": "autocomplete_analyzer",
+                    "search_analyzer": "highlight_analyzer"
+                  },
+                  "highlight": {
+                    "type": "text",
+                    "analyzer": "highlight_analyzer",
+                    "search_analyzer": "highlight_analyzer"
+                  },
+                  "shingle": {
+                    "type": "text",
+                    "analyzer": "shingle_analyzer",
+                    "search_analyzer": "highlight_analyzer"
+                  },
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+            },
+            "appProvisionTypeCode": {
+                "type": "keyword"
+            },
+            "appTypeCode": {
+                "type": "keyword"
+            },
+            "appTypeCodes": {
+                "type": "keyword"
+            },
+            "assignedBins": {
+                "type": "keyword"
+            },
+            "assignedInstitutionIds": {
+                "type": "keyword"
+            },
+            "authProfileId": {
+                "type": "text",
+                "fields": {
+                    "highlight": {
+                        "type": "text",
+                        "analyzer": "highlight_analyzer"
+                    },
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    },
+                    "shingle": {
+                        "type": "text",
+                        "analyzer": "shingle_analyzer"
+                    }
+                },
+                "analyzer": "autocomplete_analyzer",
+                "search_analyzer": "highlight_analyzer"
+            },
+            "bin": {
+                "type": "keyword"
+            },
+            "binActual": {
+                "type": "text",
+                "fields": {
+                    "highlight": {
+                        "type": "text",
+                        "analyzer": "highlight_analyzer"
+                    },
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    },
+                    "shingle": {
+                        "type": "text",
+                        "analyzer": "shingle_analyzer"
+                    }
+                },
+                "analyzer": "autocomplete_analyzer",
+                "search_analyzer": "highlight_analyzer"
+            },
+            "binId": {
+                "type": "keyword"
+            },
+            "binSerial": {
+                "type": "keyword"
+            },
+            "bins": {
+                "type": "keyword"
+            },
+            "cardType": {
+                "type": "keyword"
+            },
+            "createdAt": {
+                "type": "date"
+            },
+            "customerId": {
+                "type": "text",
+                "fields": {
+                    "highlight": {
+                        "type": "text",
+                        "analyzer": "highlight_analyzer"
+                    },
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    },
+                    "shingle": {
+                        "type": "text",
+                        "analyzer": "shingle_analyzer"
+                    }
+                },
+                "analyzer": "autocomplete_analyzer",
+                "search_analyzer": "highlight_analyzer"
+            },
+            "customerTypeCode": {
+                "type": "keyword"
+            },
+            "docCategory": {
+                "type": "keyword"
+            },
+            "entityId": {
+                "type": "text",
+                "fields": {
+                    "highlight": {
+                        "type": "text",
+                        "analyzer": "highlight_analyzer"
+                    },
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    },
+                    "shingle": {
+                        "type": "text",
+                        "analyzer": "shingle_analyzer"
+                    }
+                },
+                "index_options": "offsets",
+                "analyzer": "autocomplete_analyzer",
+                "search_analyzer": "highlight_analyzer"
+            },
+            "firstName": {
+                "type": "text",
+                "fields": {
+                    "highlight": {
+                        "type": "text",
+                        "analyzer": "highlight_analyzer"
+                    },
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    },
+                    "shingle": {
+                        "type": "text",
+                        "analyzer": "shingle_analyzer"
+                    }
+                },
+                "index_options": "offsets",
+                "analyzer": "autocomplete_analyzer",
+                "search_analyzer": "highlight_analyzer"
+            },
+            "fisStatus": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "fullName": {
+                "type": "text",
+                "fields": {
+                    "highlight": {
+                        "type": "text",
+                        "analyzer": "highlight_analyzer"
+                    },
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    },
+                    "shingle": {
+                        "type": "text",
+                        "analyzer": "shingle_analyzer"
+                    }
+                },
+                "index_options": "offsets",
+                "analyzer": "autocomplete_analyzer",
+                "search_analyzer": "highlight_analyzer"
+            },
+            "idpFirmUserId": {
+                "type": "text",
+                "fields": {
+                    "highlight": {
+                        "type": "text",
+                        "analyzer": "highlight_analyzer"
+                    },
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    },
+                    "shingle": {
+                        "type": "text",
+                        "analyzer": "shingle_analyzer"
+                    }
+                },
+                "analyzer": "autocomplete_analyzer",
+                "search_analyzer": "highlight_analyzer"
+            },
+            "institutionCode": {
+                "type": "text",
+                "fields": {
+                    "highlight": {
+                        "type": "text",
+                        "analyzer": "highlight_analyzer"
+                    },
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    },
+                    "shingle": {
+                        "type": "text",
+                        "analyzer": "shingle_analyzer"
+                    }
+                },
+                "analyzer": "autocomplete_analyzer",
+                "search_analyzer": "highlight_analyzer"
+            },
+            "institutionId": {
+                "type": "keyword"
+            },
+            "institutionName": {
+                "type": "text",
+                "analyzer": "unfolded_autocomplete_analyzer",
+                "search_analyzer": "unfolded_highlight_analyzer",
+                "fields": {
+                  "unfolded": {
+                    "type": "text",
+                    "analyzer": "unfolded_autocomplete_analyzer",
+                    "search_analyzer": "unfolded_highlight_analyzer"
+                  },
+                  "unfolded_highlight": {
+                    "type": "text",
+                    "analyzer": "unfolded_highlight_analyzer",
+                    "search_analyzer": "unfolded_highlight_analyzer"
+                  },
+                  "unfolded_shingle": {
+                    "type": "text",
+                    "analyzer": "unfolded_shingle_analyzer",
+                    "search_analyzer": "unfolded_highlight_analyzer"
+                  },
+                  "ascii_folded": {
+                    "type": "text",
+                    "analyzer": "autocomplete_analyzer",
+                    "search_analyzer": "highlight_analyzer"
+                  },
+                  "highlight": {
+                    "type": "text",
+                    "analyzer": "highlight_analyzer",
+                    "search_analyzer": "highlight_analyzer"
+                  },
+                  "shingle": {
+                    "type": "text",
+                    "analyzer": "shingle_analyzer",
+                    "search_analyzer": "highlight_analyzer"
+                  },
+                  "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                  }
+                }
+            },
+            "isActive": {
+                "type": "boolean"
+            },
+            "isDeleted": {
+                "type": "boolean"
+            },
+            "isSandBoxFi": {
+                "type": "boolean"
+            },
+            "lastName": {
+                "type": "text",
+                "fields": {
+                    "highlight": {
+                        "type": "text",
+                        "analyzer": "highlight_analyzer"
+                    },
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    },
+                    "shingle": {
+                        "type": "text",
+                        "analyzer": "shingle_analyzer"
+                    }
+                },
+                "index_options": "offsets",
+                "analyzer": "autocomplete_analyzer",
+                "search_analyzer": "highlight_analyzer"
+            },
+            "onboardingStatus": {
+                "type": "keyword"
+            },
+            "productTypeCode": {
+                "type": "keyword"
+            },
+            "roleIds": {
+                "type": "keyword"
+            },
+            "status": {
+                "type": "keyword"
+            },
+            "tenantId": {
+                "type": "keyword"
+            },
+            "updatedAt": {
+                "type": "date"
+            },
+            "userId": {
+                "type": "keyword"
+            }
+        }
+    }
+}
+
+# 2. Reindex all data
+POST /_reindex?wait_for_completion=false
+{
+  "source": {
+    "index": "axon-fi-user"
+  },
+  "dest": {
+    "index": "axon-fi-user-v2"
+  }
+}
+
+
+GET axon-fi-user/_count
+GET axon-fi-user-v2/_count

@@ -1,0 +1,457 @@
+{
+    "axon-fi-user" : {
+      "aliases" : { },
+      "mappings" : {
+        "properties" : {
+          "active" : {
+            "type" : "boolean"
+          },
+          "additionalInformation" : {
+            "properties" : {
+              "image" : {
+                "properties" : {
+                  "darkBackgroundLogoUrl" : {
+                    "type" : "text",
+                    "fields" : {
+                      "keyword" : {
+                        "type" : "keyword",
+                        "ignore_above" : 256
+                      }
+                    }
+                  },
+                  "lightBackgroundLogoUrl" : {
+                    "type" : "text",
+                    "fields" : {
+                      "keyword" : {
+                        "type" : "keyword",
+                        "ignore_above" : 256
+                      }
+                    }
+                  },
+                  "logoUrl" : {
+                    "type" : "text",
+                    "fields" : {
+                      "keyword" : {
+                        "type" : "keyword",
+                        "ignore_above" : 256
+                      }
+                    }
+                  }
+                }
+              },
+              "schemaUri" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              }
+            }
+          },
+          "appCategory" : {
+            "type" : "keyword"
+          },
+          "appId" : {
+            "type" : "keyword"
+          },
+          "appName" : {
+            "type" : "text",
+            "fields" : {
+              "highlight" : {
+                "type" : "text",
+                "analyzer" : "highlight_analyzer"
+              },
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              },
+              "shingle" : {
+                "type" : "text",
+                "analyzer" : "shingle_analyzer"
+              },
+              "substring" : {
+                "type" : "text",
+                "analyzer" : "substring_analyzer"
+              }
+            },
+            "index_options" : "offsets",
+            "analyzer" : "autocomplete_analyzer",
+            "search_analyzer" : "highlight_analyzer"
+          },
+          "appProvisionTypeCode" : {
+            "type" : "keyword"
+          },
+          "appTypeCode" : {
+            "type" : "keyword"
+          },
+          "appTypeCodes" : {
+            "type" : "keyword"
+          },
+          "assignedBins" : {
+            "type" : "keyword"
+          },
+          "assignedInstitutionIds" : {
+            "type" : "keyword"
+          },
+          "authProfileId" : {
+            "type" : "text",
+            "fields" : {
+              "highlight" : {
+                "type" : "text",
+                "analyzer" : "highlight_analyzer"
+              },
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              },
+              "shingle" : {
+                "type" : "text",
+                "analyzer" : "shingle_analyzer"
+              },
+              "substring" : {
+                "type" : "text",
+                "analyzer" : "substring_analyzer"
+              }
+            },
+            "analyzer" : "autocomplete_analyzer",
+            "search_analyzer" : "highlight_analyzer"
+          },
+          "bin" : {
+            "type" : "keyword"
+          },
+          "binActual" : {
+            "type" : "text",
+            "fields" : {
+              "highlight" : {
+                "type" : "text",
+                "analyzer" : "highlight_analyzer"
+              },
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              },
+              "shingle" : {
+                "type" : "text",
+                "analyzer" : "shingle_analyzer"
+              },
+              "substring" : {
+                "type" : "text",
+                "analyzer" : "substring_analyzer"
+              }
+            },
+            "analyzer" : "autocomplete_analyzer",
+            "search_analyzer" : "highlight_analyzer"
+          },
+          "binId" : {
+            "type" : "keyword"
+          },
+          "binSerial" : {
+            "type" : "keyword"
+          },
+          "bins" : {
+            "type" : "keyword"
+          },
+          "cardType" : {
+            "type" : "keyword"
+          },
+          "createdAt" : {
+            "type" : "date"
+          },
+          "customerId" : {
+            "type" : "text",
+            "fields" : {
+              "highlight" : {
+                "type" : "text",
+                "analyzer" : "highlight_analyzer"
+              },
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              },
+              "shingle" : {
+                "type" : "text",
+                "analyzer" : "shingle_analyzer"
+              },
+              "substring" : {
+                "type" : "text",
+                "analyzer" : "substring_analyzer"
+              }
+            },
+            "analyzer" : "autocomplete_analyzer",
+            "search_analyzer" : "highlight_analyzer"
+          },
+          "customerTypeCode" : {
+            "type" : "keyword"
+          },
+          "docCategory" : {
+            "type" : "keyword"
+          },
+          "entityId" : {
+            "type" : "text",
+            "fields" : {
+              "highlight" : {
+                "type" : "text",
+                "analyzer" : "highlight_analyzer"
+              },
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              },
+              "shingle" : {
+                "type" : "text",
+                "analyzer" : "shingle_analyzer"
+              },
+              "substring" : {
+                "type" : "text",
+                "analyzer" : "substring_analyzer"
+              }
+            },
+            "index_options" : "offsets",
+            "analyzer" : "autocomplete_analyzer",
+            "search_analyzer" : "highlight_analyzer"
+          },
+          "firstName" : {
+            "type" : "text",
+            "fields" : {
+              "highlight" : {
+                "type" : "text",
+                "analyzer" : "highlight_analyzer"
+              },
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              },
+              "shingle" : {
+                "type" : "text",
+                "analyzer" : "shingle_analyzer"
+              },
+              "substring" : {
+                "type" : "text",
+                "analyzer" : "substring_analyzer"
+              }
+            },
+            "index_options" : "offsets",
+            "analyzer" : "autocomplete_analyzer",
+            "search_analyzer" : "highlight_analyzer"
+          },
+          "fisStatus" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "fullName" : {
+            "type" : "text",
+            "fields" : {
+              "highlight" : {
+                "type" : "text",
+                "analyzer" : "highlight_analyzer"
+              },
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              },
+              "shingle" : {
+                "type" : "text",
+                "analyzer" : "shingle_analyzer"
+              },
+              "substring" : {
+                "type" : "text",
+                "analyzer" : "substring_analyzer"
+              }
+            },
+            "index_options" : "offsets",
+            "analyzer" : "autocomplete_analyzer",
+            "search_analyzer" : "highlight_analyzer"
+          },
+          "idpFirmUserId" : {
+            "type" : "text",
+            "fields" : {
+              "highlight" : {
+                "type" : "text",
+                "analyzer" : "highlight_analyzer"
+              },
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              },
+              "shingle" : {
+                "type" : "text",
+                "analyzer" : "shingle_analyzer"
+              },
+              "substring" : {
+                "type" : "text",
+                "analyzer" : "substring_analyzer"
+              }
+            },
+            "analyzer" : "autocomplete_analyzer",
+            "search_analyzer" : "highlight_analyzer"
+          },
+          "institutionCode" : {
+            "type" : "text",
+            "fields" : {
+              "highlight" : {
+                "type" : "text",
+                "analyzer" : "highlight_analyzer"
+              },
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              },
+              "shingle" : {
+                "type" : "text",
+                "analyzer" : "shingle_analyzer"
+              },
+              "substring" : {
+                "type" : "text",
+                "analyzer" : "substring_analyzer"
+              }
+            },
+            "analyzer" : "autocomplete_analyzer",
+            "search_analyzer" : "highlight_analyzer"
+          },
+          "institutionId" : {
+            "type" : "keyword"
+          },
+          "institutionName" : {
+            "type" : "text",
+            "fields" : {
+              "highlight" : {
+                "type" : "text",
+                "analyzer" : "highlight_analyzer"
+              },
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              },
+              "shingle" : {
+                "type" : "text",
+                "analyzer" : "shingle_analyzer"
+              },
+              "substring" : {
+                "type" : "text",
+                "analyzer" : "substring_analyzer"
+              }
+            },
+            "index_options" : "offsets",
+            "analyzer" : "autocomplete_analyzer",
+            "search_analyzer" : "highlight_analyzer"
+          },
+          "isActive" : {
+            "type" : "boolean"
+          },
+          "isDeleted" : {
+            "type" : "boolean"
+          },
+          "isSandBoxFi" : {
+            "type" : "boolean"
+          },
+          "lastName" : {
+            "type" : "text",
+            "fields" : {
+              "highlight" : {
+                "type" : "text",
+                "analyzer" : "highlight_analyzer"
+              },
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              },
+              "shingle" : {
+                "type" : "text",
+                "analyzer" : "shingle_analyzer"
+              },
+              "substring" : {
+                "type" : "text",
+                "analyzer" : "substring_analyzer"
+              }
+            },
+            "index_options" : "offsets",
+            "analyzer" : "autocomplete_analyzer",
+            "search_analyzer" : "highlight_analyzer"
+          },
+          "onboardingStatus" : {
+            "type" : "keyword"
+          },
+          "productTypeCode" : {
+            "type" : "keyword"
+          },
+          "roleIds" : {
+            "type" : "keyword"
+          },
+          "status" : {
+            "type" : "keyword"
+          },
+          "tenantId" : {
+            "type" : "keyword"
+          },
+          "updatedAt" : {
+            "type" : "date"
+          },
+          "userId" : {
+            "type" : "keyword"
+          }
+        }
+      },
+      "settings" : {
+        "index" : {
+          "max_ngram_diff" : "27",
+          "number_of_shards" : "1",
+          "provided_name" : "axon-fi-user",
+          "creation_date" : "1754566277073",
+          "analysis" : {
+            "filter" : {
+              "shingle_filter" : {
+                "max_shingle_size" : "3",
+                "min_shingle_size" : "2",
+                "output_unigrams" : "true",
+                "type" : "shingle"
+              },
+              "ngram_filter" : {
+                "type" : "ngram",
+                "min_gram" : "3",
+                "max_gram" : "30"
+              },
+              "edge_ngram_filter" : {
+                "type" : "edge_ngram",
+                "min_gram" : "1",
+                "max_gram" : "30"
+              }
+            },
+            "analyzer" : {
+              "highlight_analyzer" : {
+                "filter" : [ "lowercase", "asciifolding" ],
+                "type" : "custom",
+                "tokenizer" : "standard"
+              },
+              "substring_analyzer" : {
+                "filter" : [ "lowercase", "asciifolding", "ngram_filter" ],
+                "type" : "custom",
+                "tokenizer" : "keyword"
+              },
+              "shingle_analyzer" : {
+                "filter" : [ "lowercase", "asciifolding", "shingle_filter" ],
+                "type" : "custom",
+                "tokenizer" : "standard"
+              },
+              "autocomplete_analyzer" : {
+                "filter" : [ "lowercase", "asciifolding", "edge_ngram_filter" ],
+                "type" : "custom",
+                "tokenizer" : "standard"
+              }
+            }
+          },
+          "number_of_replicas" : "1",
+          "uuid" : "kAJ_6ytRRfubn05AiqFDQg",
+          "version" : {
+            "created" : "135248027"
+          }
+        }
+      }
+    }
+  }
