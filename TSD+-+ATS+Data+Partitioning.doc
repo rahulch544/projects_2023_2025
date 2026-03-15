@@ -1,0 +1,1722 @@
+Date: Sun, 15 Mar 2026 14:26:34 +0000 (UTC)
+Message-ID: <187915305.103.1773584794785@0b48f6afc7e1>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_102_1359764206.1773584794781"
+
+------=_Part_102_1359764206.1773584794781
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>TSD - ATS Data Partitioning</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>TSD - ATS Data Partitioning</h1>
+    <div class=3D"Section1">
+        <p local-id=3D"ad02f23e-02aa-4705-afe3-2f2c6e2def3a"></p>
+<p local-id=3D"e49297c3-4fd3-47db-b198-11757d5e1f25"></p>
+<style type=3D"text/css">/*<![CDATA[*/
+div.rbtoc1773584794420 {padding: 0px;}
+div.rbtoc1773584794420 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1773584794420 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style>
+<div class=3D"toc-macro rbtoc1773584794420">
+<ul class=3D"toc-indentation">
+<li><a href=3D"#TSD-ATSDataPartitioning-Overview">Overview</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#TSD-ATSDataPartitioning-EPIC:">EPIC:</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-ProblemStatement">Problem Statement=
+</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-Solution">Solution</a></li>
+</ul></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-TechSolution">Tech Solution</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#TSD-ATSDataPartitioning-PartitionTableDesign">Partition Tab=
+le Design</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-Overview.1">Overview</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-HLD">HLD</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-ClassDiagram">Class Diagram</a></li=
+>
+<li><a href=3D"#TSD-ATSDataPartitioning-SequenceDiagram">Sequence Diagram</=
+a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-Database">Database</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#TSD-ATSDataPartitioning-Axon-Transaction-Database">Axon-Tra=
+nsaction-Database</a></li>
+</ul></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-ImpactedQueries">Impacted Queries</=
+a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-ClientInterfaces">Client Interfaces=
+</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-NonFunctionalRequirements">Non Func=
+tional Requirements</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#TSD-ATSDataPartitioning-SensitiveData">Sensitive Data</a></=
+li>
+<li><a href=3D"#TSD-ATSDataPartitioning-Traceability">Traceability</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-Logging">Logging</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-Metrics">Metrics</a></li>
+</ul></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-ConfigurationManaged">Configuration=
+ Managed</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-DeploymentProcess">Deployment Proce=
+ss</a></li>
+</ul></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-References">References</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#TSD-ATSDataPartitioning-LogicalReplicationStatus:">Logical =
+Replication Status:</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#TSD-ATSDataPartitioning-UATandPROD">UAT and PROD</a></li>
+</ul></li>
+</ul></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-DeploymentPlan">Deployment Plan</a>
+<ul class=3D"toc-indentation">
+<ul class=3D"toc-indentation">
+<li><a href=3D"#TSD-ATSDataPartitioning-UATSteps:">UAT Steps:</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-ProdDeploymentSteps">Prod Deploymen=
+t Steps</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#TSD-ATSDataPartitioning-DEV,SRE,DBandQATeam">DEV, SRE , DB =
+and QA Team ANIL BANDI VINAYAK JAIN</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-QATeam:">QA Team: Bijjam Suresh Vic=
+harapu Kumar</a></li>
+<li><a href=3D"#TSD-ATSDataPartitioning-DBTeam">DB Team PM Sreekanth</a></l=
+i>
+</ul></li>
+</ul>
+<li><a href=3D"#TSD-ATSDataPartitioning-LinkedTickets">Linked Tickets</a></=
+li>
+</ul></li>
+</ul>
+</div>
+<h2 local-id=3D"cd5e9199-c9c7-4d9e-9bd1-6fcd689790db" id=3D"TSD-ATSDataPart=
+itioning-Overview">Overview</h2>
+<p local-id=3D"0f61ddf9-7729-468b-b654-98875ba39650">This is the technical =
+solution document for Data partitioning in fast growing tables in Transacti=
+on Database.</p>
+<h3 local-id=3D"d4be401c-97ea-4b26-a7d1-c59adf211f50" id=3D"TSD-ATSDataPart=
+itioning-EPIC:">EPIC:</h3>
+<p local-id=3D"d402a61f-e6a3-4c9a-8325-07f59fe9cd5c"><br><a class=3D"extern=
+al-link" data-card-appearance=3D"inline" href=3D"https://zeta-axon.atlassia=
+n.net/browse/ACO-5033" local-id=3D"609bf04d-a2c7-4da2-8de3-e67149374847" re=
+l=3D"nofollow">https://zeta-axon.atlassian.net/browse/ACO-5033</a></p>
+<h3 local-id=3D"4ed9fe30-1e9c-435d-b40b-fed9f0b7331f" id=3D"TSD-ATSDataPart=
+itioning-ProblemStatement">Problem Statement</h3>
+<p local-id=3D"5ef44d47-54c7-4604-9fc9-5223ada6b4c4">The transaction data i=
+n the PostgreSQL database has grown to approximately 1TB, leading to perfor=
+mance degradation in queries and maintenance tasks. The current single-tabl=
+e structure results in slower query performance, and makes data management =
+(such as purging old data) cumbersome. A scalable solution is required to o=
+ptimize query performance and efficiently manage data volume.</p>
+<h3 local-id=3D"9bda4166-3c4d-4b05-aff2-984932c66d42" id=3D"TSD-ATSDataPart=
+itioning-Solution">Solution</h3>
+<ul local-id=3D"7d1c8859-39b6-4772-a535-a5721fee29c5">
+<li local-id=3D"7c51472f-2e6e-429a-a4b1-08f329706db0">
+<p local-id=3D"021a195b-e39f-4b90-aa7c-916580bf2064">To resolve above issue=
+s we are considering Data partitioning.</p></li>
+<li local-id=3D"51dc9211-6abd-45ac-bcb3-d1b5b5195e01">
+<p local-id=3D"4d3ddcbf-d19e-4459-a3a7-091d03ada5e3">What is the impact of =
+change - Proposed change will help in managing the data more efficiently as=
+ old partitions can be easily archived and storage costs can be kept in con=
+trol</p></li>
+<li local-id=3D"fe2826af-9d63-4393-9cf7-8e762732c16b">
+<p local-id=3D"a464c198-4233-473e-9494-492b76f81667">From Axon Transaction =
+Service we need to return 30 days data atleast, in newly created partition =
+tables data won=E2=80=99t present and copying old data to partition tables =
+is very challenging as we have huge data copying takes a lot of time and it=
+ impacts database heavily which may cause services to go down as well. So i=
+norder to prevent this we are going with following approach</p>
+<ul local-id=3D"7c3e2819-41bb-4721-8480-6093022c16b6">
+<li local-id=3D"04f2754e-a917-4463-b34a-83c0e2dc7fd1">
+<p local-id=3D"4bf8c9b6-de12-46a2-be81-d67fcd23ec1c">Create a New Partition=
+ tables in new database (Suggested by DB team)</p></li>
+<li local-id=3D"70eb7724-2164-4b8c-b0b0-2159075e5a50">
+<p local-id=3D"4a0fae35-e36c-460a-8179-e02b7913c70b">Now Sync this database=
+ with running database for 2 months as a buffer we added extra 30 days</p><=
+/li>
+<li local-id=3D"ff61c5d1-550b-43c9-80b5-06fc6a5d44f4">
+<p local-id=3D"1b26ead9-1152-4704-af25-1c2265cc848a">At the cut off date af=
+ter 2months, with very small downtime we change our database to Partition d=
+atabase.</p></li>
+<li local-id=3D"d583b368-f877-4385-af38-051795c662b5">
+<p local-id=3D"d9070d81-e200-4e27-b34b-cbd452639dd2">With this approach dow=
+ntime is few minutes only.</p></li>
+</ul></li>
+</ul>
+<h2 local-id=3D"ae05e6ad-37b3-4149-808e-aaed141d7aba" id=3D"TSD-ATSDataPart=
+itioning-TechSolution">Tech Solution</h2>
+<h3 local-id=3D"69c02219-00e0-41d0-aa2a-0ccd8c3de472" id=3D"TSD-ATSDataPart=
+itioning-PartitionTableDesign">Partition Table Design</h3>
+<ol start=3D"1" local-id=3D"56489be0-cc79-4e69-ba6e-ae224b64d159">
+<li local-id=3D"4ecfcb55-88ac-43d2-a23e-77745e45082b">
+<p local-id=3D"ed01ca3e-17a4-4718-9348-5a645a0090d6"><strong><span class=3D=
+"inline-comment-marker" data-ref=3D"7e79cea7-62ad-4407-b954-a27e0604908d">P=
+arent Table </span>:</strong> The parent table acts as a template and does =
+not store any data directly. It defines the common structure and primary ke=
+y.</p></li>
+</ol>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">Sample =
+Partition table
+CREATE TABLE transaction_child (
+    id BIGINT NOT NULL,
+    ---, --&gt; transaction_child columns
+    created_at TIMESTAMP NOT NULL
+    PRIMARY KEY (id,created_at)
+) PARTITION BY RANGE (created_at);</pre>
+</div>
+</div>
+<p local-id=3D"e22b8e81-d128-4f61-8dda-1f27dd5e0603"></p>
+<ol start=3D"2" local-id=3D"e85dc001-12d8-49c0-9554-27f409cc86a5">
+<li local-id=3D"be748357-b588-4afd-b1c8-7095acb80b0f">
+<p local-id=3D"425f660d-b0b7-486a-9436-f1b099745a0e"><strong>Monthly Partit=
+ions:</strong> Monthly partitions will be created dynamically based on the =
+<code>created_at</code> field using the <code>pg_partman</code> extension t=
+o automate partition management.</p></li>
+</ol>
+<p local-id=3D"c9f68f63-4641-46c6-b0af-6f73cb6f22e3">Example:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">Sample
+
+SELECT partman.create_parent(
+    p_parent_table :=3D '&lt;schema_name&gt;.transaction_child',
+    p_control :=3D 'created_at',
+    p_type :=3D 'native',
+    p_interval :=3D 'monthly'
+);</pre>
+</div>
+</div>
+<p local-id=3D"be6877e3-1c11-475d-b9ee-e1ea65f8024b"></p>
+<ol start=3D"3" local-id=3D"5967ba40-8ca4-49a9-bfd4-39d2e745f0c7">
+<li local-id=3D"c5c9c22d-e97a-4828-a886-9f162ea083e4">
+<p local-id=3D"c7cb23c9-cdaa-4d9b-91e1-18858fe5c769"><strong>Default Partit=
+ion:</strong> A default partition will capture data that does not fall into=
+ any specific range.</p></li>
+</ol>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">Sample
+CREATE TABLE transaction_child_default
+PARTITION OF transaction_child DEFAULT;</pre>
+</div>
+</div>
+<ol start=3D"4" local-id=3D"082aa9d0-6b31-4c99-b45f-b15952115b0d">
+<li local-id=3D"f557d60b-932c-4fff-9d5c-7937eb3b9baf">
+<p local-id=3D"62e9d0d0-9a78-49c5-a4e5-ba672f0f7a00"><strong>Sequence for I=
+D:</strong> A single sequence will be used for the <code>id</code> column a=
+cross all partitions for each table</p></li>
+</ol>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">CREATE =
+SEQUENCE IF NOT EXISTS transaction_child_id_seq AS BIGINT;
+
+ALTER TABLE transaction_child ALTER COLUMN id SET DEFAULT nextval('transact=
+ion_child_id_seq');</pre>
+</div>
+</div>
+<ol start=3D"5" local-id=3D"9320198a-92c8-4e98-9bcb-68f7fcf17a71">
+<li local-id=3D"6ac82f34-2d5d-4e74-946d-28ddd9405068">
+<p local-id=3D"f65f05a1-f717-4d76-ad6f-4e0eebfdf4b6"><strong>Detaching Olde=
+r Partitions: </strong>Partitions older than two months will be detached an=
+d archived or dropped, this operation is also done using pg_partman extensi=
+on in automated way.</p></li>
+</ol>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">ALTER T=
+ABLE partman.part_config
+    SET p_premake :=3D 2,  -- Number of partitions to pre-create (e.g., cur=
+rent + previous month)
+    p_retention :=3D '2 months', -- Retain only the current and previous mo=
+nth's partitions
+    p_retention_keep_table :=3D true; -- Automatically detach older partiti=
+ons instead of dropping them</pre>
+</div>
+</div>
+<p local-id=3D"a0623fe2-73b3-4d53-bcdc-75886c2342ba">5. <strong>Matching Qu=
+ery Updates </strong>: In existing queries we pass a field created_at as ad=
+ditional query param to improve query performance by checking specific part=
+ition only. In Axon as we release transaction for 7 days old transactions s=
+o will add query param value so as to get All matching transactions created=
+ in last 7 days only.</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">Sample =
+Query Update
+
+SELECT * FROM transaction_view WHERE tenant_id =3D $1 AND is_deleted =3D $2=
+=20
+AND payment_account_id =3D $3  AND processing_network_type =3D $4 =20
+AND settlement_date =3D $5  AND system_trace_audit_number =3D $6=20
+AND banknet_reference =3D $7
+AND created_at &gt;=3D (Date value in dd-mm-yyy - 7 days)</pre>
+</div>
+</div>
+<h3 local-id=3D"e5f8bec8-4f35-470f-8390-a19f3573eaa7" id=3D"TSD-ATSDataPart=
+itioning-Overview.1">Overview</h3>
+<p local-id=3D"08c85af3-ed78-495a-b154-a2ec3b7c3421">To address the challen=
+ges of handling large transaction data, partitioning the table by month bas=
+ed on the <code>created_at</code> timestamp is proposed.</p>
+<p local-id=3D"0c0e2881-d329-445b-bf44-c806e619be68">This approach will:</p=
+>
+<ol start=3D"1" local-id=3D"54bc8d24-beea-4394-b121-bf4d180a998c">
+<li local-id=3D"8213bda5-638d-44be-927d-8006d404b4ae">
+<p local-id=3D"6b78e254-618f-48cc-a9f2-228bfb6d3c07">Improve query performa=
+nce by targeting specific partitions.</p></li>
+<li local-id=3D"315af263-6b98-44c1-89d5-5a0bc958485e">
+<p local-id=3D"d51d4ceb-0544-48bc-9ebf-85bea53eed4d">Simplify data manageme=
+nt by detaching older partitions.</p></li>
+<li local-id=3D"d7d4656a-9927-4c3d-931c-ef4beee038ae">
+<p local-id=3D"613a1b57-cf93-4052-961d-35697e8c8fc2">Maintain compatibility=
+ with the current application by using the same table and column structure.=
+</p></li>
+</ol>
+<p local-id=3D"5b66abe2-861a-4182-99bc-3249f818fc9e">The partitioning will:=
+</p>
+<ul local-id=3D"aa9fa8ad-259e-4469-a401-e68bc8fc18ac">
+<li local-id=3D"4c79d3d0-c482-408c-88a7-666805b2d0d8">
+<p local-id=3D"80717f4c-8360-411a-9315-a7f6eb2202db">Use monthly partitions=
+.</p></li>
+<li local-id=3D"422076bc-c189-4893-8848-f645bd8a0af7">
+<p local-id=3D"f3bffbd2-b07f-4dd5-bfe8-0a0ca5d057ae">Include a default part=
+ition for edge-case data.</p></li>
+<li local-id=3D"498506d7-4c15-4e88-9712-2b0f7b0b245e">
+<p local-id=3D"5ce8cf28-c688-4374-944a-5efba67172b9">Retain the <code>id</c=
+ode> column as a primary key with a common sequence across all partitions t=
+o avoid duplicate IDs.</p></li>
+<li local-id=3D"be4c4e50-680a-4ff2-9431-879578654998">
+<p local-id=3D"fb8ed525-bdb8-4f6c-b202-86a9f2748354">Mirror the indexes of =
+the current table in all partitions for efficient query performance.</p></l=
+i>
+</ul>
+<h3 local-id=3D"e54a6190-2fdd-4b39-9736-76d18a01d402" id=3D"TSD-ATSDataPart=
+itioning-HLD">HLD</h3>
+<h3 local-id=3D"69e0eb9e-dd8b-489f-bd00-ce1aced79624" id=3D"TSD-ATSDataPart=
+itioning-ClassDiagram">Class Diagram</h3>
+<h3 local-id=3D"86f3b102-858f-4b0a-a313-4716fb0f2750" id=3D"TSD-ATSDataPart=
+itioning-SequenceDiagram">Sequence Diagram</h3>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"12=
+5d18ff-df95-458b-81f6-08a2375577d3" class=3D"confluenceTable">
+<tbody>
+<tr data-local-id=3D"ca805dcb-d250-4865-9c02-0c7bddaa9269">
+<th data-local-id=3D"500dcbc5-8e1a-42d4-bbe4-acd81b933952" class=3D"conflue=
+nceTh">
+<p local-id=3D"16345f3d-54ca-45ff-ac1d-b86abcaa54ea"><strong>Flow Name</str=
+ong></p></th>
+<th data-local-id=3D"d1cd1e19-6b01-4eca-8676-a81243f4628c" class=3D"conflue=
+nceTh">
+<p local-id=3D"e773aad9-426c-4047-af6b-ec6fb0b6be82"><strong>Flow Diagram</=
+strong></p></th>
+</tr>
+<tr data-local-id=3D"9afa75bd-8c39-4888-92b1-86b5f37a74ca">
+<td data-local-id=3D"ba887e27-6f87-456e-9cf5-b50178348038" class=3D"conflue=
+nceTd">
+<p local-id=3D"78a76fd3-4afd-4b1c-884f-85f665057d8b">ATS Database Partition=
+ing</p></td>
+<td data-local-id=3D"3e3f88e8-4678-448c-b7a0-962cc3317cca" class=3D"conflue=
+nceTd">
+<p local-id=3D"821aa2c5-34e6-4c26-9049-c4c916bd9cc7"><a class=3D"external-l=
+ink" data-card-appearance=3D"inline" href=3D"https://swimlanes.io/u/Ht3-mAK=
+YIi" local-id=3D"fffe3a64-33fe-4c2e-8169-099e6862ae4f" rel=3D"nofollow">htt=
+ps://swimlanes.io/u/Ht3-mAKYIi</a></p></td>
+</tr>
+</tbody>
+</table>
+</div><span class=3D"confluence-embedded-file-wrapper image-center-wrapper =
+confluence-embedded-manual-size"><img class=3D"confluence-embedded-image im=
+age-center" width=3D"468" loading=3D"lazy" src=3D"4d3788e79b2a2644c41bff722=
+23e2df84450096b68762296a907ec648ee13843" data-image-src=3D"https://zeta-tm.=
+atlassian.net/wiki/download/attachments/3575972495/Screenshot%202025-09-27%=
+20at%202.12.26%E2%80%AFPM.png?version=3D1&amp;modificationDate=3D1758962582=
+268&amp;cacheVersion=3D1&amp;api=3Dv2" data-height=3D"982" data-width=3D"15=
+12" data-unresolved-comment-count=3D"0" data-linked-resource-id=3D"41693021=
+30" data-linked-resource-version=3D"1" data-linked-resource-type=3D"attachm=
+ent" data-linked-resource-default-alias=3D"Screenshot 2025-09-27 at 2.12.26=
+=E2=80=AFPM.png" data-base-url=3D"https://zeta-tm.atlassian.net/wiki" data-=
+linked-resource-content-type=3D"image/png" data-linked-resource-container-i=
+d=3D"3575972495" data-linked-resource-container-version=3D"26" data-media-i=
+d=3D"f26f2648-e35b-4e2d-8ab0-d5dfe2b0d5fd" data-media-type=3D"file" height=
+=3D"303"></span>
+<p local-id=3D"80d43846-fdc3-4064-bcb9-728188a0b2d8"></p>
+<h3 local-id=3D"5204999f-1b46-4a97-8c6b-f0270ab8d755" id=3D"TSD-ATSDataPart=
+itioning-Database">Database</h3>
+<p local-id=3D"7a76bd00-d88c-4ca3-9259-5076d19f1207">Tables which are going=
+ to be partitioned as part of this process and other non partition tables w=
+hich we migrate as part of this process</p>
+<p local-id=3D"63a86a0a-eb0a-486d-813f-bb461d714def"></p>
+<h4 local-id=3D"34142920-f024-4e70-a30b-d8c5edf165ec" id=3D"TSD-ATSDataPart=
+itioning-Axon-Transaction-Database">Axon-Transaction-Database</h4>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"ed=
+a2f4d3-c222-4f6a-b3e3-7121e4319580" class=3D"confluenceTable">
+<colgroup>
+<col style=3D"width: 326.0px;">
+<col style=3D"width: 180.0px;">
+<col style=3D"width: 253.0px;">
+</colgroup>
+<tbody>
+<tr data-local-id=3D"0b065bd8-4ec2-4c41-8693-6242b8994981">
+<th data-local-id=3D"e150ac41-0605-4c74-933f-70959de16b07" class=3D"conflue=
+nceTh">
+<p local-id=3D"45a91808-258e-4889-8fac-06ed765e91d7"><strong>Table Name</st=
+rong></p></th>
+<th data-local-id=3D"9d6a6126-083e-448e-a98d-b3bc046940c1" class=3D"conflue=
+nceTh">
+<p local-id=3D"03cbbad6-2e12-4c78-a5bb-62fbdc2bac72"><strong> Is Partition =
+Table</strong></p></th>
+<th data-local-id=3D"e11956a2-c14a-49da-ad81-8c9a5ffb4460" class=3D"conflue=
+nceTh">
+<p local-id=3D"0bc308c7-651a-43df-974a-103b0cf2c923"><strong>Partition Colu=
+mn</strong></p></th>
+</tr>
+<tr data-local-id=3D"8ebac87f-20fa-4e47-8052-02bd29905851">
+<td data-local-id=3D"f5a25a9c-d3e3-4e5f-8ff6-166b73b9ef60" class=3D"conflue=
+nceTd">
+<p local-id=3D"dfc3c30a-ecf8-41aa-851f-99e3787610fd">transaction_child</p><=
+/td>
+<td data-local-id=3D"3468f86d-4da1-4dfc-bc7a-1e3d81d3b3e9" class=3D"conflue=
+nceTd">
+<p local-id=3D"1f4e4991-77ad-4b3a-8c4d-4ba29816dbb2">yes</p></td>
+<td data-local-id=3D"bc3b41c5-59cc-4ffd-9650-20ca9658cfdb" class=3D"conflue=
+nceTd">
+<p local-id=3D"c4991dad-897f-411f-887e-0b9c2fd0905f">created_at (Timestamp)=
+</p></td>
+</tr>
+<tr data-local-id=3D"ba6bb689-198c-47dc-9ab2-fb1bfcf98585">
+<td data-local-id=3D"efd7e020-21f7-46b2-96b4-78ce7114c19c" class=3D"conflue=
+nceTd">
+<p local-id=3D"cb034e54-86b7-4db7-b757-e80515423a3d">transaction_master</p>=
+</td>
+<td data-local-id=3D"c0f3e3a7-1428-4997-b194-384ba6479a45" class=3D"conflue=
+nceTd">
+<p local-id=3D"82358549-0ffc-43ff-944f-b2337e725321">yes</p></td>
+<td data-local-id=3D"55877c1e-c484-4aa7-a6f2-b9ad02a7a6dd" class=3D"conflue=
+nceTd">
+<p local-id=3D"367e487c-cb13-4579-b719-8165de5e9375">created_at (Timestamp)=
+</p></td>
+</tr>
+<tr data-local-id=3D"996d6f6d-a0f9-460a-8fb9-d3ef2e9d4290">
+<td data-local-id=3D"8c27135d-370b-42b5-8fb6-ccc1bdaa7ab6" class=3D"conflue=
+nceTd">
+<p local-id=3D"e4bd9657-a8de-4f41-a1c0-bbb4d0ba042d">outstanding_transactio=
+n_child</p></td>
+<td data-local-id=3D"01518587-bcf0-4521-9d91-ee69f62cb3bc" class=3D"conflue=
+nceTd">
+<p local-id=3D"ed498c55-8af8-4c22-871c-5534f6906eba">yes</p></td>
+<td data-local-id=3D"6280b44a-077e-4a2f-a238-50b2d14880ca" class=3D"conflue=
+nceTd">
+<p local-id=3D"f9ef2925-44ba-4d03-ba99-6701bab36261">created_at (Timestamp)=
+</p></td>
+</tr>
+<tr data-local-id=3D"3ae366c1-f2e8-4924-a94b-00886b9c4546">
+<td data-local-id=3D"8c4d8860-d3a8-491c-98a6-f5596f81c28a" class=3D"conflue=
+nceTd">
+<p local-id=3D"55143d6b-6d3f-41f0-8133-da43d7b80914">outstanding_transactio=
+n_master</p></td>
+<td data-local-id=3D"60e5414a-f1c2-478e-8a8d-e9126244c583" class=3D"conflue=
+nceTd">
+<p local-id=3D"1cc9218f-1bde-4f16-90d0-7e40170a687b">yes</p></td>
+<td data-local-id=3D"99694dfe-7af6-4260-9ec9-dcf400a58812" class=3D"conflue=
+nceTd">
+<p local-id=3D"a99178d5-2897-48e0-8fec-6d9955d002f6">created_at (Timestamp)=
+</p></td>
+</tr>
+<tr data-local-id=3D"0950f0b1-ceb3-45ca-902f-df4b5c2d8545">
+<td data-local-id=3D"4dcf54d5-1bb6-4266-b08b-a4fec0a2d550" class=3D"conflue=
+nceTd">
+<p local-id=3D"e7e99b1f-df14-40ab-bc53-4dae65ff6ab4">authorization_response=
+_description_mapping</p></td>
+<td data-local-id=3D"60c159a2-bac3-44b5-8e31-07bc1b1439d1" class=3D"conflue=
+nceTd">
+<p local-id=3D"16ffc0b4-3214-416e-9da2-e76260fc14ca">no</p></td>
+<td data-local-id=3D"edc67bea-7d15-402b-b4b3-ab9323d5eb6a" class=3D"conflue=
+nceTd">
+<p local-id=3D"95a2a1a2-b97e-4da3-a233-ec01a5e2c4b8">NA</p></td>
+</tr>
+<tr data-local-id=3D"2807cb19-966d-4910-97ad-f27596170a5d">
+<td data-local-id=3D"fac17714-9be8-4751-86ff-11dc2bc840ee" class=3D"conflue=
+nceTd">
+<p local-id=3D"45a4a296-9443-465c-98d7-364f4af1ac89">invalid_card_messages<=
+/p></td>
+<td data-local-id=3D"79886346-9642-4f1f-9f66-4967db3ea7b8" class=3D"conflue=
+nceTd">
+<p local-id=3D"b0490f1f-816f-4c0b-aa9f-9006e628fd1b">no</p></td>
+<td data-local-id=3D"c40c1c0a-d9e4-4680-9c95-362c4e251ce6" class=3D"conflue=
+nceTd">
+<p local-id=3D"61ecc1d0-426f-46ac-8715-88d970b5a3d0">NA</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 local-id=3D"259ea524-941d-4bd6-9ac1-18070b2c1e11" id=3D"TSD-ATSDataPart=
+itioning-ImpactedQueries">Impacted Queries</h3>
+<p local-id=3D"8bdd5327-4be4-4a8f-af5a-eafb07fbc7dd">Created_at filter is i=
+ntroduced in mentioned queries and controlled by environment to add or not<=
+/p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"c2=
+9ec695-5c3d-47c9-ac74-3fda8fa2de23" class=3D"confluenceTable">
+<tbody>
+<tr data-local-id=3D"c1b6b414-1275-4f32-94f7-68dc23e57e44">
+<th data-local-id=3D"e8b1c6a3-9996-4b43-8134-186f6987611d" class=3D"conflue=
+nceTh">
+<p local-id=3D"0a7681f4-40d2-4ad8-8320-33a0bc52ac20"><strong>Query Info</st=
+rong></p></th>
+<th data-local-id=3D"d378ecc2-7658-4507-9b89-7f3876ccdefe" class=3D"conflue=
+nceTh">
+<p local-id=3D"d4365525-811f-4cf4-9614-da93631d3d3a"><strong>Impact</strong=
+></p></th>
+<th data-local-id=3D"7e882342-6f14-47d7-9c2e-2b4e17982069" class=3D"conflue=
+nceTh">
+<p local-id=3D"c51a4264-3c1d-4a62-901d-69ec10c44ddf"><strong>Impact Details=
+</strong></p></th>
+</tr>
+<tr data-local-id=3D"b0616d3e-80b5-458f-9a4f-1c21a22c2658">
+<td data-local-id=3D"7b20bb5d-1ee7-4625-988e-b67f04531467" class=3D"conflue=
+nceTd">
+<p local-id=3D"8f446e8b-2f90-4b0f-bd79-e46884a7a423">INSERT Queries</p></td=
+>
+<td data-local-id=3D"b65d3cd7-ff3a-4d9f-ba57-e692852bd745" class=3D"conflue=
+nceTd">
+<p local-id=3D"a9be479d-062e-40fd-ab23-766fabfe3cf0">No Impact</p></td>
+<td data-local-id=3D"cb7c2f51-85c3-4813-a287-f474b1c3c5c9" class=3D"conflue=
+nceTd">
+<p local-id=3D"70f8ade1-b5a4-4078-8b09-6439c3adde33"></p></td>
+</tr>
+<tr data-local-id=3D"fd9811c5-fa2c-4179-9183-fcfdaf723ee8">
+<td data-local-id=3D"49386e0c-95ea-40c5-8df2-05600c5138d1" class=3D"conflue=
+nceTd">
+<p local-id=3D"3a877619-8b10-4bcb-bc4a-6db37c3c492d">SELECT Queries used in=
+ matching</p></td>
+<td data-local-id=3D"8c108604-7467-4af3-80de-5e448f9e0df7" class=3D"conflue=
+nceTd">
+<p local-id=3D"dcea8fbc-91e3-46d6-8ca7-aa237c0dcba2">Impacted</p></td>
+<td data-local-id=3D"0e5d79dc-d2c8-4f98-86c0-79ca122fbce1" class=3D"conflue=
+nceTd">
+<p local-id=3D"57b229b3-6fcc-4e05-84c6-f2b40a7c4050">Introducing created_at=
+ column in where clause</p></td>
+</tr>
+<tr data-local-id=3D"2fd87f9c-64b0-4af6-be7e-ea6f97ac11f4">
+<td data-local-id=3D"54267e85-ac7e-42ab-99a7-b59bb899bd9c" class=3D"conflue=
+nceTd">
+<p local-id=3D"4ff49b43-d3b7-4bf2-b4b2-487b88122f48">UPDATE Queries used in=
+ matching flows</p></td>
+<td data-local-id=3D"bda61834-b961-4572-957b-9182e63722f3" class=3D"conflue=
+nceTd">
+<p local-id=3D"9d62787a-8a76-4b67-861b-5d9f70888c50">Impacted</p></td>
+<td data-local-id=3D"6e2fe7af-040f-4158-8a3d-488347c00613" class=3D"conflue=
+nceTd">
+<p local-id=3D"d2ce30e3-4b9c-4649-b670-f712875c5158">Introducing created_at=
+ column in where clause</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 local-id=3D"f04b9fbe-0fff-4edc-b1de-db67e3e69716" id=3D"TSD-ATSDataPart=
+itioning-ClientInterfaces">Client Interfaces</h3>
+<h3 local-id=3D"b6557f21-4353-4a6b-8ddc-7713680b237c" id=3D"TSD-ATSDataPart=
+itioning-NonFunctionalRequirements">Non Functional Requirements</h3>
+<h4 local-id=3D"7f221786-76b5-44e4-a8c4-9580972d3802" id=3D"TSD-ATSDataPart=
+itioning-SensitiveData">Sensitive Data</h4>
+<h4 local-id=3D"a81570af-5a43-4b04-b4f7-be6f779b8aca" id=3D"TSD-ATSDataPart=
+itioning-Traceability">Traceability</h4>
+<h4 local-id=3D"1a13d2fe-6897-4110-8004-825ff232d018" id=3D"TSD-ATSDataPart=
+itioning-Logging">Logging</h4>
+<p local-id=3D"5cdcd948-b6e7-4255-bfea-f891991d9abd"></p>
+<h4 local-id=3D"2932d760-cf1e-4d0c-96ef-9539ab9dcda5" id=3D"TSD-ATSDataPart=
+itioning-Metrics">Metrics</h4>
+<h3 local-id=3D"091bb902-732e-4cc5-82bc-2d036ae83e79" id=3D"TSD-ATSDataPart=
+itioning-ConfigurationManaged">Configuration Managed</h3>
+<h3 local-id=3D"f0b7eb2b-0086-4ed1-8126-6b3fc9e7e3a7" id=3D"TSD-ATSDataPart=
+itioning-DeploymentProcess">Deployment Process</h3>
+<h2 local-id=3D"28116e3a-1d8b-4f18-b71a-86561a1eea51" id=3D"TSD-ATSDataPart=
+itioning-References">References</h2>
+<p local-id=3D"71b6aa9d-6f86-4062-bccf-6553486d8711"><a href=3D"https://zet=
+a-tm.atlassian.net/wiki/spaces/JUP/pages/3095626021/PostgreSQL+-+Partitioni=
+ng+-+Template" data-linked-resource-id=3D"3095626021" data-linked-resource-=
+version=3D"2" data-linked-resource-type=3D"page">PostgreSQL - Partitioning =
+- Template</a></p>
+<p local-id=3D"d251401c-9755-4789-bc12-27bae1fde695"></p>
+<p local-id=3D"1c115b2a-c440-4261-a75a-8082f754f7ef">Database Created In UA=
+T:<br><span class=3D"confluence-jim-macro jira-issue" data-jira-key=3D"OSM-=
+24230" data-client-id=3D"SINGLE_9bad29cf-3f6c-323f-bb2d-ee4168aae247_357597=
+2495_63c6424ff6d42a7a46325039"> <a href=3D"https://zeta-tm.atlassian.net/br=
+owse/OSM-24230" class=3D"jira-issue-key"><span class=3D"aui-icon aui-icon-w=
+ait issue-placeholder"></span>OSM-24230</a> - <span class=3D"summary">Getti=
+ng issue details...</span> <span class=3D"aui-lozenge aui-lozenge-subtle au=
+i-lozenge-default issue-placeholder">STATUS</span> </span></p>
+<p local-id=3D"6cf8276d-a88a-426c-b350-30ca4a6b54d5"></p>
+<h3 local-id=3D"24d38470-d48e-4c2a-9395-02778fbabeae" id=3D"TSD-ATSDataPart=
+itioning-LogicalReplicationStatus:">Logical Replication Status:</h3>
+<p local-id=3D"46c3a0a7-259c-4f36-b5eb-a65673ced0c7"></p>
+<h4 local-id=3D"f7738a18-a16a-474f-8c34-851c827c5e85" id=3D"TSD-ATSDataPart=
+itioning-UATandPROD">UAT and PROD</h4>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"8c=
+0593c7-9dff-44cb-aef0-826e076511be" class=3D"confluenceTable">
+<tbody>
+<tr data-local-id=3D"d734ce79-9f63-40ae-adf2-99afca10a003">
+<th data-local-id=3D"0614a2b8-bfd8-47a5-96cc-03d48ade5edd" class=3D"conflue=
+nceTh">
+<p local-id=3D"334f9da7-ce27-4371-93eb-c6044ff32a4a"><strong>Table Name</st=
+rong></p></th>
+<th data-local-id=3D"f23d572c-cc21-4a95-adfb-780716a59c00" class=3D"conflue=
+nceTh">
+<p local-id=3D"9a5a9176-da48-414e-b4f3-3212f0108c16"><strong>Partition Requ=
+ired</strong></p></th>
+<th data-local-id=3D"6e6260b4-5745-4481-9feb-21f11661610a" class=3D"conflue=
+nceTh">
+<p local-id=3D"6baa4d0a-dac4-43de-a302-40b1a83ebfc9"><strong>UAT-Partition =
+table Created</strong></p></th>
+<th data-local-id=3D"2f090c8e-7205-4cf2-8cb1-b710f89a0048" class=3D"conflue=
+nceTh">
+<p local-id=3D"22087fee-dd11-48dd-aad1-311af2ef9e83"><strong>UAT-Replicatio=
+n Status</strong></p></th>
+<th data-local-id=3D"2d03321a-ee6c-4929-8a3d-ae9cf911911c" class=3D"conflue=
+nceTh">
+<p local-id=3D"6361b1f6-c001-4bb1-a5fb-75c20feecac4"><strong>PROD-Partition=
+ table Created</strong></p></th>
+<th data-local-id=3D"61f1c328-dcdc-48df-b7a5-5b6dc9ad7b2e" class=3D"conflue=
+nceTh">
+<p local-id=3D"7c3a1d65-8c45-4d28-8b78-6250c91cb90d"><strong>PROD-Partition=
+ table Created</strong></p></th>
+</tr>
+<tr data-local-id=3D"ef5fc167-e059-4a13-ae31-7ddeaadd48a6">
+<td data-local-id=3D"f46abe00-680a-4b72-bf5d-87031fd0f971" class=3D"conflue=
+nceTd">
+<p local-id=3D"34d8c5b0-e4d2-4a7e-a273-1018f50d6c00"><code>archive_automate=
+d_outstanding_transaction_child</code></p></td>
+<td data-local-id=3D"be9af63f-8d36-4fb7-b099-7f3d412ed053" class=3D"conflue=
+nceTd">
+<p local-id=3D"184d713a-6eba-4dd6-bdfa-e3bc938d606d">NO</p></td>
+<td data-local-id=3D"ef746d4e-9ca3-403a-83ae-035b9d4a8671" class=3D"conflue=
+nceTd">
+<p local-id=3D"75da903c-e77f-4538-9c99-7d4e29309572">NA</p></td>
+<td data-local-id=3D"bf7a507f-41f6-4b2b-ba40-4dc1a009d181" class=3D"conflue=
+nceTd">
+<p local-id=3D"f0c7be2e-5cf6-4780-ac3a-6a450beacf1f">NA</p></td>
+<td data-local-id=3D"b8f3bd62-cb20-4e1e-98b4-c8180658fc82" class=3D"conflue=
+nceTd">
+<p local-id=3D"362ef3a8-7fe8-4478-aad4-9ebb3608d497"></p></td>
+<td data-local-id=3D"30ae9802-a9ef-47ce-a121-9152449692c5" class=3D"conflue=
+nceTd">
+<p local-id=3D"3dc4d1bb-58c0-408b-8265-a2f328cebb07"></p></td>
+</tr>
+<tr data-local-id=3D"f01ce4a1-4e11-47fe-9932-9acd34fec353">
+<td data-local-id=3D"afc3177d-b5a9-4b7c-a3b9-6618fb292b65" class=3D"conflue=
+nceTd">
+<p local-id=3D"0109262b-610b-4bb7-913e-d671a8240c98"><code>archive_automate=
+d_outstanding_transaction_master</code></p></td>
+<td data-local-id=3D"300f9a38-9148-4d82-a0d2-18692736bc69" class=3D"conflue=
+nceTd">
+<p local-id=3D"1fb2d4cc-17f3-4399-8b8c-64f714a4a7c4">NO</p></td>
+<td data-local-id=3D"c340efc4-bc23-44ef-824c-0a8898fb40c7" class=3D"conflue=
+nceTd">
+<p local-id=3D"6249486b-3ef8-4164-8ac8-43377afd439d">NA</p></td>
+<td data-local-id=3D"afca259f-b633-4dde-a39d-0cff9b89310b" class=3D"conflue=
+nceTd">
+<p local-id=3D"f44c84df-23f4-405e-ac23-550e230f8763">NA</p></td>
+<td data-local-id=3D"c6c69690-f77f-4186-ae0e-b39bb30f0e19" class=3D"conflue=
+nceTd">
+<p local-id=3D"4976a88c-8819-4d5a-aac8-a0371a3e7d9b"></p></td>
+<td data-local-id=3D"a63e5c6d-7384-4091-99b1-3b55d632133d" class=3D"conflue=
+nceTd">
+<p local-id=3D"2905d494-4e07-4e22-a1f1-3f59d0053ab4"></p></td>
+</tr>
+<tr data-local-id=3D"2d5133bd-1a6b-41ee-abb6-4a726be7385d">
+<td data-local-id=3D"854c8baa-f0e9-4728-a79f-b016bc295c49" class=3D"conflue=
+nceTd">
+<p local-id=3D"dd691983-4c98-4291-9cce-0939730cbde6"><code>archive_automate=
+d_transaction_child</code></p></td>
+<td data-local-id=3D"2aeb34ac-54ec-49a9-8738-351e14e5c9fb" class=3D"conflue=
+nceTd">
+<p local-id=3D"681a5854-21bd-4faf-abc8-bf271275a8b5">NO</p></td>
+<td data-local-id=3D"c3ce29ca-37d3-4fec-b2c6-2ae6dadb5f1d" class=3D"conflue=
+nceTd">
+<p local-id=3D"61eadade-a76c-448f-8946-d4fd264bba73">NA</p></td>
+<td data-local-id=3D"7eeeea24-15d3-4e81-8098-8d3d98e7ed13" class=3D"conflue=
+nceTd">
+<p local-id=3D"c839ef43-82d9-4d01-964f-66752b0c90f8">NA</p></td>
+<td data-local-id=3D"50444cac-c07f-4673-957a-a679b646bca5" class=3D"conflue=
+nceTd">
+<p local-id=3D"1ad79d29-71f0-4671-b475-7e9e4723f4c9"></p></td>
+<td data-local-id=3D"9a80aaf9-162d-442a-afee-255b3118b461" class=3D"conflue=
+nceTd">
+<p local-id=3D"8e74e8f7-de59-4541-9769-7bca0b7689af"></p></td>
+</tr>
+<tr data-local-id=3D"275cc231-5f40-447c-bc76-39525531b8a4">
+<td data-local-id=3D"6efd2ff0-3f83-48b6-9f9c-2f16fc9222d0" class=3D"conflue=
+nceTd">
+<p local-id=3D"7bac1221-7ea1-4c75-aed9-8e3eb33dd160"><code>archive_automate=
+d_transaction_master</code></p></td>
+<td data-local-id=3D"812fac5b-00a6-41b9-93f6-50957bb3eab7" class=3D"conflue=
+nceTd">
+<p local-id=3D"478135be-4016-4179-a142-de4604480364">NO</p></td>
+<td data-local-id=3D"8e4339fb-7c1e-48af-a400-bac80cd6cb43" class=3D"conflue=
+nceTd">
+<p local-id=3D"01c4b0cb-15af-42e3-a1b1-0e392c8656a3">NA</p></td>
+<td data-local-id=3D"d9b7af60-d6a3-45b9-933e-24a40f98ab7a" class=3D"conflue=
+nceTd">
+<p local-id=3D"0bdd61fb-1d3b-4f95-b732-5bf8b82ac11a">NA</p></td>
+<td data-local-id=3D"aa1015b5-e0ee-4273-95a3-36f594f7c8b8" class=3D"conflue=
+nceTd">
+<p local-id=3D"8dfa0ac0-6588-4188-8330-1d6ede7b4344"></p></td>
+<td data-local-id=3D"f2e84ca7-94dc-403a-8834-a538d76502c1" class=3D"conflue=
+nceTd">
+<p local-id=3D"33f0d743-717d-4dc2-a2e0-cae2adf92b78"></p></td>
+</tr>
+<tr data-local-id=3D"47975540-4d01-4325-a3a3-261fc4e558e2">
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"8=
+314cec4-16a9-4a98-b8de-4544726322ee" class=3D"confluenceTd">
+<p local-id=3D"98690f95-d3fd-43cf-be9f-6d321b004d12"><code>authorization_re=
+sponse_description_mapping</code></p></td>
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"d=
+2831af9-6cd5-4bd2-91f8-5be12e74f181" class=3D"confluenceTd">
+<p local-id=3D"97af1b3e-1e6f-4bab-943a-9e4416d0a2bc">NO</p></td>
+<td data-local-id=3D"c6816cc0-d8e7-42d3-b1da-447b63b67bae" class=3D"conflue=
+nceTd">
+<p local-id=3D"ca83d125-ff35-4899-b472-e07da07520db">NA</p></td>
+<td data-local-id=3D"038d654e-fd76-41c2-a22f-231f3f68a605" class=3D"conflue=
+nceTd">
+<p local-id=3D"60da357f-3379-42df-a507-d21638b0d963">NA</p></td>
+<td data-local-id=3D"763d56c6-5676-40fb-838d-36a4b05edb60" class=3D"conflue=
+nceTd">
+<p local-id=3D"29f638de-646d-44d1-9180-c62bd0ad5aed"></p></td>
+<td data-local-id=3D"9e3e9a27-3ab9-4687-ae1e-df89329541ee" class=3D"conflue=
+nceTd">
+<p local-id=3D"e1d7bab0-480c-4866-921e-af6abb9cd938"></p></td>
+</tr>
+<tr data-local-id=3D"73e35df2-50bc-4d0d-8553-d9e52eca1cec">
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"5=
+2c939b5-bd3a-4fdd-83b7-17cdf31822c9" class=3D"confluenceTd">
+<p local-id=3D"6c8ce59b-9eda-4806-9921-50bb9d35dedc"><code>echo_message</co=
+de></p></td>
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"0=
+b6c8f56-888f-4cb9-88ee-4744e6229dce" class=3D"confluenceTd">
+<p local-id=3D"43e5248c-2a65-4425-a830-7db603ab0556">NO</p></td>
+<td data-local-id=3D"dd55edec-4f16-405f-8b5a-076894c339b0" class=3D"conflue=
+nceTd">
+<p local-id=3D"4fb720ad-cde6-47f3-8c02-c673e0fa9025">NA</p></td>
+<td data-local-id=3D"8dbb2681-60ad-41b4-a3c7-78e889609c57" class=3D"conflue=
+nceTd">
+<p local-id=3D"c051b0e5-e956-4c14-988e-60f92a414e1c">NA</p></td>
+<td data-local-id=3D"7bee926c-0716-4803-977e-01a2c32303ad" class=3D"conflue=
+nceTd">
+<p local-id=3D"5d428898-848b-42bb-a8db-4b604366b2f2"></p></td>
+<td data-local-id=3D"c4a9bbb6-8f5a-4113-ab0a-0854e082def2" class=3D"conflue=
+nceTd">
+<p local-id=3D"15ab08a4-6722-492d-ba07-b9afe558a3c1"></p></td>
+</tr>
+<tr data-local-id=3D"ed92e3d0-15d4-44e8-bedb-8496302ba900">
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"f=
+c1174c2-a504-4458-ace1-e7dcb235d1c0" class=3D"confluenceTd">
+<p local-id=3D"fea81705-b88a-4dca-bcc2-cbef0f256fca"><code>invalid_card_mes=
+sage</code></p></td>
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"a=
+b968768-c413-4d04-94d2-8ab9f897c668" class=3D"confluenceTd">
+<p local-id=3D"2c0cc74c-7043-4ed2-8de5-dd0f74f509af">NO</p></td>
+<td data-local-id=3D"7d23bd67-e993-4bde-afea-c9b1f97bbd29" class=3D"conflue=
+nceTd">
+<p local-id=3D"3db59f29-48be-4802-9af1-469b732cbe14">NA</p></td>
+<td data-local-id=3D"88310380-92c6-4fa4-9267-4a0eedeec0d1" class=3D"conflue=
+nceTd">
+<p local-id=3D"3dddf9b1-7ce6-439d-9b18-68d14bea06de">NA</p></td>
+<td data-local-id=3D"1804b053-2a8f-491c-93bd-94d226b17250" class=3D"conflue=
+nceTd">
+<p local-id=3D"c32dd26d-7bea-4326-bc2c-b97b9f6618a0"></p></td>
+<td data-local-id=3D"3f3c7938-d74e-427a-bc18-588b4232f56e" class=3D"conflue=
+nceTd">
+<p local-id=3D"0365bf15-763d-4e35-8344-5e6e3a1ff2ac"></p></td>
+</tr>
+<tr data-local-id=3D"23abfdb0-e865-4c4a-be2e-4d050b39a4aa">
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"1=
+d50bf50-4dc2-4517-9387-49298b891ee8" class=3D"confluenceTd">
+<p local-id=3D"848cf71a-0738-473a-9dae-40c8954e95d9"><code>outstanding_tran=
+saction_child</code></p></td>
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"c=
+8e532cb-9847-4e3f-baa2-685283d1aa00" class=3D"confluenceTd">
+<p local-id=3D"5f957a55-16d0-4763-a19c-0a97db469721">YES</p></td>
+<td data-local-id=3D"5be73048-4820-41b3-8e66-3e34a98c562c" class=3D"conflue=
+nceTd">
+<p local-id=3D"cad80d89-b083-49e3-861a-b63ea3fb43cb">YES</p></td>
+<td data-local-id=3D"ea4b3fdf-d439-4a18-bd84-5dcc1ee9c78b" class=3D"conflue=
+nceTd">
+<p local-id=3D"da85eb09-8136-417d-8d2f-c039fe852394">RUNNING</p></td>
+<td data-local-id=3D"260d50ff-f904-4edd-a562-60228e8ef0b9" class=3D"conflue=
+nceTd">
+<p local-id=3D"61190ec7-52ec-4450-973b-85d9189297c1"></p></td>
+<td data-local-id=3D"2a08e626-d033-403a-a1e7-67ec088342d1" class=3D"conflue=
+nceTd">
+<p local-id=3D"ed0ce940-25ce-48e8-b09d-6eb15b9432ff"></p></td>
+</tr>
+<tr data-local-id=3D"ebef55e6-d1e8-436b-8798-ee0a40fa17ef">
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"4=
+cc5a4be-f08f-433f-8553-4e6a51f2fda3" class=3D"confluenceTd">
+<p local-id=3D"8b196330-2240-45a1-979a-e6e73368fe9c"><code>transaction_chil=
+d</code></p></td>
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"b=
+ce309b2-369e-4c20-872f-e1d0777cff95" class=3D"confluenceTd">
+<p local-id=3D"f046e6c9-b97a-4d34-8540-9784a739d9aa">YES</p></td>
+<td data-local-id=3D"11525c7f-2e99-4317-a7d6-bdc82757e2e2" class=3D"conflue=
+nceTd">
+<p local-id=3D"b1b44afe-828e-4597-bce3-351aaf6e945d">YES</p></td>
+<td data-local-id=3D"dda133b2-7050-4a29-bda8-2ae149566582" class=3D"conflue=
+nceTd">
+<p local-id=3D"fe63dc59-dcda-465d-b811-9d867097d137">RUNNING</p></td>
+<td data-local-id=3D"c2c5578e-1be5-4902-b451-65ff7d658155" class=3D"conflue=
+nceTd">
+<p local-id=3D"74e379c2-e090-47ed-8eef-414b2fbc7743"></p></td>
+<td data-local-id=3D"8dbc0655-1292-43c3-badd-3acbc631de57" class=3D"conflue=
+nceTd">
+<p local-id=3D"1a4d1433-f10e-4e4f-9ba1-b7ef2949ca69"></p></td>
+</tr>
+<tr data-local-id=3D"f0325845-c90e-4955-a1e9-7fcec07d0209">
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"c=
+42e536c-0363-449b-9ea4-0005ea97654b" class=3D"confluenceTd">
+<p local-id=3D"f637f0af-43f5-4564-bbaf-bcd74723f64a"><code>outstanding_tran=
+saction_master</code></p></td>
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"0=
+fe2a0a2-44ad-4a3b-979a-787f762cefd5" class=3D"confluenceTd">
+<p local-id=3D"5673167c-8f92-47b6-8646-1e6ea98398c8">YES</p></td>
+<td data-local-id=3D"21650c95-589d-43b8-b9d7-123ea4f952b7" class=3D"conflue=
+nceTd">
+<p local-id=3D"c4cbee18-b5e8-456d-af35-a20535d66f1b">YES</p></td>
+<td data-local-id=3D"00c9c3fc-b46f-4450-b28f-a69be8a3468f" class=3D"conflue=
+nceTd">
+<p local-id=3D"139c97b0-0169-4189-ada6-1765d152ba2c">RUNNING</p></td>
+<td data-local-id=3D"4bbe16d5-5182-4bbd-a0d0-9c327290e2ef" class=3D"conflue=
+nceTd">
+<p local-id=3D"5d281d8e-addd-4c20-b3f0-b41a37fae645"></p></td>
+<td data-local-id=3D"cea91dee-f193-47fc-a548-b1a4e8874592" class=3D"conflue=
+nceTd">
+<p local-id=3D"ca54a9a1-2129-400f-85cd-8e42b77f09bd"></p></td>
+</tr>
+<tr data-local-id=3D"c0fb5471-89b6-4db6-8a20-1e02142ee850">
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"5=
+dc687b8-f1b7-44ed-82d6-896353f79412" class=3D"confluenceTd">
+<p local-id=3D"36e012b1-4699-4b32-a3b6-4dd06c1d6e23"><code>transaction_mast=
+er</code></p></td>
+<td data-highlight-colour=3D"var(--ds-surface, #FFFFFF)" data-local-id=3D"e=
+d2046b0-9aa9-4fab-aa8d-9803596fb2c5" class=3D"confluenceTd">
+<p local-id=3D"b857efec-dfca-4555-bf85-82941ab41985">YES</p></td>
+<td data-local-id=3D"f3536c32-575f-410d-b951-f74bee8453b6" class=3D"conflue=
+nceTd">
+<p local-id=3D"076e5aca-489e-45d2-ad23-86ced5f2b0e6">YES</p></td>
+<td data-local-id=3D"d73c33ca-dbbb-4488-86c3-f304767cabb5" class=3D"conflue=
+nceTd">
+<p local-id=3D"04c3e3dd-8db0-4dd8-b088-39a86c1cbc31">RUNNING</p></td>
+<td data-local-id=3D"335c5580-81eb-4e8b-8e7c-2f4ef6004f31" class=3D"conflue=
+nceTd">
+<p local-id=3D"1b72784a-42e5-4db0-9b85-3b2af80c3e6e"></p></td>
+<td data-local-id=3D"b67602e5-9500-4469-a91e-7f39341afb5c" class=3D"conflue=
+nceTd">
+<p local-id=3D"75b069db-9d79-4880-a0aa-ff3616019457"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 local-id=3D"6981f5a0-7f0f-4657-8903-a2ffa8218b97" id=3D"TSD-ATSDataPart=
+itioning-DeploymentPlan"><br>
+Deployment Plan</h2>
+<p local-id=3D"96840671-ed4a-4986-9eb3-5267c3896d66"><span style=3D"backgro=
+und-color: rgb(220,223,228);">DownTime window 30 min. (Sometime in May Mont=
+h)</span></p>
+<h4 local-id=3D"1328fb2f-4c2a-4fe0-a709-1dac24ca92a2" id=3D"TSD-ATSDataPart=
+itioning-UATSteps:">UAT Steps:</h4>
+<ol start=3D"1" local-id=3D"4a3ad9a2-376a-4560-b4ae-2a6efafd8dea">
+<li local-id=3D"e881d59e-f4b7-4759-88d4-12e4b564c1cd">
+<p local-id=3D"c7cd4119-64be-4f64-a3c9-fe17624c9ba2">Dev Team: Pause transa=
+ctionIntermediate subscription &amp;&amp; transactionResponseTime subscript=
+ion.</p></li>
+<li local-id=3D"947e6865-6755-42af-bb3b-3adc0776c9a8">
+<p local-id=3D"7e8fa4e5-f5ed-4a5a-b1b3-1c0acf6a2c20">Dev Team: Stop ATS and=
+ ATS-webhook services</p></li>
+<li local-id=3D"8618c4c1-f7a4-46ef-92a8-2043999cda72">
+<p local-id=3D"e8b49cf9-874a-427a-90c3-62d9fb82f32e">DB Team: Validate repl=
+ication lags and sync pending records , if lag is present (wait for it to h=
+appen automatic or can be done manually as well).</p></li>
+<li local-id=3D"d960f110-1a95-41e3-8f03-25308f6236e0">
+<p local-id=3D"01d29101-198f-4a09-9454-f6626665b04b">DB Team: Updating old =
+DB to only read <a class=3D"external-link" href=3D"http://mode.No" rel=3D"n=
+ofollow">mode.</a> (<strong>Enable: No Login Mode)</strong></p></li>
+<li local-id=3D"4ffed421-7d12-45ea-8956-4aa54f7e7f42">
+<p local-id=3D"f83b9121-a857-4be3-b6df-5934784eaf12">Dev Team: Update seque=
+nces in new DB with values from Old DB, to start sequence value from where =
+it was left in old DB.</p></li>
+<li local-id=3D"3bc0b90d-be8f-4ed9-a5c0-33f8f77de651">
+<p local-id=3D"bf36da7b-012a-4584-b435-8785efefe8d3">Dev Team: Update PG-De=
+lta to connect to new DB</p></li>
+<li local-id=3D"76af6630-0251-4224-bf43-8f52ec60894b">
+<p local-id=3D"b4b6c5bc-d53d-463d-ab04-c8be182e29bf">Dev Team: Deploy Appli=
+cations with new changes related to DB partitioning.</p></li>
+<li local-id=3D"da3af698-6e56-4cab-b174-41b1620856e8">
+<p local-id=3D"b541b617-1f95-4246-9a51-8529e55d9388">Dev Team: Restart ATS =
+and ATS-webhook services</p></li>
+<li local-id=3D"e3618c60-1713-4c03-9cdf-609475f8be0c">
+<p local-id=3D"486d9299-a3d7-4ea8-a316-c2aa335e8a4f">Dev Team: Do sanity by=
+ running release transaction api and sample transactions</p></li>
+</ol>
+<p local-id=3D"ed6ce8f8-3e6f-47ca-b875-430d6b94e0f4"></p>
+<h4 local-id=3D"0ba222b3-b828-44f6-8a67-3d0779bc81f3" id=3D"TSD-ATSDataPart=
+itioning-ProdDeploymentSteps">Prod Deployment Steps</h4>
+<h5 local-id=3D"cb071a31-aaf6-4a56-b018-66ae18a1a38b" id=3D"TSD-ATSDataPart=
+itioning-DEV,SRE,DBandQATeam">DEV, SRE , DB and QA Team <a class=3D"conflue=
+nce-userlink user-mention" data-account-id=3D"712020:079d96bf-1d77-4916-839=
+2-afda2d17bf53" href=3D"https://zeta-tm.atlassian.net/wiki/people/712020:07=
+9d96bf-1d77-4916-8392-afda2d17bf53?ref=3Dconfluence" target=3D"_blank" data=
+-linked-resource-id=3D"2943419675" data-linked-resource-version=3D"1" data-=
+linked-resource-type=3D"userinfo" data-base-url=3D"https://zeta-tm.atlassia=
+n.net/wiki">ANIL BANDI</a> <a class=3D"confluence-userlink user-mention" da=
+ta-account-id=3D"62d00d7dc4c3be001fb591f8" href=3D"https://zeta-tm.atlassia=
+n.net/wiki/people/62d00d7dc4c3be001fb591f8?ref=3Dconfluence" target=3D"_bla=
+nk" data-linked-resource-id=3D"2760999774" data-linked-resource-version=3D"=
+1" data-linked-resource-type=3D"userinfo" data-base-url=3D"https://zeta-tm.=
+atlassian.net/wiki">VINAYAK JAIN</a></h5>
+<p local-id=3D"85c95b99-9e36-4634-88b9-8720b942f081"><strong>Down Time wind=
+ow 30 min. (Q2 release)</strong></p>
+<p local-id=3D"ffc1bd7d-070c-4bcd-893e-949c8401afeb"><br><span style=3D"bac=
+kground-color: rgb(220,223,228);">Note: SRE Team: During cutover any failur=
+e, rollback to old DB and fallback to previous state</span><br><span style=
+=3D"background-color: rgb(220,223,228);">--------In first 10min--------</sp=
+an></p>
+<ol start=3D"1" local-id=3D"d057d791-1258-4111-8a40-2922993d4ec6">
+<li local-id=3D"23d07e98-5612-4c10-9988-d03811cad310">
+<p local-id=3D"5fd2e4a7-238c-43f6-a8d0-cd30bff88606">SRE Team: Pause transa=
+ctionIntermediate subscription &amp;&amp; transactionResponseTime subscript=
+ion. (Through API/ atropos-operator)</p></li>
+<li local-id=3D"599bd891-ebb3-468b-a498-b005a0b21e86">
+<p local-id=3D"5c245d3e-5eda-4845-8844-2d4084f390c6">SRE Team: Stop ATS and=
+ ATS-webhook services</p></li>
+<li local-id=3D"dcb220b1-ff62-4ee9-9849-d9c8ea52f4cd">
+<p local-id=3D"08d83708-d3cb-4ece-a433-e46d30d24820">SRE Team: Stop Transac=
+tion release jobs as well.</p></li>
+<li local-id=3D"9db6be4c-f404-4dc0-8501-6993e23059e0">
+<p local-id=3D"ec58abc8-1189-424a-a5c0-c36f649c5bbb">DB Team: Validate repl=
+ication lags and sync pending records , if lag is present (wait for it to h=
+appen automatic or can be done manually as well).</p></li>
+<li local-id=3D"a1fc9cfb-05d0-442a-9c14-bbb202aa3961">
+<p local-id=3D"9719a37a-43cb-4ae7-9aa6-968609bc3167">DB Team: Updating old =
+DB to only read mode.(<strong>Enable: No Login Mode)</strong><br>
+Add dashboards for db logs, app logs=E2=80=A6 <a class=3D"confluence-userli=
+nk user-mention" data-account-id=3D"712020:079d96bf-1d77-4916-8392-afda2d17=
+bf53" href=3D"https://zeta-tm.atlassian.net/wiki/people/712020:079d96bf-1d7=
+7-4916-8392-afda2d17bf53?ref=3Dconfluence" target=3D"_blank" data-linked-re=
+source-id=3D"2943419675" data-linked-resource-version=3D"1" data-linked-res=
+ource-type=3D"userinfo" data-base-url=3D"https://zeta-tm.atlassian.net/wiki=
+">ANIL BANDI</a></p></li>
+<li local-id=3D"26e60423-61d0-4d26-98ab-f4269187fbb7">
+<p local-id=3D"e22ea909-e773-4e30-a892-9e375e930bbe">Dev Team: Update seque=
+nces in new DB with values from Old DB, to start sequence value from where =
+it was left in old DB.</p></li>
+<li local-id=3D"dd6fe7fd-6e30-423a-ad27-e3315d3f7f7c">
+<p local-id=3D"b2b14855-acb5-45c3-98ad-97065a477eff">Dev Team: Update PG-De=
+lta to connect to new DB</p></li>
+</ol>
+<p local-id=3D"bfb7ed7a-4a1c-4063-9fcf-bbfa3849b962"><em><strong><span styl=
+e=3D"background-color: rgb(220,223,228);">In next 10 min, Once in above ste=
+ps are completed and verified, then proceed with below steps</span></strong=
+></em><br><br>
+7. SRE Team: Deploy Applications with new changes related to DB partitionin=
+g.<br>
+8. SRE Team: Restart ATS-webhook</p>
+<ol start=3D"9" local-id=3D"32151bb4-be79-4554-b62e-ea5b5a3eabb6">
+<li local-id=3D"cab2d317-f701-46c6-94df-b353577be38b">
+<p local-id=3D"e9fef27a-fd19-48b5-a602-1b8621c640b3">Dev Team: Do sanity by=
+ running release transaction api</p></li>
+<li local-id=3D"11d7eef9-6855-4710-9233-8b7668bb7aa7">
+<p local-id=3D"e751a859-8c06-43f2-a81f-a85e822bf8b7">Dev Team: If above ste=
+p is successful, then start ATS -&gt; Do sanity by running release transact=
+ion api, do sanity test by triggering auth transactions.</p></li>
+<li local-id=3D"f6468d80-65de-46f3-9daf-dec7a085c7de">
+<p local-id=3D"f2297527-6646-40ac-b088-be8557cc8a1d">Dev Team: If above ste=
+p is successful, then start transactionIntermediate subscription &amp;&amp;=
+ transactionResponseTime subscription. (Through API/ atropos-operator)</p><=
+/li>
+<li local-id=3D"93785946-78fc-4225-bd33-cec5a428e64a">
+<p local-id=3D"3883b981-7d6f-45ac-9e8a-dae06b47a9d7">SRE Team: Restart axon=
+-morpheus and axon-fis-mq-connector services as well.<br><br><strong><span =
+style=3D"background-color: rgb(223,216,253);">FailOver Steps</span></strong=
+><br>
+1. Enable Write access on old db<br>
+2.Revert Delta changes<br>
+3.Revert Axon-Transaction-Service <br>
+4.Restart Axon-Transaction-Service and Axon-Transaction-Webhooks<br>
+5. Enable Subscriptions</p></li>
+</ol>
+<h5 local-id=3D"27f9bef8-291a-465e-a77e-effbba4c960e" id=3D"TSD-ATSDataPart=
+itioning-QATeam:">QA Team: <a class=3D"confluence-userlink user-mention" da=
+ta-account-id=3D"63c7c1d3176040ff3bd1db30" href=3D"https://zeta-tm.atlassia=
+n.net/wiki/people/63c7c1d3176040ff3bd1db30?ref=3Dconfluence" target=3D"_bla=
+nk" data-linked-resource-id=3D"2876408401" data-linked-resource-version=3D"=
+1" data-linked-resource-type=3D"userinfo" data-base-url=3D"https://zeta-tm.=
+atlassian.net/wiki">Bijjam Suresh</a> <a class=3D"confluence-userlink user-=
+mention" data-account-id=3D"712020:3cc3863a-518b-49e6-a1a3-1056b83d9dce" hr=
+ef=3D"https://zeta-tm.atlassian.net/wiki/people/712020:3cc3863a-518b-49e6-a=
+1a3-1056b83d9dce?ref=3Dconfluence" target=3D"_blank" data-linked-resource-i=
+d=3D"3253700623" data-linked-resource-version=3D"1" data-linked-resource-ty=
+pe=3D"userinfo" data-base-url=3D"https://zeta-tm.atlassian.net/wiki">Vichar=
+apu Kumar</a> <br></h5>
+<p local-id=3D"77a7e375-f348-44c7-93c5-c30a44e6b6e6">Tests Case to be run:<=
+br>
+Before Changes live</p>
+<ol start=3D"1" local-id=3D"1037ab87-b93d-40ae-b0c7-71a01f0d2ef0">
+<li local-id=3D"74e7c14e-0c48-4c9a-a733-a2e10de8af27">
+<p local-id=3D"3ada3913-a8f0-4277-9179-a3a729bcb623">Sample transactions wi=
+th auth/advice/settlement matching transactions, should be run before chang=
+es live.</p></li>
+<li local-id=3D"b9170b6c-cf15-443f-b7b6-d0416a657056">
+<p local-id=3D"79a9066c-5eb5-4de7-9819-be20a948c7c8">Sample old transaction=
+s to be released.</p></li>
+</ol>
+<p local-id=3D"d089ee18-f2cf-443a-9040-bac4ef4005fc">After Changes live</p>
+<ol start=3D"1" local-id=3D"6c395a25-8083-4a3e-b5c2-f43059fc5cea">
+<li local-id=3D"42bb2bb6-b298-408b-9e35-ba7d4fc4094c">
+<p local-id=3D"07200aa9-d5d1-4962-854c-3920666e688b">Trigger Sample transac=
+tions with auth/advice/settlement matching transactions, should be run afte=
+r changes live. =E2=86=92 Any kind of switch works</p></li>
+<li local-id=3D"202b4094-f830-42d1-b807-4a46a565dd7c">
+<p local-id=3D"806a9bd6-020c-4708-a495-b510233c9b75">Validate transactions =
+are visible in both mobile and support center.(Matching logic validation is=
+ not priority at first)</p></li>
+<li local-id=3D"ef7a420f-4b93-4d8c-824d-9be2a66132cf">
+<p local-id=3D"e9b675d8-4985-4564-beed-ac0836bfeb29">Run release transactio=
+n api to see whether transactions are getting released or not.( Dev will ru=
+n this)</p></li>
+<li local-id=3D"5ccb480c-ebbf-46d3-a5fa-6e96ba4b5fe6">
+<p local-id=3D"0fbcca0a-045b-423f-89c3-54bd978f6006">Tests should be trigge=
+red from mock cards only</p></li>
+<li local-id=3D"e0b013e8-2d6c-40a0-9646-3e8c5a8f9616">
+<p local-id=3D"01a00514-66ab-411a-ae9f-2834c940a661">Should be able to see =
+old transactions which are triggered before changes live.</p></li>
+</ol>
+<h5 local-id=3D"2b87ff67-52ca-44ff-87b2-77416de3ac1b" id=3D"TSD-ATSDataPart=
+itioning-DBTeam">DB Team <a class=3D"confluence-userlink user-mention" data=
+-account-id=3D"6113b5d2a539cb0068fe7476" href=3D"https://zeta-tm.atlassian.=
+net/wiki/people/6113b5d2a539cb0068fe7476?ref=3Dconfluence" target=3D"_blank=
+" data-linked-resource-id=3D"2505081896" data-linked-resource-version=3D"1"=
+ data-linked-resource-type=3D"userinfo" data-base-url=3D"https://zeta-tm.at=
+lassian.net/wiki">PM Sreekanth</a></h5>
+<ol start=3D"1" local-id=3D"fb9bf2ff-e537-402f-bca7-43eafcc8e9ed">
+<li local-id=3D"a486c22e-c3bd-4fb5-bd95-0332761907b3">
+<p local-id=3D"0666ea84-4af2-4e3a-a475-c74db6b0319f">Before live: Query to =
+see if there is any valid data in default partitions tables by using is_del=
+eted=3Dtrue, if no records found clear these tables.</p></li>
+<li local-id=3D"ce66b0df-d787-4482-b21e-fbe008c9e09d">
+<p local-id=3D"5dad7389-a8b7-4ed0-8b0f-eab496cf3d12">Before Live<span style=
+=3D"background-color: rgb(220,223,228);">:Check if during this can we have =
+LR setup from New Db to Old DB. This is to ensure if something goes wrong f=
+all back to old db and it should have all data, So we might need this sync.=
+</span><br>
+DB Team to do reverse replica setup, before we restart our services. <a cla=
+ss=3D"confluence-userlink user-mention" data-account-id=3D"6113b5d2a539cb00=
+68fe7476" href=3D"https://zeta-tm.atlassian.net/wiki/people/6113b5d2a539cb0=
+068fe7476?ref=3Dconfluence" target=3D"_blank" data-linked-resource-id=3D"25=
+05081896" data-linked-resource-version=3D"1" data-linked-resource-type=3D"u=
+serinfo" data-base-url=3D"https://zeta-tm.atlassian.net/wiki">PM Sreekanth<=
+/a></p></li>
+<li local-id=3D"51cd1fb5-0027-4bba-ba10-7aea2fdb5dba">
+<p local-id=3D"803e762d-35f3-4a9d-ba55-198121633bf0">Once everything works,=
+ DB team to suggest a plan to move old DB to archives from that RDS instanc=
+e.</p></li>
+</ol>
+<p local-id=3D"39f1bfb3-adb0-4cb8-80e3-0a373aaac47a"></p>
+<h3 local-id=3D"acfb7497-203e-4497-a11a-873b349250a0" id=3D"TSD-ATSDataPart=
+itioning-LinkedTickets">Linked Tickets</h3>
+<p local-id=3D"948a63bb-b7b4-40d1-b3b6-2784c17c1c63"><span class=3D"conflue=
+nce-jim-macro jira-issue" data-jira-key=3D"OSM-25724" data-client-id=3D"SIN=
+GLE_9bad29cf-3f6c-323f-bb2d-ee4168aae247_3575972495_63c6424ff6d42a7a4632503=
+9"> <a href=3D"https://zeta-tm.atlassian.net/browse/OSM-25724" class=3D"jir=
+a-issue-key"><span class=3D"aui-icon aui-icon-wait issue-placeholder"></spa=
+n>OSM-25724</a> - <span class=3D"summary">Getting issue details...</span> <=
+span class=3D"aui-lozenge aui-lozenge-subtle aui-lozenge-default issue-plac=
+eholder">STATUS</span> </span></p>
+    </div>
+</body>
+</html>
+------=_Part_102_1359764206.1773584794781
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/4d3788e79b2a2644c41bff72223e2df84450096b68762296a907ec648ee13843
+
+iVBORw0KGgoAAAANSUhEUgAAAYEAAAD6CAYAAABHy/uSAABkWUlEQVR4Ae3AA6AkWZbG8f937o3I
+zKdyS2Oubdu2bdu2bdu2bWmMnpZKr54yMyLu+Xa3anqmhztr1a8C5qqrrrrqqv9vAKhcddVVV131
+/xEAlauuuuqqq/4/AqBy1VVXXXXV/0cAVK666qqrrvr/CIDKVVddddVV/x8BULnqqquuuur/IwAq
+V1111VVX/X8EQOWqq6666qr/jwCoH//xH89VV1111VX/7wAg2+aqq6666qr/bwCoXHXVVVdd9f8R
+AJWrrrrqqqv+PwKgctVVV1111f9HAFSuuuqqq676/wiAylVXXXXVVf8fAVC56qqrrrrq/yMAgquu
+uurfzDZXXfW/FADBVVf9D/O4xz2OL/qiL+Ibv/Ebueeee3huu7u7POUpT+G5/dIv/RJf/MVfzL/V
+H/7hH/KFX/iFfMM3fAN33303L8j+/j5PetKTAPjYj/1Ynv70p/PkJz+Zo6MjrrrqfxEAymd/9md/
+Nldd9T/IT/zET/Arv/IrbGxs8NVf/dW8wzu8A3/xF3/Bb/3Wb3HLLbfw/d///Xzpl34pr/mar8kT
+nvAEfuu3fouHPexh/N3f/R2/9Eu/RCmF48ePI4mf/umf5s477+ThD384T33qU/nZn/1ZdnZ2mM/n
+/PiP/zhHR0fcdNNNAHzN13wN9913H5L4nu/5Hl7hFV6Bn/mZn6HWyrFjx/irv/or/uZv/oZf+IVf
+4Mu+7Mt41Vd9Vfq+Z2dnh/d+7/em73te/MVfnJ//+Z/nqU99Ko985CN54hOfyOMe9zj+5E/+hIc8
+5CF0XcdVV/0PAUDlqqv+h5mmicc+9rF80Rd9Ea/3eq/Hn/7pn/K3f/u3/OZv/ia/+7u/yzXXXMOF
+Cxe4++67+ZM/+RN+8zd/kz/5kz/hDd7gDXjqU5/Kb/3Wb/FDP/RDfNZnfRZ/9Vd/xc/+7M/ydV/3
+dXz5l385D37wg3nUox7F13zN17C/v89TnvIUvvVbv5VHP/rR2Oaaa67h+uuv52/+5m/40z/9U/74
+j/+Yb/zGb+Tbv/3befu3f3ve7d3ejcPDQy5evMj58+f5vu/7Pt77vd+bc+fOcfHiRb7kS76Ev/qr
+v2K5XHLffffx13/91zz96U9nd3eXS5cu8QEf8AFcddX/EAAEV131P5AkAMZxBODcuXOcPn2au+++
+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
+P/iHf/gHxnGk6zqeCYDgudimlML/F13XYZv/CJlJ13X8fxARSMI2/1Fqrfx/UGvlP4ptJBER/H/Q
+dR2ZyX8E23Rdx/8XpRRs8wAAVJ4PSVx11b9EElf995PEVVf9SyTxXAAI/hPdd9993H333dxxxx3c
+fffdZCYPlJm01gA4d+4c58+f5/lZLpecO3eO/+vOnj3LuXPneG733Xcfh4eHPD+2uf322wG4ePEi
+9913H8/PMAzce++9/F904cIF7rnnHu5nm2mauN8dd9zBNE28MMvlkjvuuIPM5LnZ5q677sI2/5tk
+JnfccQf7+/s8UGYyjiN333030zRx6dIldnd3eX7uvfdezp8/z/0yk9YaALa5/fbbsc0Ls7e3x913
+383z01rj7rvv5n+je++9l3PnzvFAtmmtce+997JarVitVtx77708P6vVijvuuIPM5Pm5++67yUz+
+EwFQ+U9y11138RM/8RO83Mu9HI973ON42MMexu7uLufPn+fEiRPcddddtNbY3d3lrd7qrfi6r/s6
+3vzN35x77rmHo6Mjaq2cO3eOxzzmMTzjGc+g1soTn/hETp48yZ133snLvMzLcOrUKf6vsM33fd/3
+sVqteNu3fVvuuusuXuzFXownPvGJ3H333Zw+fZoHPehB3Hbbbdxyyy086UlP4sVe7MV42tOexp//
++Z/z0R/90XzDN3wDr/7qr86FCxfY3d1lY2ODe++9l0c96lHcc889rNdrbr31Vra2trj33nt5zGMe
+w/XXX8//dj/90z/NcrnkFV7hFZimCdv87d/+La/2aq/GOI786Z/+KTfccAOv8AqvwOMf/3ge8pCH
+cOedd3LzzTfz1Kc+ldd7vdfjx37sx2it8YZv+IY88YlP5Oabb+bpT386N910E6UUnv70p3Px4kX2
+9/eJCGazGS/1Ui/F/2Rnz57lB37gB9jc3ORlX/Zl2d7eZhxHnvCEJzCOIzfffDM/+ZM/ycMe9jCu
+v/56/vIv/5IHPehB3HnnnfR9zyu+4ivywz/8w8xmM17jNV6D8+fPs1qtOHv2LI997GORxG/+5m/y
+0i/90jz0oQ/lGc94Btdddx2XLl1iZ2eHc+fO8eqv/up827d9G4985CN5yZd8SW699VauueYabrvt
+Nh7+8IdzcHDAuXPnuPvuu4kI9vb2uOmmm3joQx/K/2TTNPGDP/iD2OYVX/EVqbVy4sQJnvSkJ/H0
+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
+------=_Part_102_1359764206.1773584794781--
