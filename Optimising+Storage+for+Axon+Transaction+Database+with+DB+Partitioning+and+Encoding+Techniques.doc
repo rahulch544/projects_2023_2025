@@ -1,0 +1,1904 @@
+Date: Sun, 15 Mar 2026 14:27:27 +0000 (UTC)
+Message-ID: <769753636.75.1773584847596@49a45f2a8345>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_74_403616211.1773584847596"
+
+------=_Part_74_403616211.1773584847596
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Optimising Storage for Axon Transaction Database with DB Partiti=
+oning and Encoding Techniques</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Optimising Storage for Axon Transaction Database with DB Partitioni=
+ng and Encoding Techniques</h1>
+    <div class=3D"Section1">
+        <style type=3D"text/css">/*<![CDATA[*/
+div.rbtoc1773584847565 {padding: 0px;}
+div.rbtoc1773584847565 ul {list-style: none;margin-left: 0px;}
+div.rbtoc1773584847565 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style>
+<div class=3D"toc-macro rbtoc1773584847565">
+<ul class=3D"toc-indentation">
+<li><a href=3D"#OptimisingStorageforAxonTransactionDatabasewithDBPartitioni=
+ngandEncodingTechniques-Overview">Overview</a></li>
+<li><a href=3D"#OptimisingStorageforAxonTransactionDatabasewithDBPartitioni=
+ngandEncodingTechniques-StorageOptimisationonrow-columns">Storage Optimisat=
+ion on row-columns</a></li>
+<li><a href=3D"#OptimisingStorageforAxonTransactionDatabasewithDBPartitioni=
+ngandEncodingTechniques-StorageOptimisationTechniques.">Storage Optimisatio=
+n Techniques.</a></li>
+<li><a href=3D"#OptimisingStorageforAxonTransactionDatabasewithDBPartitioni=
+ngandEncodingTechniques-DevelopmentPlan">Development Plan</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#OptimisingStorageforAxonTransactionDatabasewithDBPartitioni=
+ngandEncodingTechniques-Phase1:(6DaysEffort)">Phase 1: (6 Days Effort)</a><=
+/li>
+<li><a href=3D"#OptimisingStorageforAxonTransactionDatabasewithDBPartitioni=
+ngandEncodingTechniques-Phase2:(5DaysEffort)">Phase 2: (5 Days Effort)</a><=
+/li>
+</ul></li>
+<li><a href=3D"#OptimisingStorageforAxonTransactionDatabasewithDBPartitioni=
+ngandEncodingTechniques-Results">Results</a></li>
+<li><a href=3D"#OptimisingStorageforAxonTransactionDatabasewithDBPartitioni=
+ngandEncodingTechniques-OtherOptimisations">Other Optimisations</a>
+<ul class=3D"toc-indentation">
+<li><a href=3D"#OptimisingStorageforAxonTransactionDatabasewithDBPartitioni=
+ngandEncodingTechniques-(ATSOptimisationbymovingdeclinedTransactions)">( AT=
+S Optimisation by moving declined Transactions)</a></li>
+</ul></li>
+<li><a href=3D"#OptimisingStorageforAxonTransactionDatabasewithDBPartitioni=
+ngandEncodingTechniques-FutureOptimisations">Future Optimisations</a></li>
+</ul>
+</div>
+<h3 local-id=3D"139c4ec2-b712-472e-a7af-94978512dad7" id=3D"OptimisingStora=
+geforAxonTransactionDatabasewithDBPartitioningandEncodingTechniques-Overvie=
+w">Overview</h3>
+<p local-id=3D"5f1542bb-dc83-42c1-a433-048081ea974d">Axon Transaction Datab=
+ase is grown rapidly with increase of traffic where-in we are receiving tra=
+ffic of size 3M transactions per day on average, resulting in data growth o=
+f&gt;2 TB data every month, because of which we are running ATS DB on high =
+resources.<br><br>
+In future this going to increase more, it would be difficulty to increase r=
+esources after certain point and performance will go down, So in order to a=
+ccount this we accounted for DB growth with DB Partitioning but still as da=
+ta size is &gt;2 TB per month we want to optimise storage.</p>
+<p local-id=3D"ea18d6c4-3e6f-45d6-9c81-35a8e2bb0db9"></p>
+<p local-id=3D"0ff57fc7-1eeb-437e-9976-981e76994e5c">EPIC: <a class=3D"exte=
+rnal-link" data-card-appearance=3D"inline" href=3D"https://zeta-axon.atlass=
+ian.net/browse/ACO-5783" local-id=3D"5672767b-2b91-495f-86a9-408dedf30f2f" =
+rel=3D"nofollow">https://zeta-axon.atlassian.net/browse/ACO-5783</a></p>
+<p local-id=3D"7a6e24fd-0660-4bb1-9202-f4a2246d339a">EPIC: <a class=3D"exte=
+rnal-link" data-card-appearance=3D"inline" href=3D"https://zeta-axon.atlass=
+ian.net/browse/ACO-6068?focusedCommentId=3D113487" local-id=3D"87544e79-995=
+0-41f5-b36e-48ea5135f42e" rel=3D"nofollow">https://zeta-axon.atlassian.net/=
+browse/ACO-6068?focusedCommentId=3D113487</a> <br></p>
+<h3 local-id=3D"9fdc3002-c9f4-44af-adb2-110a8f437b3c" id=3D"OptimisingStora=
+geforAxonTransactionDatabasewithDBPartitioningandEncodingTechniques-Storage=
+Optimisationonrow-columns"><span class=3D"inline-comment-marker" data-ref=
+=3D"4ac17cc4-9f04-406a-b469-087ff6533921">Storage Optimisation on row-colum=
+ns</span></h3>
+<p local-id=3D"fbc1d3b2-a924-4ac6-8b8e-9b9a46bc7e9a"></p>
+<ol start=3D"1" local-id=3D"9ac8e067-2d6e-418f-83c5-0d45ff7914c9">
+<li local-id=3D"84a6b75d-fa73-4a4b-88f5-43f691ec839d">
+<p local-id=3D"07bdbb52-b076-4c6b-bdd5-d9bd36e9c678">At present ATS has 4 m=
+ain tables namely</p>
+<ol start=3D"1" local-id=3D"e6a8a3c6-5442-41e9-bd3f-7dd9774612b9">
+<li local-id=3D"f6d221de-62b9-4a5a-bda5-c42e1c85fb3f">
+<p local-id=3D"e3ad6ea2-9f65-48b2-8ca9-fa5902376bc7">Outstanding Transactio=
+n Child (OTC)</p></li>
+<li local-id=3D"4a2dc4b2-a81e-435c-a204-73a9cf947b4c">
+<p local-id=3D"64a5bab7-f9c9-4584-9dca-9fc177ff40b4">Outstanding Transactio=
+n Master (OTM)</p></li>
+<li local-id=3D"d6a0e16c-b1a7-420f-934d-bed79a170eda">
+<p local-id=3D"36eb4872-ddb9-4cda-a25c-70669f774f75">Transaction Child (TC)=
+</p></li>
+<li local-id=3D"8e57cdb3-350e-461a-9274-46b2a23625dd">
+<p local-id=3D"e513354b-300f-4359-a2f9-b5a21b653b80">Transaction Master (TM=
+)<br>
+In which OTC and TC consumes more memory as it stores complete payload in f=
+orm JSON and JSON B columns. At present these tables are consuming with max=
+ size of 6000Bytes in auth message and 5000Bytes for advice messages per ro=
+w and in which major contribution is from columns of OTC and TC tables name=
+ly</p></li>
+</ol></li>
+</ol>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"52=
+242014-9390-4f75-a474-339718e9bbb8" class=3D"confluenceTable">
+<tbody>
+<tr data-local-id=3D"5b45a422-1faf-4234-92a1-cb13769d10b0">
+<th data-local-id=3D"97d24b13-5d59-41ba-a486-81f1b23acd66" class=3D"conflue=
+nceTh">
+<p local-id=3D"d52a0a0e-a5b1-41b9-b259-49dffc4d40df"><strong>Table Name</st=
+rong></p></th>
+<th data-local-id=3D"743a0437-4bb1-499c-8d7b-50ba9e7128aa" class=3D"conflue=
+nceTh">
+<p local-id=3D"e3cdb3c2-ba95-4382-9166-82d78b270f3b"><strong>Column Name</s=
+trong></p></th>
+<th data-local-id=3D"f3c576eb-aff4-4bfe-a11b-41ec6c4cc3c7" class=3D"conflue=
+nceTh">
+<p local-id=3D"bee4ff67-dca4-4446-9276-951dfa18b84b"><strong>Avg Size/ Max =
+Size</strong></p></th>
+<th data-local-id=3D"61c539d4-7725-40fd-b43b-f4c00b729f62" class=3D"conflue=
+nceTh">
+<p local-id=3D"471c03fc-2f86-4cdc-bed6-735e2eb3c5cb"><strong>Need to for ne=
+w Column</strong></p></th>
+</tr>
+<tr data-local-id=3D"6f0d5928-51b3-41f1-8469-8d95216ffaf6">
+<td data-local-id=3D"ca515bf1-ecce-4826-9306-1629d9cff6fa" class=3D"conflue=
+nceTd">
+<p local-id=3D"259b1206-89da-4439-8c1e-08766e9f4ccb">Outstanding Transactio=
+n Child/ Transaction Child</p></td>
+<td data-local-id=3D"b6c94f20-dfa3-4003-8175-e0fafc2372b5" class=3D"conflue=
+nceTd">
+<p local-id=3D"c2908ca0-734a-4911-9105-3fce6a81bf22">Complete Row Size</p><=
+/td>
+<td data-local-id=3D"19824c66-6ed0-4f76-b566-08059ec51eb8" class=3D"conflue=
+nceTd">
+<p local-id=3D"c199d525-bd47-46b7-8bb6-8a206016bae5">6000 bytes</p></td>
+<td data-local-id=3D"cee1a8af-cce4-4c1f-be51-11bcee9296fb" class=3D"conflue=
+nceTd">
+<p local-id=3D"7ebfb779-4f1e-49d1-a6db-14192880b338">-</p></td>
+</tr>
+<tr data-local-id=3D"51d2e20c-0edf-404c-9e76-ab06761d5019">
+<td data-local-id=3D"0b302b22-6369-4ea0-bff4-dcdce810056d" class=3D"conflue=
+nceTd">
+<p local-id=3D"93428d8d-517a-4f71-8bd8-3d798bc9fd17">Outstanding Transactio=
+n Child/ Transaction Child</p></td>
+<td data-local-id=3D"1ca68134-8d5f-43e1-91df-1b314012f5b1" class=3D"conflue=
+nceTd">
+<p local-id=3D"b8390133-a10a-4b89-b637-bae07220e3c0"><code>payload</code></=
+p></td>
+<td data-local-id=3D"d5affe49-cf15-4d4c-967a-b50d0f88c2d6" class=3D"conflue=
+nceTd">
+<p local-id=3D"8bb9bf06-54a8-483b-a057-70a1bdd2cbff">5200 / 3700Bytes</p></=
+td>
+<td data-local-id=3D"2b2fe688-b5c1-43d3-9c69-c81fe1c91c9a" class=3D"conflue=
+nceTd">
+<p local-id=3D"2beb77da-4130-4573-b51e-0f13b5631b0b">Yes</p></td>
+</tr>
+<tr data-local-id=3D"00095caa-9a9e-43b4-93bd-c431fcbb341f">
+<td data-local-id=3D"a261250b-15b8-49db-afa9-b02effbd23e3" class=3D"conflue=
+nceTd">
+<p local-id=3D"4075f21b-9676-41f3-8fe9-1272718e5336">Outstanding Transactio=
+n Child/ Transaction Child</p></td>
+<td data-local-id=3D"6dc16fe2-f20f-4c0b-aa89-dd153060a18e" class=3D"conflue=
+nceTd">
+<p local-id=3D"afa5e7de-ec35-42c7-8566-3b2600e43c94"><code>mapped_message</=
+code></p></td>
+<td data-local-id=3D"c00d7d73-d5df-4768-a1fe-d4e91cdfe9a6" class=3D"conflue=
+nceTd">
+<p local-id=3D"6de2dd80-1ba0-4c72-94ce-9c59e94b729e">430 /700 Bytes</p></td=
+>
+<td data-local-id=3D"9631ddbb-1698-4986-bf1c-6fff812b2074" class=3D"conflue=
+nceTd">
+<p local-id=3D"9e7b8fc7-9d5b-42fd-be36-4c1fb085c61a">No</p></td>
+</tr>
+<tr data-local-id=3D"7cf3c705-c037-4b35-bf8a-6668fb63f81c">
+<td data-local-id=3D"32c20338-e4f5-4030-aea6-177ef64f3274" class=3D"conflue=
+nceTd">
+<p local-id=3D"a8f22c26-bcfd-49ce-abb1-04f5a42febc2">Outstanding Transactio=
+n Child/ Transaction Child</p></td>
+<td data-local-id=3D"f67dc574-db8d-49af-b3e5-4d76c70747a1" class=3D"conflue=
+nceTd">
+<p local-id=3D"d101d59d-370e-45e2-b40d-cd380af38554"><code>original_message=
+</code></p></td>
+<td data-local-id=3D"64add125-62c4-455f-b8dd-e50dc2b1069c" class=3D"conflue=
+nceTd">
+<p local-id=3D"595dd1cc-f529-4e41-968e-0cadbfaaced2">360/650Bytes,<br>
+Special case for Credit settlements consuming upto 1200Bytes</p></td>
+<td data-local-id=3D"614522b4-7875-4520-9449-28e07739896c" class=3D"conflue=
+nceTd">
+<p local-id=3D"c297c6e9-4b64-47ad-971b-ca7116a51041">No</p></td>
+</tr>
+<tr data-local-id=3D"3f966d78-5fcb-4188-8800-4e8054e5682e">
+<td data-local-id=3D"2f0a1729-bfe0-41f9-a5a9-76b937c9d192" class=3D"conflue=
+nceTd">
+<p local-id=3D"eda0c954-a3a1-47af-98d8-4ca62118a5e8">Outstanding Transactio=
+n Child/ Transaction Child</p></td>
+<td data-local-id=3D"0cb37849-4c33-46b4-8e5f-2135be122b97" class=3D"conflue=
+nceTd">
+<p local-id=3D"9787134b-d9f2-4e76-867e-992775c51a83"><code>calliope_authori=
+ze_response</code></p></td>
+<td data-local-id=3D"6908c9a3-0778-4457-9d89-9805342791c1" class=3D"conflue=
+nceTd">
+<p local-id=3D"f5337c2c-b763-4cbb-b0fa-a7c972e72858">-/ 1000Bytes (Present =
+only in auth messages)</p></td>
+<td data-local-id=3D"a4dc76c5-28fe-4460-8c28-7896683d4f40" class=3D"conflue=
+nceTd">
+<p local-id=3D"d31ab9b4-e42f-4fce-9447-6f901c7f7598">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 local-id=3D"f1a3780c-d24f-48cd-baa0-bfb90f698321" id=3D"OptimisingStora=
+geforAxonTransactionDatabasewithDBPartitioningandEncodingTechniques-Storage=
+OptimisationTechniques.">Storage Optimisation Techniques.</h3>
+<ol start=3D"1" local-id=3D"eee7f4c6-932c-4f2c-9578-2babd5e0a076">
+<li local-id=3D"c98f962b-d5de-4f0f-835e-d93a379a631b">
+<p local-id=3D"dd6956d9-71ba-4d6e-96a5-f1563a93ebf2">Payload should be enco=
+ded and stored in DB by mapping keys to a numeric fields in a new column af=
+ter this change to make backward compatible and in select queries after thi=
+s change before returning to core logic update with actual decoded data .</=
+p></li>
+<li local-id=3D"14907f9b-f3df-4c22-a9c6-d00b7f57d77a">
+<p local-id=3D"1d09b937-7e64-4da9-9cb5-367e986ad3eb">This is also controlle=
+d by boolean environment variable =E2=80=9C<code>ENABLE_PAYLOAD_COMPRESSION=
+</code>"<br></p></li>
+</ol>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"c1=
+94147f-0e1d-4617-b6da-e7c9ceaed249" class=3D"confluenceTable">
+<tbody>
+<tr data-local-id=3D"fd16b1a9-5c55-4f6d-a5ce-4d4efac33c61">
+<th data-local-id=3D"69025664-091f-4e0d-8102-e9b976702eab" class=3D"conflue=
+nceTh">
+<p local-id=3D"7089fff4-9c7f-46aa-9ae3-e43464a573c7"><strong>Column Name</s=
+trong></p></th>
+<th data-local-id=3D"b51fcff4-4031-4de1-b539-298feff08a0b" class=3D"conflue=
+nceTh">
+<p local-id=3D"b6d958fa-7368-4546-a12e-866ef99bbad3"><strong>Current Messag=
+e</strong></p></th>
+<th data-local-id=3D"eb6396c2-b403-4c87-bf31-b4e5d65a1913" class=3D"conflue=
+nceTh">
+<p local-id=3D"99820568-c443-4e01-9fbf-0a3c8a28ae93"><strong> Updated Messa=
+ge</strong></p></th>
+<th data-local-id=3D"d12419e2-e09d-45db-b2bc-f19077d177d6" class=3D"conflue=
+nceTh">
+<p local-id=3D"331139e0-e2a9-4a82-bd98-11a998d8aa55"><strong>Remarks</stron=
+g></p></th>
+<th data-local-id=3D"4bfeac26-1722-4b75-bd9c-01f3c381bf21" class=3D"conflue=
+nceTh">
+<p local-id=3D"3f437a8a-c93e-46eb-acfd-e0b7784d322e"><strong>Outcome</stron=
+g></p></th>
+</tr>
+<tr data-local-id=3D"11a42211-63b2-40e6-b789-0eb43cc11c66">
+<td data-local-id=3D"b4e65cb5-3536-4e01-816f-50a688dcd734" class=3D"conflue=
+nceTd">
+<p local-id=3D"3a69c102-fbdc-4990-b564-5c4e1ef6b5ee"><code>payload</code></=
+p></td>
+<td data-local-id=3D"71d1e2dc-d798-45a2-992d-3cecb1202b4a" class=3D"conflue=
+nceTd">
+<div id=3D"expander-121499607" class=3D"expand-container">
+<div id=3D"expander-control-121499607" class=3D"expand-control">
+<span class=3D"expand-control-icon"><img style=3D"vertical-align:middle;" c=
+lass=3D"expand-control-image" src=3D"16342fd8eae61a59a61780396b44f1812b6bb7=
+9017a203822b4334aae132a00f" width=3D"16" height=3D"16"></span><span class=
+=3D"expand-control-text">Transaction Event Data</span>
+</div>
+<div id=3D"expander-content-121499607" class=3D"expand-content">
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">{
+    "requestFlowId" : "78d37577-7ddc-4484-a88f-91f71cee1027",
+    "eventId" : "688674ce-0291-4286-8a60-88d04f96bd63",
+    "tenantId" : 4,
+    "messageType" : "AUTHORIZATION_REQUEST",
+    "messageTypeCode" : "0100",
+    "networkSwitch" : "BCFS",
+    "userId" : "ULmEr9FM3cOfzBiCUK4a_g=3D=3D",
+    "transactionData" : {
+      "paymentAccount" : {
+        "paymentAccountId" : "a698f425-24fd-47b6-a1e8-80acc676913a",
+        "paymentInstrument" : "CARD",
+        "paymentAccountStatus" : "ACTIVE",
+        "bin" : "400001",
+        "maskedPan" : "40xx xxxx xxxx 5630",
+        "network" : "MASTERCARD",
+        "financialInstitute" : {
+          "id" : "9999999990",
+          "code" : "9999999990",
+          "name" : "Axon Mock Switch",
+          "customerId" : "axmdr",
+          "customerType" : "DEBIT_CARD",
+          "networkSwitch" : "AXONMOCK"
+        }
+      },
+      "transactionId" : "BCFS_1761824893_S10709_RRN10270009_1761805097555",
+      "transactionStatus" : "APPROVED",
+      "transactionState" : "OUTSTANDING",
+      "transactionTime" : 1761824893,
+      "transaction" : {
+        "maskedPan" : "40xx xxxx xxxx 5630",
+        "paymentChannels" : [ "INSTORE" ],
+        "paymentChannel" : "INSTORE",
+        "accountHolder" : {
+          "primaryAuthProfileId" : "ULmEr9FM3cOfzBiCUK4a_g=3D=3D",
+          "paymentAccountId" : "a698f425-24fd-47b6-a1e8-80acc676913a",
+          "paymentInstrument" : "CARD",
+          "paymentAccountStatus" : "ACTIVE"
+        },
+        "amount" : {
+          "currency" : "USD",
+          "value" : 5.0
+        },
+        "merchant" : {
+          "mid" : "445197950998",
+          "terminalId" : "00000001",
+          "name" : "WALMART GROCERY",
+          "mcc" : "4121",
+          "description" : "WALMART GROCERY BENTONVILLE ARUS",
+          "brandName" : "Walmart",
+          "category" : "Travel",
+          "subCategory" : "Auto Rentals",
+          "address" : {
+            "city" : "BENTONVILLE",
+            "zipCode" : "53704",
+            "state" : "Arkansas",
+            "country" : "USA"
+          }
+        },
+        "authorization" : {
+          "status" : "APPROVED",
+          "message" : "success"
+        },
+        "sequenceNumber" : "1",
+        "transactionType" : "DEBIT",
+        "transactionSubtype" : "AUTHORIZE",
+        "amounts" : [ {
+          "amountType" : "TRANSACTION_AMOUNT",
+          "description" : "Transaction amount",
+          "currency" : "USD",
+          "value" : 0.0
+        }, {
+          "amountType" : "TRANSACTION_FEE_AMOUNT",
+          "description" : "Transaction fee amount",
+          "currency" : "USD",
+          "value" : 0.0
+        }, {
+          "amountType" : "INTERNATIONAL_TRANSACTION_AMOUNT",
+          "description" : "International transaction amount",
+          "currency" : "USD",
+          "value" : 8.09
+        }, {
+          "amountType" : "INTERNATIONAL_TRANSACTION_FEE_AMOUNT",
+          "description" : "International transaction fee amount",
+          "currency" : "USD",
+          "value" : 4.0
+        }, {
+          "amountType" : "CARDHOLDER_BILLING_FEE_AMOUNT",
+          "description" : "Cardholder billing fee amount",
+          "currency" : "USD",
+          "value" : 5.0
+        } ],
+        "requestIsoFields" : {
+          "primaryAccountNumber" : "eyJjaXBoZXIiOiJQcU4vdTd6WTJXUDNuTmtiK1M=
+1R2F0MGFmYzBSRlUvcXQxMnlmSDd1eXp3PSIsIml2IjoiU2kxZmVrWTBQM1lqZTBRb2ZVUWtSQT=
+09In0",
+          "amountTransaction" : "000000000809",
+          "pointOfServiceEntryMode" : "051",
+          "authorizationResponseCode" : "00",
+          "cardAcceptorNameLocation" : "WALMART GROCERY BENTONVILLE ARUS",
+          "nationalPOSCondition" : "10000008015"
+        },
+        "responseIsoFields" : {
+          "primaryAccountNumber" : "eyJjaXBoZXIiOiJQcU4vdTd6WTJXUDNuTmtiK1M=
+1R2F0MGFmYzBSRlUvcXQxMnlmSDd1eXp3PSIsIml2IjoiU2kxZmVrWTBQM1lqZTBRb2ZVUWtSQT=
+09In0",
+          "pointOfServiceEntryMode" : "051",
+          "authorizationResponseCode" : "00",
+          "nationalPOSCondition" : "10000008015"
+        },
+        "controlsApplied" : {
+          "transactional" : {
+            "OVERALL" : "APPROVED",
+            "INSTORE" : "APPROVED"
+          },
+          "merchant" : {
+            "recurring_blocked" : "APPROVED",
+            "subCategory" : "APPROVED",
+            "blocked" : "APPROVED",
+            "trusted" : "APPROVED",
+            "category" : "APPROVED",
+            "spendLimits" : "APPROVED"
+          },
+          "location" : {
+            "region" : "SKIPPED_BY_MCC",
+            "shield" : "SKIPPED_BY_MCC",
+            "approvedRegionIds" : [ ],
+            "approvedInternationalIds" : [ ]
+          }
+        },
+        "authorizationDetails" : {
+          "merchant" : {
+            "name" : "WALMART GROCERY",
+            "brandName" : "Walmart",
+            "category" : "Travel",
+            "subCategory" : "Auto Rentals",
+            "address" : {
+              "city" : "Bentonville",
+              "zipCode" : "53704",
+              "state" : "AR",
+              "country" : "USA"
+            },
+            "isEnriched" : true
+          },
+          "location" : { }
+        },
+        "cardControlSnapshotId" : "501630f6-3199-40c8-be96-67c4a8dccd41",
+        "authorizations" : [ {
+          "sequenceNumber" : 1,
+          "messageTypeCode" : "0100",
+          "authorization" : {
+            "status" : "APPROVED",
+            "message" : "success"
+          },
+          "isoResponseFields" : {
+            "requestIsoMessageAuthorizationResponseCode" : "00",
+            "responseIsoMessageAuthorizationResponseCode" : "00"
+          },
+          "amount" : {
+            "currency" : "USD",
+            "value" : 5.0
+          },
+          "amounts" : [ {
+            "amountType" : "TRANSACTION_AMOUNT",
+            "description" : "Transaction amount",
+            "currency" : "USD",
+            "value" : 0.0
+          }, {
+            "amountType" : "TRANSACTION_FEE_AMOUNT",
+            "description" : "Transaction fee amount",
+            "currency" : "USD",
+            "value" : 0.0
+          }, {
+            "amountType" : "INTERNATIONAL_TRANSACTION_AMOUNT",
+            "description" : "International transaction amount",
+            "currency" : "USD",
+            "value" : 8.09
+          }, {
+            "amountType" : "INTERNATIONAL_TRANSACTION_FEE_AMOUNT",
+            "description" : "International transaction fee amount",
+            "currency" : "USD",
+            "value" : 4.0
+          }, {
+            "amountType" : "CARDHOLDER_BILLING_FEE_AMOUNT",
+            "description" : "Cardholder billing fee amount",
+            "currency" : "USD",
+            "value" : 5.0
+          } ]
+        } ]
+      }
+    },
+    "isAuthorizeMessage" : false,
+    "doEnrichment" : false,
+    "isRecurringPayment" : false,
+    "isCardOnFile" : false,
+    "sendUserNotification" : false,
+    "mappedMessage" : "{\"1\":{\"value\":\"0100\"},\"2\":{\"value\":\"40xx =
+xxxx xxxx 5630\"},\"3\":{\"value\":\"000000\"},\"4\":{\"value\":\"000000000=
+809\"},\"5\":{\"value\":\"000000000000\"},\"7\":{\"value\":\"1030114813\"},=
+\"8\":{\"value\":\"\"},\"9\":{\"value\":\"00000001\"},\"10\":{\"value\":\"0=
+0000001\"},\"11\":{\"value\":\"S10709\"},\"12\":{\"value\":\"\"},\"13\":{\"=
+value\":\"1030\"},\"18\":{\"value\":\"4121\"},\"19\":{\"value\":\"840\"},\"=
+22\":{\"value\":\"051\"},\"25\":{\"value\":\"54\"},\"28\":{\"value\":\"D000=
+00400\"},\"29\":{\"value\":\"D00000000\"},\"32\":{\"value\":\"416409\"},\"3=
+7\":{\"value\":\"RRN10270009\"},\"38\":{\"value\":\"A12700159\"},\"39\":{\"=
+value\":\"00\"},\"41\":{\"value\":\"00000001\"},\"42\":{\"value\":\"4451979=
+50998\"},\"43\":{\"value\":\"WALMART GROCERY BENTONVILLE ARUS\"},\"46\":{\"=
+value\":\"7100D00000500D00000050\"},\"48\":{\"value\":\"WALMART GROCERY\"},=
+\"49\":{\"value\":\"840\"},\"50\":{\"value\":\"840\"},\"54\":{\"value\":\"\=
+"},\"57\":{\"value\":\"101\"},\"58\":{\"value\":\"10000008015\"},\"59\":{\"=
+value\":\"55000537041111\"},\"90\":{\"value\":\"0120S1070932939000000000000=
+0000000000\"},\"95\":{\"value\":\"000000000100000000000100D00000000D0000000=
+0\"},\"102\":{\"value\":\"00000132043\"},\"103\":{\"value\":\"\"},\"109\":{=
+\"value\":\"\"},\"110\":{\"value\":\"\"},\"124\":{\"value\":\"FD27021005000=
+00000000100104  15PI010\"},\"127\":{\"value\":\"4057285404083     431125057=
+285T111300000000009      00510005       10039838279\"}}",
+    "isAuthOfReversal" : false,
+    "matchAttempt" : 0
+  }</pre>
+</div>
+</div>
+</div>
+</div></td>
+<td data-local-id=3D"95a285ad-30f1-4b4e-b441-b6fffa23f401" class=3D"conflue=
+nceTd">
+<div id=3D"expander-744239675" class=3D"expand-container">
+<div id=3D"expander-control-744239675" class=3D"expand-control">
+<span class=3D"expand-control-icon"><img style=3D"vertical-align:middle;" c=
+lass=3D"expand-control-image" src=3D"16342fd8eae61a59a61780396b44f1812b6bb7=
+9017a203822b4334aae132a00f" width=3D"16" height=3D"16"></span><span class=
+=3D"expand-control-text">Compressed Json</span>
+</div>
+<div id=3D"expander-content-744239675" class=3D"expand-content">
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">{
+    "01" : "78d37577-7ddc-4484-a88f-91f71cee1027",
+    "02" : "688674ce-0291-4286-8a60-88d04f96bd63",
+    "03" : 4,
+    "04" : "AUTHORIZATION_REQUEST",
+    "05" : "0100",
+    "06" : "BCFS",
+    "07" : "ULmEr9FM3cOfzBiCUK4a_g=3D=3D",
+    "08" : {
+      "01" : {
+        "01" : "a698f425-24fd-47b6-a1e8-80acc676913a",
+        "02" : "CARD",
+        "03" : "ACTIVE",
+        "04" : "400001",
+        "05" : "40xx xxxx xxxx 5630",
+        "06" : "MASTERCARD",
+        "07" : {
+          "01" : "9999999990",
+          "02" : "9999999990",
+          "03" : "Axon Mock Switch",
+          "04" : "axmdr",
+          "05" : "DEBIT_CARD",
+          "06" : "AXONMOCK"
+        }
+      },
+      "03" : "BCFS_1761824893_S10709_RRN10270009_1761805097555",
+      "05" : "APPROVED",
+      "06" : "OUTSTANDING",
+      "07" : 1761824893,
+      "08" : {
+        "01" : "40xx xxxx xxxx 5630",
+        "02" : [ "INSTORE" ],
+        "0" : "INSTORE",
+        "04" : {
+          "02" : "ULmEr9FM3cOfzBiCUK4a_g=3D=3D",
+          "04" : "a698f425-24fd-47b6-a1e8-80acc676913a",
+          "05" : "CARD",
+          "06" : "ACTIVE"
+        },
+        "05" : {
+          "01" : "USD",
+          "02" : 5.0
+        },
+        "06" : {
+          "01" : "445197950998",
+          "02" : "00000001",
+          "03" : "WALMART GROCERY",
+          "04" : "4121",
+          "06" : "WALMART GROCERY BENTONVILLE ARUS",
+          "07" : "Walmart",
+          "08" : "Travel",
+          "09" : "Auto Rentals",
+          "12" : {
+            "02" : "BENTONVILLE",
+            "03" : "53704",
+            "05" : "Arkansas",
+            "06" : "USA"
+          }
+        },
+        "07" : {
+          "01" : "APPROVED",
+          "02" : "success"
+        },
+        "08" : "1",
+        "09" : "DEBIT",
+        "10" : "AUTHORIZE",
+        "11" : [ {
+          "03" : "01",
+          "04" : "Transaction amount",
+          "01" : "USD",
+          "02" : 0.0
+        }, {
+          "03" : "02",
+          "04" : "Transaction fee amount",
+          "01" : "USD",
+          "02" : 0.0
+        }, {
+          "03" : "03",
+          "04" : "International transaction amount",
+          "01" : "USD",
+          "02" : 8.09
+        }, {
+          "03" : "04",
+          "04" : "International transaction fee amount",
+          "01" : "USD",
+          "02" : 4.0
+        }, {
+          "03" : "05",
+          "04" : "Cardholder billing fee amount",
+          "01" : "USD",
+          "02" : 5.0
+        } ],
+        "13" : {
+          "002" : "eyJjaXBoZXIiOiJQcU4vdTd6WTJXUDNuTmtiK1M1R2F0MGFmYzBSRlUv=
+cXQxMnlmSDd1eXp3PSIsIml2IjoiU2kxZmVrWTBQM1lqZTBRb2ZVUWtSQT09In0",
+          "004" : "000000000809",
+          "017" : "051",
+          "025" : "00",
+          "028" : "WALMART GROCERY BENTONVILLE ARUS",
+          "038" : "10000008015"
+        },
+        "14" : {
+          "002" : "eyJjaXBoZXIiOiJQcU4vdTd6WTJXUDNuTmtiK1M1R2F0MGFmYzBSRlUv=
+cXQxMnlmSDd1eXp3PSIsIml2IjoiU2kxZmVrWTBQM1lqZTBRb2ZVUWtSQT09In0",
+          "017" : "051",
+          "025" : "00",
+          "038" : "10000008015"
+        },
+        "15" : {
+          "02" : {
+            "OVERALL" : "APPROVED",
+            "INSTORE" : "APPROVED"
+          },
+          "03" : {
+            "recurring_blocked" : "APPROVED",
+            "09" : "APPROVED",
+            "blocked" : "APPROVED",
+            "trusted" : "APPROVED",
+            "08" : "APPROVED",
+            "spendLimits" : "APPROVED"
+          },
+          "04" : {
+            "region" : "SKIPPED_BY_MCC",
+            "shield" : "SKIPPED_BY_MCC",
+            "approvedRegionIds" : [ ],
+            "approvedInternationalIds" : [ ]
+          }
+        },
+        "16" : {
+          "01" : {
+            "03" : "WALMART GROCERY",
+            "07" : "Walmart",
+            "08" : "Travel",
+            "09" : "Auto Rentals",
+            "12" : {
+              "02" : "Bentonville",
+              "03" : "53704",
+              "05" : "AR",
+              "06" : "USA"
+            },
+            "13" : true
+          },
+          "02" : { }
+        },
+        "17" : "501630f6-3199-40c8-be96-67c4a8dccd41",
+        "18" : [ {
+          "01" : 1,
+          "02" : "0100",
+          "03" : {
+            "01" : "APPROVED",
+            "02" : "success"
+          },
+          "04" : {
+            "01" : "00",
+            "02" : "00"
+          },
+          "05" : {
+            "01" : "USD",
+            "02" : 5.0
+          },
+          "06" : [ {
+            "03" : "01",
+            "04" : "Transaction amount",
+            "01" : "USD",
+            "02" : 0.0
+          }, {
+            "03" : "02",
+            "04" : "Transaction fee amount",
+            "01" : "USD",
+            "02" : 0.0
+          }, {
+            "03" : "03",
+            "04" : "International transaction amount",
+            "01" : "USD",
+            "02" : 8.09
+          }, {
+            "03" : "04",
+            "04" : "International transaction fee amount",
+            "01" : "USD",
+            "02" : 4.0
+          }, {
+            "03" : "05",
+            "04" : "Cardholder billing fee amount",
+            "01" : "USD",
+            "02" : 5.0
+          } ]
+        } ]
+      }
+    },
+    "10" : false,
+    "11" : false,
+    "12" : false,
+    "13" : false,
+    "14" : false,
+    "16" : "{\"1\":{\"value\":\"0100\"},\"2\":{\"value\":\"40xx xxxx xxxx 5=
+630\"},\"3\":{\"value\":\"000000\"},\"4\":{\"value\":\"000000000809\"},\"5\=
+":{\"value\":\"000000000000\"},\"7\":{\"value\":\"1030114813\"},\"8\":{\"va=
+lue\":\"\"},\"9\":{\"value\":\"00000001\"},\"10\":{\"value\":\"00000001\"},=
+\"11\":{\"value\":\"S10709\"},\"12\":{\"value\":\"\"},\"13\":{\"value\":\"1=
+030\"},\"18\":{\"value\":\"4121\"},\"19\":{\"value\":\"840\"},\"22\":{\"val=
+ue\":\"051\"},\"25\":{\"value\":\"54\"},\"28\":{\"value\":\"D00000400\"},\"=
+29\":{\"value\":\"D00000000\"},\"32\":{\"value\":\"416409\"},\"37\":{\"valu=
+e\":\"RRN10270009\"},\"38\":{\"value\":\"A12700159\"},\"39\":{\"value\":\"0=
+0\"},\"41\":{\"value\":\"00000001\"},\"42\":{\"value\":\"445197950998\"},\"=
+43\":{\"value\":\"WALMART GROCERY BENTONVILLE ARUS\"},\"46\":{\"value\":\"7=
+100D00000500D00000050\"},\"48\":{\"value\":\"WALMART GROCERY\"},\"49\":{\"v=
+alue\":\"840\"},\"50\":{\"value\":\"840\"},\"54\":{\"value\":\"\"},\"57\":{=
+\"value\":\"101\"},\"58\":{\"value\":\"10000008015\"},\"59\":{\"value\":\"5=
+5000537041111\"},\"90\":{\"value\":\"0120S10709329390000000000000000000000\=
+"},\"95\":{\"value\":\"000000000100000000000100D00000000D00000000\"},\"102\=
+":{\"value\":\"00000132043\"},\"103\":{\"value\":\"\"},\"109\":{\"value\":\=
+"\"},\"110\":{\"value\":\"\"},\"124\":{\"value\":\"FD2702100500000000000100=
+104  15PI010\"},\"127\":{\"value\":\"4057285404083     431125057285T1113000=
+00000009      00510005       10039838279\"}}",
+    "19" : false,
+    "020" : 0
+  }</pre>
+</div>
+</div>
+</div>
+</div>
+<div id=3D"expander-229302329" class=3D"expand-container">
+<div id=3D"expander-control-229302329" class=3D"expand-control">
+<span class=3D"expand-control-icon"><img style=3D"vertical-align:middle;" c=
+lass=3D"expand-control-image" src=3D"16342fd8eae61a59a61780396b44f1812b6bb7=
+9017a203822b4334aae132a00f" width=3D"16" height=3D"16"></span><span class=
+=3D"expand-control-text">DeCompressed Json</span>
+</div>
+<div id=3D"expander-content-229302329" class=3D"expand-content">
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">{
+  "requestFlowId" : "752d5429-e69e-44d9-a642-f2e47f65dbf2",
+  "eventId" : "f4337e1b-9763-4df4-bdd2-4dc09eb3ebb0",
+  "tenantId" : 4,
+  "messageType" : "AUTHORIZATION_REQUEST",
+  "messageTypeCode" : "0100",
+  "networkSwitch" : "BCFS",
+  "userId" : "ULmEr9FM3cOfzBiCUK4a_g=3D=3D",
+  "transactionData" : {
+    "paymentAccount" : {
+      "paymentAccountId" : "a698f425-24fd-47b6-a1e8-80acc676913a",
+      "paymentInstrument" : "CARD",
+      "paymentAccountStatus" : "ACTIVE",
+      "bin" : "400001",
+      "maskedPan" : "40xx xxxx xxxx 5630",
+      "network" : "MASTERCARD",
+      "financialInstitute" : {
+        "id" : "9999999990",
+        "code" : "9999999990",
+        "name" : "Axon Mock Switch",
+        "customerId" : "axmdr",
+        "customerType" : "DEBIT_CARD",
+        "networkSwitch" : "AXONMOCK"
+      }
+    },
+    "transactionId" : "BCFS_1761824492_S10709_RRN10270009_1761804694691",
+    "transactionStatus" : "APPROVED",
+    "transactionState" : "OUTSTANDING",
+    "transactionTime" : 1761824492,
+    "transaction" : {
+      "maskedPan" : "40xx xxxx xxxx 5630",
+      "paymentChannels" : [ "INSTORE" ],
+      "paymentChannel" : "INSTORE",
+      "accountHolder" : {
+        "primaryAuthProfileId" : "ULmEr9FM3cOfzBiCUK4a_g=3D=3D",
+        "paymentAccountId" : "a698f425-24fd-47b6-a1e8-80acc676913a",
+        "paymentInstrument" : "CARD",
+        "paymentAccountStatus" : "ACTIVE"
+      },
+      "amount" : {
+        "currency" : "USD",
+        "value" : 5.0
+      },
+      "merchant" : {
+        "mid" : "445197950998",
+        "terminalId" : "00000001",
+        "name" : "WALMART GROCERY",
+        "mcc" : "4121",
+        "description" : "WALMART GROCERY BENTONVILLE ARUS",
+        "brandName" : "Walmart",
+        "category" : "Travel",
+        "subCategory" : "Auto Rentals",
+        "address" : {
+          "city" : "BENTONVILLE",
+          "zipCode" : "53704",
+          "state" : "Arkansas",
+          "country" : "USA"
+        }
+      },
+      "authorization" : {
+        "status" : "APPROVED",
+        "message" : "success"
+      },
+      "sequenceNumber" : "1",
+      "transactionType" : "DEBIT",
+      "transactionSubtype" : "AUTHORIZE",
+      "amounts" : [ {
+        "amountType" : "TRANSACTION_AMOUNT",
+        "description" : "Transaction amount",
+        "currency" : "USD",
+        "value" : 0.0
+      }, {
+        "amountType" : "TRANSACTION_FEE_AMOUNT",
+        "description" : "Transaction fee amount",
+        "currency" : "USD",
+        "value" : 0.0
+      }, {
+        "amountType" : "INTERNATIONAL_TRANSACTION_AMOUNT",
+        "description" : "International transaction amount",
+        "currency" : "USD",
+        "value" : 8.09
+      }, {
+        "amountType" : "INTERNATIONAL_TRANSACTION_FEE_AMOUNT",
+        "description" : "International transaction fee amount",
+        "currency" : "USD",
+        "value" : 4.0
+      }, {
+        "amountType" : "CARDHOLDER_BILLING_FEE_AMOUNT",
+        "description" : "Cardholder billing fee amount",
+        "currency" : "USD",
+        "value" : 5.0
+      } ],
+      "requestIsoFields" : {
+        "primaryAccountNumber" : "eyJjaXBoZXIiOiJQcU4vdTd6WTJXUDNuTmtiK1M1R=
+2F0MGFmYzBSRlUvcXQxMnlmSDd1eXp3PSIsIml2IjoiU2kxZmVrWTBQM1lqZTBRb2ZVUWtSQT09=
+In0",
+        "amountTransaction" : "000000000809",
+        "pointOfServiceEntryMode" : "051",
+        "authorizationResponseCode" : "00",
+        "cardAcceptorNameLocation" : "WALMART GROCERY BENTONVILLE ARUS",
+        "nationalPOSCondition" : "10000008015"
+      },
+      "responseIsoFields" : {
+        "primaryAccountNumber" : "eyJjaXBoZXIiOiJQcU4vdTd6WTJXUDNuTmtiK1M1R=
+2F0MGFmYzBSRlUvcXQxMnlmSDd1eXp3PSIsIml2IjoiU2kxZmVrWTBQM1lqZTBRb2ZVUWtSQT09=
+In0",
+        "pointOfServiceEntryMode" : "051",
+        "authorizationResponseCode" : "00",
+        "nationalPOSCondition" : "10000008015"
+      },
+      "controlsApplied" : {
+        "transactional" : {
+          "OVERALL" : "APPROVED",
+          "INSTORE" : "APPROVED"
+        },
+        "merchant" : {
+          "recurring_blocked" : "APPROVED",
+          "subCategory" : "APPROVED",
+          "blocked" : "APPROVED",
+          "trusted" : "APPROVED",
+          "category" : "APPROVED",
+          "spendLimits" : "APPROVED"
+        },
+        "location" : {
+          "region" : "SKIPPED_BY_MCC",
+          "shield" : "SKIPPED_BY_MCC",
+          "approvedRegionIds" : [ ],
+          "approvedInternationalIds" : [ ]
+        }
+      },
+      "authorizationDetails" : {
+        "merchant" : {
+          "name" : "WALMART GROCERY",
+          "brandName" : "Walmart",
+          "category" : "Travel",
+          "subCategory" : "Auto Rentals",
+          "address" : {
+            "city" : "Bentonville",
+            "zipCode" : "53704",
+            "state" : "AR",
+            "country" : "USA"
+          },
+          "isEnriched" : true
+        },
+        "location" : { }
+      },
+      "cardControlSnapshotId" : "501630f6-3199-40c8-be96-67c4a8dccd41",
+      "authorizations" : [ {
+        "sequenceNumber" : 1,
+        "messageTypeCode" : "0100",
+        "authorization" : {
+          "status" : "APPROVED",
+          "message" : "success"
+        },
+        "isoResponseFields" : {
+          "requestIsoMessageAuthorizationResponseCode" : "00",
+          "responseIsoMessageAuthorizationResponseCode" : "00"
+        },
+        "amount" : {
+          "currency" : "USD",
+          "value" : 5.0
+        },
+        "amounts" : [ {
+          "amountType" : "TRANSACTION_AMOUNT",
+          "description" : "Transaction amount",
+          "currency" : "USD",
+          "value" : 0.0
+        }, {
+          "amountType" : "TRANSACTION_FEE_AMOUNT",
+          "description" : "Transaction fee amount",
+          "currency" : "USD",
+          "value" : 0.0
+        }, {
+          "amountType" : "INTERNATIONAL_TRANSACTION_AMOUNT",
+          "description" : "International transaction amount",
+          "currency" : "USD",
+          "value" : 8.09
+        }, {
+          "amountType" : "INTERNATIONAL_TRANSACTION_FEE_AMOUNT",
+          "description" : "International transaction fee amount",
+          "currency" : "USD",
+          "value" : 4.0
+        }, {
+          "amountType" : "CARDHOLDER_BILLING_FEE_AMOUNT",
+          "description" : "Cardholder billing fee amount",
+          "currency" : "USD",
+          "value" : 5.0
+        } ]
+      } ]
+    }
+  },
+  "isAuthorizeMessage" : false,
+  "doEnrichment" : false,
+  "isRecurringPayment" : false,
+  "isCardOnFile" : false,
+  "sendUserNotification" : false,
+  "mappedMessage" : "{\"1\":{\"value\":\"0100\"},\"2\":{\"value\":\"40xx xx=
+xx xxxx 5630\"},\"3\":{\"value\":\"000000\"},\"4\":{\"value\":\"00000000080=
+9\"},\"5\":{\"value\":\"000000000000\"},\"7\":{\"value\":\"1030114132\"},\"=
+8\":{\"value\":\"\"},\"9\":{\"value\":\"00000001\"},\"10\":{\"value\":\"000=
+00001\"},\"11\":{\"value\":\"S10709\"},\"12\":{\"value\":\"\"},\"13\":{\"va=
+lue\":\"1030\"},\"18\":{\"value\":\"4121\"},\"19\":{\"value\":\"840\"},\"22=
+\":{\"value\":\"051\"},\"25\":{\"value\":\"54\"},\"28\":{\"value\":\"D00000=
+400\"},\"29\":{\"value\":\"D00000000\"},\"32\":{\"value\":\"416409\"},\"37\=
+":{\"value\":\"RRN10270009\"},\"38\":{\"value\":\"A12700159\"},\"39\":{\"va=
+lue\":\"00\"},\"41\":{\"value\":\"00000001\"},\"42\":{\"value\":\"445197950=
+998\"},\"43\":{\"value\":\"WALMART GROCERY BENTONVILLE ARUS\"},\"46\":{\"va=
+lue\":\"7100D00000500D00000050\"},\"48\":{\"value\":\"WALMART GROCERY\"},\"=
+49\":{\"value\":\"840\"},\"50\":{\"value\":\"840\"},\"54\":{\"value\":\"\"}=
+,\"57\":{\"value\":\"101\"},\"58\":{\"value\":\"10000008015\"},\"59\":{\"va=
+lue\":\"55000537041111\"},\"90\":{\"value\":\"0120S107093293900000000000000=
+00000000\"},\"95\":{\"value\":\"000000000100000000000100D00000000D00000000\=
+"},\"102\":{\"value\":\"00000132043\"},\"103\":{\"value\":\"\"},\"109\":{\"=
+value\":\"\"},\"110\":{\"value\":\"\"},\"124\":{\"value\":\"FD2702100500000=
+000000100104  15PI010\"},\"127\":{\"value\":\"4057285404083     43112505728=
+5T111300000000009      00510005       10039838279\"}}",
+  "isAuthOfReversal" : false,
+  "matchAttempt" : 0
+}</pre>
+</div>
+</div>
+</div>
+</div></td>
+<td data-local-id=3D"4f5368a7-90f6-471b-a495-4a7a8a29914b" class=3D"conflue=
+nceTd">
+<p local-id=3D"330416ef-4e56-4a07-adae-7fc5b1e51260">Introduce Custom Encod=
+ers and Decoders to handle this</p></td>
+<td data-local-id=3D"ddbfbe92-1179-4ad3-ba0a-72d7e35eb860" class=3D"conflue=
+nceTd">
+<p local-id=3D"3fb74b4b-37a1-4d85-86f9-1e13b6e54fcb">With this size reduces=
+ by 30% of this column storage<br>
+-&gt; It should reduce 100 GB atleast in each OTC table and TC table per mo=
+nth</p></td>
+</tr>
+<tr data-local-id=3D"a0e3169e-ef05-47a9-a572-8e7af5f28efd">
+<td data-local-id=3D"ef1283e6-6984-4e52-9e5b-47cddbbe84b0" class=3D"conflue=
+nceTd">
+<p local-id=3D"eab81b22-dd9d-4f2b-9825-71c31d136c29"><code>mapped_message</=
+code></p></td>
+<td data-local-id=3D"7d4da7c4-e693-43c3-8ccf-c07a8888a669" class=3D"conflue=
+nceTd">
+<p local-id=3D"73f6c226-1d27-4b21-8174-8eac618db88f"></p></td>
+<td data-local-id=3D"765b7f06-c530-446b-b145-358de4cd4faf" class=3D"conflue=
+nceTd">
+<p local-id=3D"813a67b8-e9ab-4bf0-9207-e62baf1def05"></p></td>
+<td data-local-id=3D"f32834fa-bd71-463e-aa31-a98cd5a78ff8" class=3D"conflue=
+nceTd">
+<p local-id=3D"c40d9a99-8f79-4a0c-ad47-f688341d135d">Stop Storing this as i=
+t is already stored in payload, and there is no usage of this field in curr=
+ent implementation</p></td>
+<td data-local-id=3D"82eccf07-ac3d-4c0a-a9de-c6424bb53396" class=3D"conflue=
+nceTd">
+<p local-id=3D"6532f437-76c9-407b-963a-3f2009f37caf">with this an average o=
+f 500Bytes will be reduced.&gt; It should reduce 41 GB atleast in each OTC =
+table and TC table per month</p></td>
+</tr>
+<tr data-local-id=3D"a9c1b370-bd33-416b-bb15-febaac5c352b">
+<td data-local-id=3D"3235ea4b-9281-4ac8-8692-f85f2e4332b3" class=3D"conflue=
+nceTd">
+<p local-id=3D"31a487a9-6754-4bd9-be65-80ddf48282bc"><code>original_message=
+</code></p></td>
+<td data-local-id=3D"9ba0eb8e-f2e0-497c-9c91-0040df791c23" class=3D"conflue=
+nceTd">
+<p local-id=3D"c9ac09ac-967f-4d9d-aa88-f59567099d4f"></p></td>
+<td data-local-id=3D"1191c988-54b7-4a23-83cd-407da35b9a4e" class=3D"conflue=
+nceTd">
+<p local-id=3D"431d255b-7e15-4b22-91c0-9033f52aacfa"></p></td>
+<td data-local-id=3D"8b6d9ea4-8cd6-45e3-b5e2-748ee2546d07" class=3D"conflue=
+nceTd">
+<p local-id=3D"ea52f137-ecf9-4d88-b50e-27e000dccbec">No Change</p></td>
+<td data-local-id=3D"959b4e62-f182-44a4-b3ea-e8fc9310e660" class=3D"conflue=
+nceTd">
+<p local-id=3D"f961b2d9-258e-4b52-b299-e8de16254da8"></p></td>
+</tr>
+<tr data-local-id=3D"aa4ae3ec-0efc-4ea8-aa82-4bc6c909f900">
+<td data-local-id=3D"cfc398fc-e5de-4d19-bfa6-4ec9dfdc5f99" class=3D"conflue=
+nceTd">
+<p local-id=3D"2ef3da7d-cd1c-432a-945c-a3086aeeba16"><code>calliope_authori=
+ze_response</code></p></td>
+<td data-local-id=3D"ad1cf8f9-a7b8-4c81-a451-d49084af39fe" class=3D"conflue=
+nceTd">
+<p local-id=3D"64c5fd3b-b2b8-48fc-95ac-eeecca701ee5"></p></td>
+<td data-local-id=3D"62756075-78b8-4b21-8f93-2e4138764f2d" class=3D"conflue=
+nceTd">
+<p local-id=3D"e4f2dc47-74fd-4087-8ae3-93b64ec5753f"></p></td>
+<td data-local-id=3D"da0404cb-acc3-4445-8915-83bf47fdf0b4" class=3D"conflue=
+nceTd">
+<p local-id=3D"56157d36-20a4-4228-9ab3-a0849fa0f8f0">Storing is not require=
+d when moving to TC tables</p></td>
+<td data-local-id=3D"18cbe27d-9f67-4e5b-bd59-2863d56fb473" class=3D"conflue=
+nceTd">
+<p local-id=3D"47eb6e7d-f8e9-45a3-875a-13ed3488a45a">with this an average o=
+f 10gb per month size gets reduced.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"bd1f5d50-edaa-4812-b349-58909305638e"></p>
+<ol start=3D"2" local-id=3D"6280c036-705e-41b6-bfee-ac214e32e98a">
+<li local-id=3D"cced5a7c-ccff-4611-b3f3-0a411b595670">
+<p local-id=3D"1c328779-cb32-4430-8e11-c2e2ceef7ff0">Fix issue of multiple =
+times stringfied json string storage in TC tables while moving records from=
+ OTC tables.</p>
+<ol start=3D"1" local-id=3D"fca845e7-cf78-40b7-845c-36c8bd455a65">
+<li local-id=3D"3c8eceb8-2a7f-4834-909e-83dbb19184f1">
+<p local-id=3D"ba5da251-c919-4213-89e5-b256f5b58560">At present when moving=
+ records, stringified values getting stringfied again as a result extra bac=
+kslashes are coming into picture which results in increase in storage by 30=
+% in json columns, so as part of this we should fix this as well.<br></p></=
+li>
+</ol></li>
+<li local-id=3D"d1ae4ca2-f343-4fe8-bab7-f9a27fbb786d">
+<p local-id=3D"603e21c2-93da-4b34-aca1-cd41c8329257"><span class=3D"inline-=
+comment-marker" data-ref=3D"8c0e4a6b-dc81-455d-ba66-2fa412f2a387">Removing =
+un-required fields from OTC and TC tables json columns.(effective reduction=
+ of additional 30% from this column)</span></p>
+<ol start=3D"1" local-id=3D"087e5236-d95a-41cc-9136-fa5cbfe636ba">
+<li local-id=3D"ca9d2ce0-3a5c-4159-b4d6-96f2f5221519">
+<p local-id=3D"5088c253-f6ce-4d75-89fa-c9aa651f08db">Remove =E2=80=9CfinalA=
+uthorization=E2=80=9D from payload is not being used, this should happen fo=
+r all TC entries and OTC entries</p></li>
+<li local-id=3D"6379b528-435e-4987-be8d-5afcacc022f6">
+<p local-id=3D"4cb455ef-c40c-4528-8023-b047876fbc09">Replace =E2=80=9Crespo=
+nseISoFields=E2=80=9D for 0120, 0220, 0420, 0140 Messages , with new messag=
+e =E2=80=9CresponseISoFields=E2=80=9D only store MTI.</p></li>
+<li local-id=3D"3ad892aa-4da3-4011-85c6-536378b95f47">
+<p local-id=3D"1be271b1-996a-4de3-a886-6ed60fad01ff">Don=E2=80=99t store =
+=E2=80=9CprocessedFields=E2=80=9D =3D&gt; as these values are always consta=
+nt, just make sure before pushing to transactionData it contains this const=
+ant data.</p></li>
+<li local-id=3D"53e68c9c-c80b-4ce5-b168-641e44d8a59b">
+<p local-id=3D"fc849367-7554-41fe-afed-9b7387f3b808">Remove Original Messag=
+e from payload, it is already added in different column</p></li>
+<li local-id=3D"e409ac93-7584-485a-b309-ac15ce465de8">
+<p local-id=3D"354cccd8-e7a6-40c6-bca2-0196e0e31c79">Remove Institution log=
+ details as well while storing.</p></li>
+<li local-id=3D"d0a20493-d417-4d45-8136-a85c46c90999">
+<p local-id=3D"7f01366d-e260-494c-a768-10598b4ff237">Remove authorizations =
+object as well, except for 0220, when moving records to TC</p></li>
+</ol></li>
+<li local-id=3D"3524bf5d-a2f3-4a83-af9b-f85ba5dfca5b">
+<p local-id=3D"145a6aee-01db-466b-84cb-cd8d0b98b305">
+<del><span class=3D"inline-comment-marker" data-ref=3D"e95e9ccd-37e0-4e96-9=
+d12-7e282418d7a5">Move declined messages from OTC/ OTM tables to TC and TM =
+after 7 Days, </span>add required code changes in release transaction api f=
+low. Update Pg_partman policy for OTC/OTM tables to hold only 2 months data=
+, with this we can reduce data storage by 600GB.</del></p></li>
+</ol>
+<p local-id=3D"5b1a40f7-2a6b-4a93-8344-878dc037a0cb"></p>
+<p local-id=3D"d632fdd7-c887-4e9e-924b-701db6d46cca"></p>
+<p local-id=3D"f6de171d-5d5a-49b0-b42d-618d027c64c9">Reduction in size by e=
+ach step.(Analysis done on sample 0220 message)</p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"center" data-local-id=3D"40b=
+fc109-7442-4b30-83e4-4c174f07cd86" class=3D"confluenceTable">
+<tbody>
+<tr data-local-id=3D"c83d3199-9a05-4d63-b302-58184d93d4d8">
+<th data-local-id=3D"87ed163e-180e-4f93-b2bd-aa187b699232" class=3D"conflue=
+nceTh">
+<p local-id=3D"6e8d1b28-8fc8-45f1-8ad3-7eedb49636b7"><strong>Step</strong><=
+/p></th>
+<th data-local-id=3D"7a209a68-ac02-4b99-bdce-a7d2651d4a44" class=3D"conflue=
+nceTh">
+<p local-id=3D"43d899ad-abf8-46de-95cd-1c438139878b"><strong> payload_size =
+(bytes)</strong></p></th>
+<th data-local-id=3D"fc38a0e5-4b23-48a6-af84-ed278cc9c2f7" class=3D"conflue=
+nceTh">
+<p local-id=3D"0cb408f6-39af-4faa-a177-372a1276ff51"><strong>complete_size =
+(bytes)</strong></p></th>
+<th data-local-id=3D"f720933f-3d4f-4b46-9db5-5b18998abc7c" class=3D"conflue=
+nceTh">
+<p local-id=3D"bab6406d-9232-48f1-90e5-cf34cec2a5d4"><strong>Size Improveme=
+nt</strong></p></th>
+<th data-local-id=3D"3b1ab1c5-1e7a-4989-bc42-e21e8885559c" class=3D"conflue=
+nceTh">
+<p local-id=3D"66f69d66-aa8a-4218-acfb-3aa7d3d1bd4e"><strong>Effective tabl=
+e size</strong></p></th>
+</tr>
+<tr data-local-id=3D"2e008b39-b8f5-4cb3-ba1b-447658e37990">
+<td data-local-id=3D"83d0249e-d96d-43d4-a1fa-f78de3d3595a" class=3D"conflue=
+nceTd">
+<p local-id=3D"93402e43-8da5-436e-a308-e714762095bc">Current Size</p></td>
+<td data-local-id=3D"243a01a5-321f-45cd-be8e-5605227a311b" class=3D"conflue=
+nceTd">
+<p local-id=3D"1c1c9965-4101-4b35-9841-7f819f2033af"><code>4736</code></p><=
+/td>
+<td data-local-id=3D"9634b684-ca36-4b76-b095-3c7932024f4c" class=3D"conflue=
+nceTd">
+<p local-id=3D"d67fc5a5-6152-4a01-9f22-9b611acb5349"><code>6367</code></p><=
+/td>
+<td data-local-id=3D"50007fd2-4341-4470-906c-c659ebb5516d" class=3D"conflue=
+nceTd">
+<p local-id=3D"05cb8c13-9fd1-48f4-821c-8322a6a2a32a">Overall size is at 100=
+% without any change</p></td>
+<td data-local-id=3D"26d324de-4fa3-4384-877d-ed8a389ea1cd" class=3D"conflue=
+nceTd">
+<p local-id=3D"4801f341-1606-47a0-8e4c-11e997a24c78">OTC records currently =
+stores 600GB data per month</p></td>
+</tr>
+<tr data-local-id=3D"71f78714-b211-49f8-b647-4faaa4d78679">
+<td data-local-id=3D"7586bb71-9cc6-4705-9293-abfdd1c943c7" class=3D"conflue=
+nceTd">
+<p local-id=3D"2b25ebf9-b9e7-464e-aaac-97543c53f1a2">Removing unused and du=
+plicate fields<br>
+=3D=3D&gt; like By removing response iso fields, final authorizations, orig=
+inal message</p></td>
+<td data-local-id=3D"08582bf8-f340-4a6b-9fed-2fc6f035549d" class=3D"conflue=
+nceTd">
+<p local-id=3D"8a598813-4662-4718-84b7-d10369d79190"><code>3388</code></p><=
+/td>
+<td data-local-id=3D"1dd8f2ef-b41d-4105-a602-0d83090fcdf6" class=3D"conflue=
+nceTd">
+<p local-id=3D"53395388-b22a-43a8-8be0-034d93032547"><code>5015</code></p><=
+/td>
+<td data-local-id=3D"23de77fa-4d2e-4f44-9c2c-9e8af4c4f748" class=3D"conflue=
+nceTd">
+<p local-id=3D"171b7df6-17a4-48d4-91d6-27ecb563e14f">Overall size is at 78.=
+7%</p></td>
+<td data-local-id=3D"7229e663-3a5d-4f24-9575-3062f57adc50" class=3D"conflue=
+nceTd">
+<p local-id=3D"ac71009f-8241-4588-8856-fe354ec03ef9">470-500GB</p></td>
+</tr>
+<tr data-local-id=3D"7fb92968-9207-4f2b-ab5d-543aa096045b">
+<td data-local-id=3D"f0bbb045-094d-4183-a716-794f81dca902" class=3D"conflue=
+nceTd">
+<p local-id=3D"88974310-423d-4652-b9ac-85235aee97b3">By encoding payload ke=
+y to numeric codes</p></td>
+<td data-local-id=3D"7be8a693-d26d-4384-94fa-fd0fc840c97b" class=3D"conflue=
+nceTd">
+<p local-id=3D"ee7e02cc-f560-42cc-a826-438d8034b8f5"><code>2119</code></p><=
+/td>
+<td data-local-id=3D"1bae1b50-47ea-42ee-9d21-a1b431420d4d" class=3D"conflue=
+nceTd">
+<p local-id=3D"29c70a3f-7346-4665-8822-6abdffb4ff51"><code>3751</code></p><=
+/td>
+<td data-local-id=3D"4a0ec867-10fe-4229-9e4c-de74cff0981a" class=3D"conflue=
+nceTd">
+<p local-id=3D"6e195601-2ca3-489d-8106-6f3bad03d374">Overall size is at 58.=
+9%</p></td>
+<td data-local-id=3D"7e2e4f7d-4007-4270-b183-3d4aaddedfde" class=3D"conflue=
+nceTd">
+<p local-id=3D"88674c0a-12e1-4639-957f-b8a9c85656be">350-370GB</p></td>
+</tr>
+<tr data-local-id=3D"4daa620d-424a-467b-aa9e-296c33a5e290">
+<td data-local-id=3D"5f61faa0-061c-47e4-a7f6-8be3407ff650" class=3D"conflue=
+nceTd">
+<p local-id=3D"a1f1abce-6781-4a67-978f-232e71e96e99"><span class=3D"inline-=
+comment-marker" data-ref=3D"2921bea5-10fe-4c0d-a3cc-5cf837aedc69">Remove lo=
+go information details / or don't store make sure to do push only then</spa=
+n></p></td>
+<td data-local-id=3D"e7d06e7b-3724-4369-b7fd-d12474e43e2f" class=3D"conflue=
+nceTd">
+<p local-id=3D"bf715422-20ef-4b8a-a8ac-f58548d79fd6"><code>1923</code></p><=
+/td>
+<td data-local-id=3D"7d3c1b6a-ceb4-4022-993a-c349ab250ae0" class=3D"conflue=
+nceTd">
+<p local-id=3D"e65cdb83-2a78-4cc8-b7fe-313ba759739f"><code>2837</code></p><=
+/td>
+<td data-local-id=3D"298499d7-f12c-4b3f-a3cb-71b1828ae21b" class=3D"conflue=
+nceTd">
+<p local-id=3D"79ae6783-d817-4d71-af34-b874df98802e">Overall size is at 44.=
+55%</p></td>
+<td data-local-id=3D"dc3ed2f8-3f8e-4aaa-ad20-907fc4ae3ba2" class=3D"conflue=
+nceTd">
+<p local-id=3D"b9b4b75d-bb3c-42c1-8adb-b01aa57f189b">270-300GB</p></td>
+</tr>
+<tr data-local-id=3D"580e94f1-4f05-4503-a5d6-947cc0350121">
+<td data-local-id=3D"faac69a0-3892-4697-950b-2908f435731a" class=3D"conflue=
+nceTd">
+<p local-id=3D"8a8c394e-1a25-4009-9c3c-d151af549f17"><span class=3D"inline-=
+comment-marker" data-ref=3D"cc42cc4a-bf20-4bb9-a99f-3b4e5b1fe1b3">Remove ma=
+pped_message column completely</span></p></td>
+<td data-local-id=3D"5e20f529-f492-48f5-a7df-d7f42a032fa4" class=3D"conflue=
+nceTd">
+<p local-id=3D"febe0c20-30e9-4d5d-84dd-6b736f5216e7"><code>1923</code> =E2=
+=86=92 No Impact</p></td>
+<td data-local-id=3D"1341bb03-f6af-49b8-9f18-819f7d96c6b1" class=3D"conflue=
+nceTd">
+<p local-id=3D"938aa43f-e9dd-4081-905a-e20225c9e47e">2381</p></td>
+<td data-local-id=3D"d0df5424-92d4-44e0-a32b-9e6e24fc5025" class=3D"conflue=
+nceTd">
+<p local-id=3D"99b3271a-9e3d-4402-bc7b-c93850c7fbe1">Overall size is at 37.=
+4%</p></td>
+<td data-local-id=3D"61f27a84-4184-4a5f-972f-668729e44c7a" class=3D"conflue=
+nceTd">
+<p local-id=3D"df580e21-e9b0-4c85-9f0b-8ff9d0c9b7e5">230-250GB</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"bcb2e5e9-ff8d-4ab7-8fff-88fff8ddb625"></p>
+<p local-id=3D"9752b8ae-5c29-4aa6-bc7c-188dbf5a0174"></p>
+<p local-id=3D"d62a55e1-33c0-4206-8edb-21968c25695c"></p>
+<h3 local-id=3D"dcdd9637-7f24-4ddb-a439-2f54a0b6b81c" id=3D"OptimisingStora=
+geforAxonTransactionDatabasewithDBPartitioningandEncodingTechniques-Develop=
+mentPlan">Development Plan</h3>
+<p local-id=3D"a1a1d8fe-f996-4fdf-9c8a-661582928c25"></p>
+<h4 local-id=3D"1b21f3c2-cd05-4689-aac7-656fe15ebe03" id=3D"OptimisingStora=
+geforAxonTransactionDatabasewithDBPartitioningandEncodingTechniques-Phase1:=
+(6DaysEffort)">Phase 1: (6 Days Effort)</h4>
+<ol start=3D"1" local-id=3D"62c5916a-d0a8-43df-b765-0d2e9b1d5a42">
+<li local-id=3D"ce16e2be-7ebd-47a0-9722-01e7f87d4383">
+<p local-id=3D"3690cdce-14c3-4706-93c8-0a7edb68112a">Identify Subscriptions=
+ of Transaction Data , Check for unused fields in those subscriptions and r=
+emove this from ATS payload. Validate that this is not impacting existing u=
+sage in ATS as well.</p></li>
+<li local-id=3D"76a65180-4f92-4509-9ab6-55e0eb460683">
+<p local-id=3D"d54435db-8673-4db4-9592-f0952f3983b0">Remove this unused fie=
+lds.</p></li>
+<li local-id=3D"2f5f9df2-71f4-4a95-94d8-fb2cc74ceb60">
+<p local-id=3D"880982f4-b3c4-4f85-b5f1-ef2cc4c19cd7">Remove Original Messag=
+e as well from payload, and stop storing mapped message in DB.</p></li>
+<li local-id=3D"35db8775-248e-479e-942f-11a8f74a95e6">
+<p local-id=3D"daa7e4bd-c6d1-449d-9ed5-2cd99f78eff8">Make sure to remove un=
+-required fields as described in this page while moving records from OTC to=
+ TC.</p></li>
+<li local-id=3D"d8f23c42-1817-42f6-9555-8a5af527770b">
+<p local-id=3D"3e3a4ab4-9a89-465e-9b11-b42432f56860">Test all scenarios by =
+basic sanity suites and manually testing as well. (All scenarios mentioned =
+in matching doc must be covered)</p></li>
+<li local-id=3D"c921756f-4d37-4e8c-9dcf-f4a28d8bac4e">
+<p local-id=3D"3960390a-35a5-49b1-939c-3714e8c9b2ed"><span class=3D"inline-=
+comment-marker" data-ref=3D"8f3f2952-71ac-4fba-a7c8-a29567f4b06f">Validatio=
+n needs to be done on both mobile and admin suite support center.</span></p=
+></li>
+</ol>
+<p local-id=3D"2fbe955c-5332-488a-928b-f91fd47d4713">Results:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">OTC: Be=
+fore change
+row_count|total_size_bytes|total_size_formatted|avg_row_size_bytes   |avg_r=
+ow_size_formatted     |
+---------+----------------+--------------------+---------------------+-----=
+----------------------+
+      674|         6429665|6279 kB             |9539.5623145400593472|9539.=
+5623145400593472 bytes|
+
+
+OTC: After change
+
+row_count|total_size_bytes|total_size_formatted|avg_row_size_bytes   |avg_r=
+ow_size_formatted     |
+---------+----------------+--------------------+---------------------+-----=
+----------------------+
+      674|         2940357|2871 kB             |4362.5474777448071217|4362.=
+5474777448071217 bytes|   =20
+
+     =20
+
+TC: Before change
+
+row_count|total_size_bytes|total_size_formatted|avg_row_size_bytes   |avg_r=
+ow_size_formatted     |
+---------+----------------+--------------------+---------------------+-----=
+----------------------+
+     1058|         9574308|9350 kB             |9049.4404536862003781|9049.=
+4404536862003781 bytes|
+
+
+TC: After change
+row_count|total_size_bytes|total_size_formatted|avg_row_size_bytes   |avg_r=
+ow_size_formatted     |
+---------+----------------+--------------------+---------------------+-----=
+----------------------+
+     1058|         4188570|4090 kB             |3958.9508506616257089|3958.=
+9508506616257089 bytes|</pre>
+</div>
+</div>
+<h4 local-id=3D"2745b5a2-c1f0-45f2-aa1b-2f841179d75f" id=3D"OptimisingStora=
+geforAxonTransactionDatabasewithDBPartitioningandEncodingTechniques-Phase2:=
+(5DaysEffort)"><span class=3D"inline-comment-marker" data-ref=3D"f523afc1-3=
+1d1-4ed7-97b1-d32110b61895">Phase 2: (5 Days Effort)</span></h4>
+<ol start=3D"1" local-id=3D"631c4918-9880-4334-8cbf-89e44a44c01b">
+<li local-id=3D"d60176b2-033e-481d-936f-bc05703e79d8">
+<p local-id=3D"3ad36ce3-d82a-4103-ba39-e7e9d0a755a8">Create a new serialzer=
+s/De-Serialzers to create encoded payload message.</p></li>
+<li local-id=3D"b3372fc9-024f-42d0-9ceb-98628c5a31d9">
+<p local-id=3D"e5e79ea8-2cc9-49bf-8136-d751f143a856">Store this encoded mes=
+sage in a new column payload as <strong>compressed_payload</strong>.</p></l=
+i>
+<li local-id=3D"ad247662-4485-43b5-8b6b-28c629c435a3">
+<p local-id=3D"01883c4d-2e26-42aa-bb2a-ddcd36ba05c9">Now replace all method=
+s wherever getPayload is called, it should validate if data is present in o=
+ld column replace it as is, else fetch data from encoded payload message an=
+d return this content in the same methods.</p></li>
+<li local-id=3D"b85f465b-043d-4bce-b4c7-dcdd565db95e">
+<p local-id=3D"0b9dd3cc-234d-4707-bce4-d4256e5c0385">Test all scenarios by =
+basic sanity suites and manually testing as well. (All scenarios mentioned =
+in matching doc must be covered)</p></li>
+<li local-id=3D"fc2ebc5b-88d3-47a8-80e0-be2510fe6dab">
+<p local-id=3D"f61be519-a08e-4b8a-8d26-63f1f953ca34">Validation needs to be=
+ done on both mobile and admin suite support center.</p></li>
+</ol>
+<p local-id=3D"a6f0496e-48de-4cad-a122-1ab08c923fab">Results:</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">OTC: Be=
+fore change
+row_count|total_size_bytes|total_size_formatted|avg_row_size_bytes   |avg_r=
+ow_size_formatted     |
+---------+----------------+--------------------+---------------------+-----=
+----------------------+
+      674|         6429665|6279 kB             |9539.5623145400593472|9539.=
+5623145400593472 bytes|
+
+
+OTC: After change
+
+row_count|total_size_bytes|total_size_formatted|avg_row_size_bytes   |avg_r=
+ow_size_formatted     |
+---------+----------------+--------------------+---------------------+-----=
+----------------------+
+      674|         2940357|2871 kB             |4362.5474777448071217|4362.=
+5474777448071217 bytes|   =20
+
+
+OTC: After compression change
+
+row_count|total_size_bytes|total_size_formatted|avg_row_size_bytes   |avg_r=
+ow_size_formatted     |
+---------+----------------+--------------------+---------------------+-----=
+----------------------+
+      674|         2541419|2482 kB             |3770.6513353115727003|3770.=
+6513353115727003 bytes|
+
+
+TC: Before change
+
+row_count|total_size_bytes|total_size_formatted|avg_row_size_bytes   |avg_r=
+ow_size_formatted     |
+---------+----------------+--------------------+---------------------+-----=
+----------------------+
+     1058|         9574308|9350 kB             |9049.4404536862003781|9049.=
+4404536862003781 bytes|
+
+
+TC: After change
+row_count|total_size_bytes|total_size_formatted|avg_row_size_bytes   |avg_r=
+ow_size_formatted     |
+---------+----------------+--------------------+---------------------+-----=
+----------------------+
+     1058|         4188570|4090 kB             |3958.9508506616257089|3958.=
+9508506616257089 bytes|
+
+
+TC: After compression change
+
+row_count|total_size_bytes|total_size_formatted|avg_row_size_bytes   |avg_r=
+ow_size_formatted     |
+---------+----------------+--------------------+---------------------+-----=
+----------------------+
+     1058|         3459910|3379 kB             |3270.2362948960302457|3270.=
+2362948960302457 bytes|
+
+ </pre>
+</div>
+</div>
+<p local-id=3D"c34c7a75-3bbd-4fce-92ff-8f2dac066717"></p>
+<p local-id=3D"342602f0-04de-41fe-b1e8-97248278cb3a"></p>
+<p local-id=3D"801152bd-bd03-47c2-99a0-5d94f5e03a58"></p>
+<h3 local-id=3D"df8c1dff-a834-403b-92ac-d87c0e38f220" id=3D"OptimisingStora=
+geforAxonTransactionDatabasewithDBPartitioningandEncodingTechniques-Results=
+">Results</h3>
+<p local-id=3D"dfd83dcf-56dc-4f79-ba2a-4b16b81c1a74"></p>
+<p local-id=3D"23296746-c27d-4862-8323-d6f39f519fd0">=F0=9F=93=8A Transacti=
+onRepositoryUtil Performance Comparison Results<br>
+Performance Metrics Table</p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"29=
+897584-473c-4bee-9497-1c520a120f5e" class=3D"confluenceTable">
+<tbody>
+<tr data-local-id=3D"1a0cc18e-32d8-4a0c-9ac5-2e48239664fc">
+<th data-local-id=3D"49ba7e30-c5ae-46ea-a941-1af7c6a0fcf8" class=3D"conflue=
+nceTh">
+<p local-id=3D"caa33142-1cf6-4c48-b4c3-1b3ee01f0d45">Method</p></th>
+<th data-local-id=3D"b0500966-36a5-4550-9f77-9f34775e5a73" class=3D"conflue=
+nceTh">
+<p local-id=3D"4be0a9ce-b3b7-492b-9620-c57d15febda6">Decompression Time</p>=
+</th>
+<th data-local-id=3D"08218ced-654f-447d-9a2b-b8c5e1be505d" class=3D"conflue=
+nceTh">
+<p local-id=3D"df2abef1-e04d-4059-bf59-806a30fd58b9">Throughput (ops/sec)</=
+p></th>
+</tr>
+<tr data-local-id=3D"8e6df6c5-ecfb-4977-9b65-45e66f7f0d6a">
+<td data-local-id=3D"b30fa80c-e2cf-4140-ba2a-c16bd4c911c8" class=3D"conflue=
+nceTd">
+<p local-id=3D"848fd57d-e07e-42b4-8811-4f1cfebc6049">gson.toJson() [Baselin=
+e]</p></td>
+<td data-local-id=3D"03cdcfe2-4289-4b79-8a2a-4b6231fc8446" class=3D"conflue=
+nceTd">
+<p local-id=3D"65ce0bce-321b-40fc-9eea-c701924e0eb3">34.60 =CE=BCs</p></td>
+<td data-local-id=3D"7df2f95d-4529-42c0-8e30-87f05580de3b" class=3D"conflue=
+nceTd">
+<p local-id=3D"22e7ceae-e0cb-4ffb-a281-c2de26755003">28,900</p></td>
+</tr>
+<tr data-local-id=3D"3ccdc13b-7ed7-4252-996b-128eec5e5a37">
+<td data-local-id=3D"54f10285-2369-4b32-b595-b73b0f47b8ff" class=3D"conflue=
+nceTd">
+<p local-id=3D"b1d0339e-cfda-4dbe-b6b7-7ce862ea7751">getTransientPayload() =
+[Field Removal]</p></td>
+<td data-local-id=3D"c55bce10-05d5-410e-99c6-a5f572eac0d6" class=3D"conflue=
+nceTd">
+<p local-id=3D"b82a642e-bb86-49f9-bdd7-01aef36e344d">22.45 =CE=BCs</p></td>
+<td data-local-id=3D"33495920-2a32-4481-bdea-e53fbe71fe04" class=3D"conflue=
+nceTd">
+<p local-id=3D"76c97ef2-8ff5-4caa-9c3d-7a012018953c">44,553</p></td>
+</tr>
+<tr data-local-id=3D"f8001aa9-c38f-4358-b5ff-3627d038aea1">
+<td data-local-id=3D"a5d2d555-561c-43b9-9951-bc3c8456c6d0" class=3D"conflue=
+nceTd">
+<p local-id=3D"b34da8a4-b932-4e0c-b5de-1ec47c38af86">getOptimalCompressedTr=
+ansientPayload() [TypeAdapter]</p></td>
+<td data-local-id=3D"296ca7b9-ff26-4963-a30c-bcd6477df98d" class=3D"conflue=
+nceTd">
+<p local-id=3D"a7f65806-99c5-47f0-9a6c-6db3e6f6b9ee">35.07 =CE=BCs</p></td>
+<td data-local-id=3D"0e717ed1-3c39-49f7-b7a4-9a1c57077074" class=3D"conflue=
+nceTd">
+<p local-id=3D"2daf60c4-c0b7-4df1-ab5a-a13952cf87cd">12,136</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p local-id=3D"3ceb0421-85d0-4a98-a4c5-566be6d11d22"></p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">Storage=
+ Efficiency Table
+Method=09Original Size=09Final Size=09Space Savings=09Compression Ratio
+gson.toJson() [Baseline]=0918,040 bytes=0912,954 bytes=095,086 bytes (28.2%=
+)=090.718
+getTransientPayload() [Field Removal]=0918,040 bytes=097,009 bytes=0911,031=
+ bytes (61.1%)=090.389
+getOptimalCompressedTransientPayload() [TypeAdapter]=0918,040 bytes=095,118=
+ bytes=0912,922 bytes (71.6%)=090.284</pre>
+</div>
+</div>
+<p local-id=3D"ac2d9d37-e4f0-4f97-8969-38fe063ef4ef"></p>
+<p local-id=3D"ace9d237-9397-463f-aa55-8c3ad4a35910">=F0=9F=8E=AF Key Findi=
+ngs &amp; Recommendations<br>
+=F0=9F=8F=86 Winners by Category:<br>
+Fastest Performance: getTransientPayload() - 44,553 ops/sec<br>
+Best Compression: getOptimalCompressedTransientPayload() - 71.6% space savi=
+ngs<br>
+Best Balance: getTransientPayload() - Good compression with excellent perfo=
+rmance<br>
+=F0=9F=93=88 Analysis:<br>
+getTransientPayload() is the clear winner for high-throughput scenarios, be=
+ing 54% faster than the baseline<br>
+getOptimalCompressedTransientPayload() provides the best storage efficiency=
+ but at 3.7x slower performance<br>
+The compression methods show diminishing returns - they provide additional =
+storage savings but with significant performance costs<br>
+=E2=9C=85 Final Recommendation:<br>
+Use getTransientPayload() for high-throughput, low-latency applications as =
+it provides:</p>
+<p local-id=3D"a4eec433-24c1-41b9-868a-826e745a7b2d">Fastest processing (22=
+.45 =CE=BCs average)<br>
+Excellent space savings (61.1% reduction)<br>
+No decompression overhead<br>
+Best performance/storage balance<br>
+The test used real transaction data (18,040 bytes) and performed 5,000 iter=
+ations per method with proper warmup cycles, making these results highly re=
+liable for production decision-making.</p>
+<p local-id=3D"c72ca878-7b24-41e2-806c-077935a0f1d9"></p>
+<h3 local-id=3D"926917bd-8415-46a2-97a6-316918de3ffa" id=3D"OptimisingStora=
+geforAxonTransactionDatabasewithDBPartitioningandEncodingTechniques-OtherOp=
+timisations">Other Optimisations</h3>
+<ol start=3D"1" local-id=3D"c2a21947-13cf-4136-ba5a-6f8707aa23c3">
+<li local-id=3D"4ce02515-3133-42e4-a2d7-a24ff7e8b568">
+<p local-id=3D"2d41a1e4-9e1f-41bb-824d-d2cec78665a3">Removed castor call de=
+pendency in transaction webhooks, at present we are making 2 calls one befo=
+re pushing data to topic and other after fetching from topic to get bin rel=
+ated information, now with current change ats will call only castor once, a=
+s network delay between castor getCard Api with and without these details v=
+ery minimal as most of the data is already cached at castor.</p></li>
+<li local-id=3D"1be0f380-3ee6-4396-83e4-e97206fb05bb">
+<p local-id=3D"39d65c43-5d09-43f4-a12c-396f4f462a2e">Moving Delta Fetch by =
+using eager loading techinque.</p></li>
+<li local-id=3D"21347193-20d0-4910-82bd-b71cc733fbe2">
+<p local-id=3D"555c280e-f477-4c66-ace5-18e16382fb10">Update in select query=
+ to remove original message from general matching. query and use this origi=
+nal message query only when required, there in bandwidth provided rds can b=
+e used to efficiently.</p></li>
+</ol>
+<h4 local-id=3D"cbff8166-deff-48f4-8a87-a5ba55586f0f" id=3D"OptimisingStora=
+geforAxonTransactionDatabasewithDBPartitioningandEncodingTechniques-(ATSOpt=
+imisationbymovingdeclinedTransactions)">( ATS Optimisation by moving declin=
+ed Transactions)</h4>
+<ol start=3D"4" local-id=3D"f948cd96-1a87-4a03-bcf5-ee0bba06d7c7">
+<li local-id=3D"d8cdc315-41b2-4287-a579-6e00c2409574">
+<p local-id=3D"71ebd5b0-966f-4266-a549-89dd9ba87490">At present we are reta=
+ining OTC/OTM records for 3 months it just because of this declined message=
+s in these tables or else 2months records would suffice the requirement.</p=
+>
+<ol start=3D"1" local-id=3D"8d4ae43b-776b-4a50-9740-d483638eea87">
+<li local-id=3D"478ad3b3-dd9d-4d7f-a93d-4a7370248a03">
+<p local-id=3D"c3aa867a-e24b-4c94-8b5a-8aa807e5b8c0">Details: At present if=
+ Auth message is declined there is possibility that we may or may not recei=
+ve advice message for it. Any declined message is kind of settled transacti=
+on there won=E2=80=99t be settlement for these messages. As these are final=
+ transactions and we move declined to TC/TM in certain scenarios only we ar=
+e retaining OTC/OTM tables for to return that unmoved declined transactions=
+ in support center.</p></li>
+<li local-id=3D"529b9feb-2832-4a3b-954b-9792aa6620c2">
+<p local-id=3D"6627b3ad-fd5f-43fc-a1ae-9f30699192cb">Following are differen=
+t scenarios which exists in live today</p>
+<ol start=3D"1" local-id=3D"195d1459-9c2d-47af-b0d4-cf9aac9a7726">
+<li local-id=3D"4e7e2be8-90b8-4c4f-b117-d369055cd4e6">
+<p local-id=3D"c76a6f19-d831-4e50-80ec-b1371b120641">0100 (declined)-&gt; R=
+ecords will be in OTC/OTM only</p></li>
+<li local-id=3D"21d5244c-a943-41c4-a7f2-59a33bf459f4">
+<p local-id=3D"bfdb1250-218f-4217-bbcb-f11176a911ad">0100 (declined)-0120(d=
+eclined) =E2=86=92 Records will be moved to TC/TM</p></li>
+<li local-id=3D"47167130-46c4-4913-8430-ba7d3a6dbfd1">
+<p local-id=3D"b1a0687c-e97d-4a34-ac9f-b0e078f6f699">0100(approved)-0120(de=
+clined) =E2=86=92 Records will be moved to TC/TM</p></li>
+<li local-id=3D"4c7aeea6-92db-4dff-a88e-a6105112e763">
+<p local-id=3D"18f426bc-05c9-4d1e-9e09-3162a17ab22d">0120 (declined) =E2=86=
+=92 Record will be in OTC/OTM only</p></li>
+<li local-id=3D"c963b5cf-3944-4826-857e-4ee79f54e951">
+<p local-id=3D"1f7a5287-5108-4d0b-a6bc-6f16eaf90922">0200 (declined)-&gt; R=
+ecords will be OTC/OTM only</p></li>
+</ol></li>
+</ol></li>
+<li local-id=3D"f3362ab5-d0ae-42b4-9998-a5213004e9f7">
+<p local-id=3D"a11e6162-ffd4-4151-a6bf-37d46b435a2d">With current change ju=
+st like on release day we are going to move all declines which are in OTC/O=
+TM tables to TC/TM tables after 7 days, as a result we don=E2=80=99t need t=
+o maintain OTC/OTM 3 partitions instead 2 will be enough</p></li>
+<li local-id=3D"2a3216e1-7708-4118-b042-062bd33b4934">
+<p local-id=3D"20d6d361-bd9f-41f4-b621-f765cee67aff">Result of this change =
+reduce in DB size atleast 800GB (OTC contributes 700+GB per-month with all =
+relations + OTM contributes 120GB+)</p></li>
+<li local-id=3D"d5eda8f5-5b9e-4bdb-86c0-e7d4e9fe6fa5">
+<p local-id=3D"bf1b932f-7fd7-4c75-bd0b-4ac3efa5a18e">This job runs alongs w=
+ith release job hrs with separate endpoint.</p></li>
+</ol>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: java; gutter: false; theme: Confluence" data-theme=3D"Confluence">curl --=
+location 'https://axon.internal.ohio1-axonstage.zetaapps.in/axon-transactio=
+n-service-webhooks/v1/webhooks/tenants/4/transactions/declined/move' \
+--header 'Content-Type: application/json' \
+--header 'X-B3-Sampled: 1' \
+--data '{
+    "network": "BCFS",
+    "batchSize": 10,
+    "thresholdInDays": 7
+}'</pre>
+</div>
+</div>
+<p local-id=3D"2d84eec7-3881-45df-b7e6-3dc7fc7b965a"></p>
+<p local-id=3D"8847005c-01e8-42c9-870e-0dc97c5e74e5">Result</p>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"9b=
+c45bab-f2d9-432f-9151-43100dbd97e0" class=3D"confluenceTable">
+<tbody>
+<tr data-local-id=3D"c4489ad0-9921-48a0-9402-ca5dc197d9ba">
+<th data-local-id=3D"dd050730-84c9-4630-8ee4-9213eed2d1e4" class=3D"conflue=
+nceTh">
+<p local-id=3D"4d8b4306-e870-4075-9e75-1a3374952165"><strong> Change</stron=
+g></p></th>
+<th data-local-id=3D"ca84a5b6-fd7e-48ed-8a44-d34f9f7f5818" class=3D"conflue=
+nceTh">
+<p local-id=3D"9354e8ae-7fa8-44e9-9ba1-fb800dfd2171"><strong>Effected Table=
+s </strong></p></th>
+<th data-local-id=3D"0fb2b60d-9521-4554-9f17-2728a7807590" class=3D"conflue=
+nceTh">
+<p local-id=3D"1745b999-904a-4036-aa0d-c7256c310c5b"><strong>Size Reduction=
+ in overall</strong></p></th>
+</tr>
+<tr data-local-id=3D"b3a80693-71c3-4d69-b20a-f77e4cd78300">
+<td data-local-id=3D"630b057c-de56-4eed-b150-494b2428fef6" class=3D"conflue=
+nceTd">
+<p local-id=3D"946ca8f9-8c02-4781-8938-15681a7ea277">Removing duplicate unu=
+sed fields &amp; compression table</p></td>
+<td data-local-id=3D"50d717d3-32fb-4b76-b5ee-e4f0ec9603b1" class=3D"conflue=
+nceTd">
+<p local-id=3D"6f410a68-ae16-4456-ad28-c1fc6dbbdfe6">OTC &amp; TC</p></td>
+<td data-local-id=3D"e786e247-ec0e-4e95-bdba-0b58ed338e8c" class=3D"conflue=
+nceTd">
+<p local-id=3D"92b648db-1f4f-4992-8a02-302421eacbea">. &gt;700GB from both =
+tables</p>
+<p local-id=3D"45b6d105-5933-4018-b2b2-049fd8a67725"></p></td>
+</tr>
+<tr data-local-id=3D"925c9303-eb60-4db6-aa79-87b9a1841659">
+<td data-local-id=3D"3233ceae-351b-4c7b-8ad7-a847d0333c0f" class=3D"conflue=
+nceTd">
+<p local-id=3D"b29017bc-fa1f-4457-a950-e9be9ed47e50">Move Declined Transact=
+ions from OTC to TC, Stop maintaining 3 partitions</p></td>
+<td data-local-id=3D"fe709387-156d-4ba7-bb2d-5246282286c8" class=3D"conflue=
+nceTd">
+<p local-id=3D"a20076b1-b157-46a7-81df-26e9a8aa2399">OTC</p></td>
+<td data-local-id=3D"aa17e20f-70b9-436c-8608-7e798a6110c4" class=3D"conflue=
+nceTd">
+<p local-id=3D"5f22a578-ff52-4c8f-986f-4a843f30db85">&gt;800GB</p></td>
+</tr>
+<tr data-local-id=3D"ca02dd37-1a20-41f9-8b61-205355d4c81a">
+<td data-local-id=3D"a66d9262-ce07-4cd4-aded-8c885b0b6023" class=3D"conflue=
+nceTd">
+<p local-id=3D"aac90dea-1162-4480-8fbb-aadc2202982c">Total</p></td>
+<td data-local-id=3D"e6da50d4-2244-4786-8948-3b4cd2e7770b" class=3D"conflue=
+nceTd">
+<p local-id=3D"d1bd5fb0-c036-482a-b471-4bc1dc904e37">..</p></td>
+<td data-local-id=3D"b656fbd7-ecd2-44c8-9f26-8fda041a2662" class=3D"conflue=
+nceTd">
+<p local-id=3D"c51fea64-1033-4c4f-96ea-ce820f88db05">&gt;1.5TB per month</p=
+></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 local-id=3D"5226d111-8ec0-4c2b-b2e4-4f77ace68e8a" id=3D"OptimisingStora=
+geforAxonTransactionDatabasewithDBPartitioningandEncodingTechniques-FutureO=
+ptimisations">Future Optimisations</h3>
+<p local-id=3D"ed5e72d0-fa77-4752-80b1-1faec11648d2"></p>
+<ol start=3D"1" local-id=3D"ca6c5292-2685-4677-afc9-68e9e4afee12">
+<li local-id=3D"022a6593-934f-4ffe-91f4-d9714c99e361">
+<p local-id=3D"74c878d3-6b01-4e79-a435-9ef114d470a0">No Impact to Transacti=
+on Flow: Move Original Message to a common table, as it is only used at sup=
+port center for downloading messages, with this per message we can say in b=
+etween 350-600 bytes.</p></li>
+</ol>
+    </div>
+</body>
+</html>
+------=_Part_74_403616211.1773584847596
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/16342fd8eae61a59a61780396b44f1812b6bb79017a203822b4334aae132a00f
+
+iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAA3NCSVQICAjb4U/gAAAAFVBMVEX/
+//9wcHBwcHBwcHBwcHBwcHBwcHA3RenHAAAAB3RSTlMAZoiZzN3/SzZomQAAAAlwSFlzAAALEgAA
+CxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAUdEVYdENy
+ZWF0aW9uIFRpbWUANi8xLzEzOKlF0AAAACFJREFUCJljYCATsCgwqIAZTMnMyRAhsTABCIMxkVxT
+GQCLcwHyUKXpLgAAAABJRU5ErkJggg==
+------=_Part_74_403616211.1773584847596--
